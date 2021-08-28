@@ -1,0 +1,55 @@
+const typeDefs = gql`
+  type Query {
+    projects: [Project]
+    users: [User]
+  }
+
+  type User  {
+    id: ID! 
+    "The user's name imported from Github"
+    name: String!
+    "The user's email imported from Github"
+    email: String! 
+    "The user's github handle imported from Github"
+    github: String! 
+    "The user's github profile picture imported from Github. (Nonnullable because user may not upload one)"
+    picture: String
+    "The user's slack handle is entered by the user in their profie"
+    slack: String 
+    "The user's pronouns are entered by the user in their profile"
+    pronouns: String 
+    "The user's cohort number is entered by the user in their profile"
+    cohort: Int
+    "A list of the user's projects, entered by the user"
+    projects: [Project]
+  }
+
+  type Project {
+    id: ID! 
+    "The project name, imported from Github" 
+    title: String! 
+    "The project's module, entered by the user on the add project page"
+    module: Int!
+    "The project's repo link, imported from Github"
+    repo: String! 
+    "The project's description, entered by the user on the add project page"
+    description: String
+    "The project's collaborators, imported from Github"
+    collaborators: [User]
+    "The project's manager, entered by the user on the add project page"
+    projectManager: String
+  }
+
+  
+type Resources {
+  "The project board, entered by the user on the add project page"
+    projectBoard: String 
+    "The project wireframe, entered by the user on the add project page"
+    wireFrame: String 
+    "The project's DTR, entered by the user on the add project page" 
+    DTR: String
+    "The project's rubric, entered by the user on the add project page" 
+    rubric: String 
+}
+
+`
