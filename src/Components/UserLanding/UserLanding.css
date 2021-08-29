@@ -107,9 +107,17 @@ h2 {
   padding-bottom: 100px;
 }
 
-@media screen and (max-width: 800px) {
+/* .extra-top-margin {
+  margin-top: 60px;
+} */
+
+
+
+/* Mobile View */
+
+@media screen and (max-width: 1000px) {
   h1 {
-    font-size: 30px;
+    font-size: 4em;
   }
 
   h2 {
@@ -166,11 +174,12 @@ h2 {
   }
 
   .link {
-    width: 90%;
+    width: 95%;
     height: auto;  
     display: flex;
     flex-direction: column;
     align-self: center;
+    text-overflow: ellipsis;
   }
 
   .create-project-image,
