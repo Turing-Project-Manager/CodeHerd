@@ -1,6 +1,5 @@
 img {
   width: 100%; 
-  height: 100%;
 }
 
 h1 {
@@ -8,8 +7,9 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 56px;
   font-weight: bold;
-  margin: 10px;
+  margin: 0px;
   margin-bottom: 25px;
+  justify-content: flex-start;
 }
 
 .continue-with-github {
@@ -32,8 +32,9 @@ h1 {
   position: absolute;
   width: 20em;
   height: 10em;
-  top: 5em;
+  top: 4em;
   left: 4em;
+  justify-content: flex-start;
 }
 
 .border-container {
@@ -49,41 +50,29 @@ h1 {
 }
 
 .blue-border {
-  height: 15px;
+  height: 8px;
   width: 33.3%;
   background-color: #12F1FC;
   margin-top: 0px;
 }
 
 .yellow-border {
-  height: 15px;
+  height: 8px;
   width: 33.4%;
   background-color: #F9AE06;
   margin-top: 0px;
 }
 
 .red-border {
-  height: 15px;
+  height: 8px;
   width: 33.3%;
   background-color: #EF3852;
   margin-top: 0px;
 }
 
-.container {
-  border: 1px solid #DDDDDD;
-  width: 200px;
-  height: 200px;
-  position: relative;
+.blue-section {
+  width: 33.3%;
+  height: 100%;
+  border: 3px solid red;
 }
 
-.tag {
-  float: left;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 1000;
-  background-color: #92AD40;
-  padding: 5px;
-  color: #FFFFFF;
-  font-weight: bold;
-}
