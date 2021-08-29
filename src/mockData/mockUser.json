@@ -1,0 +1,15 @@
+{
+  "users": [
+     {
+      "id": 1,
+      "name": "Ashton Huxtable",
+      "email": "aehuxtable@gmail.com",
+      "slack_handle": "Ashton Huxtable",
+      "github_handle": "ashton-huxtable",
+      "working_styles": ["string"],
+      "cohort": "2103",
+      "pronouns": "she/her",
+      "github_access_token": "string"
+    }
+  ]
+}
