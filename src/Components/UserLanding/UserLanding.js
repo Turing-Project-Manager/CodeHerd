@@ -15,8 +15,10 @@ const UserLanding = () => {
           <p className="app-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero,<br/>
           nec semper libero sagittis id. </p>
           
+          <button className="continue-with-github">Continue with Github
+          </button>
         </section>
-        <img src={topImage} alt="students around a table coding on laptops" />
+        <img src={topImage} alt="students around a table coding on laptops" className="top-image"/>
       </div>
       <div className="border-container">
         <section className="border blue"> 
@@ -27,8 +29,6 @@ const UserLanding = () => {
         </section>
       </div>
       <div className="links-container"> 
-        <button className="continue-with-github">Continue with Github
-        </button>
         <section className="link"> 
           <img src={createProject} alt="add a project" className="create-project-image" /> 
           <h2>CREATE A PROJECT</h2>
