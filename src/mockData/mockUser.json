@@ -10,6 +10,17 @@
       "cohort": "2103",
       "pronouns": "she/her",
       "github_access_token": "string"
+    },
+    {
+      "id": 2,
+      "name": "Shawn McMahon",
+      "email": "shawnmcmahon17@gmail.com",
+      "slack_handle": "shawnmcmahon",
+      "github_handle": "shawnmcmahon",
+      "working_styles": ["string"],
+      "cohort": "2103",
+      "pronouns": "he/him",
+      "github_access_token": "string"
     }
   ]
 }
