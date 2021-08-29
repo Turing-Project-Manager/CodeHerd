@@ -9,6 +9,7 @@
       "working_styles": ["string"],
       "cohort": "2103",
       "pronouns": "she/her",
+      "url": "https://avatars.githubusercontent.com/u/78318468?v=4",
       "github_access_token": "string"
     },
     {
@@ -20,6 +21,7 @@
       "working_styles": ["string"],
       "cohort": "2103",
       "pronouns": "he/him",
+      "url": "https://avatars.githubusercontent.com/u/73731359?v=4",
       "github_access_token": "string"
     }
   ]
