@@ -1,5 +1,5 @@
 img {
-  width: 100vw; 
+  width: 100%; 
   height: auto;
   object-fit: fill;
 }
@@ -33,15 +33,17 @@ h2 {
 .continue-with-github {
   background-color: #12F1FC;
   color: #036575;
-  width: 175px;
-  height: 40px;
+  width: 286px;
+  height: 56px;
   border-radius: 40px;
   border: none;
   font-weight: bold;
+  font-size: 18px;
 }
 
 .app-description {
-  margin-top: 0px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -103,4 +105,76 @@ h2 {
 
 .link-description {
   padding-bottom: 100px;
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 18px;
+    align-self: center;
+  }
+  
+  .continue-with-github {
+    background-color: #12F1FC;
+    color: #036575;
+    width: 10em;
+    height: 3em;
+    border-radius: 40px;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
+    align-self: center;
+    margin-bottom: 25px;
+  }
+
+  .app-description {
+    margin-top: 0px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+  }
+  
+
+  .text-box {
+    background-color: transparent;
+    position: absolute;
+    width: 10em;
+    height: 5em;
+    top: 2em;
+    left: 6em;
+    justify-content: flex-start;
+  }
+
+  .links-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 25px; 
+  }
+
+  .link {
+    width: 90%;
+    height: auto;  
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+
+  .create-project-image,
+.add-collaborators, 
+.folder {
+  height: 7em;
+  width: auto;
+  margin-top: 20px;
+  border: none;
+}
+
+  .link-description {
+    padding-bottom: 10px;
+  }
+
+
 }
