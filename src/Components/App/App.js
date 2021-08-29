@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import UserLanding from '../UserLanding/UserLanding'
 import './App.css'
 
 const App = () => {
 
-  useEffect(() => {
-
-  });
 
 
   return (
