@@ -1,34 +1,57 @@
 { 
-  "project": {
-    "id": 1,
-    "name": "CodeHerd",
-    "created_at": "2021-08-24 12:28:33 -0600",
-    "updated_at": "2021-08-27 14:22:56 -0600",
-    "summary": "An application created for Turing Students to hold all of their project resources in a single place. From project links to documentation, all of your needs can be met.",
-    "owner":{
+  "projects":[
+     {
       "id": 1,
-      "name": "Ashton Huxtable",
-      "email": "aehuxtable@gmail.com",
-      "slack_handle": "Ashton Huxtable",
-      "github_handle": "ashton-huxtable",
-      "working_styles": ["string"],
-      "cohort": "2103",
-      "pronouns": "she/her",
-      "url": "https://avatars.githubusercontent.com/u/78318468?v=4",
-      "github_access_token": "string"
+      "name": "CodeHerd",
+      "created_at": "2021-08-24 12:28:33 -0600",
+      "updated_at": "2021-08-27 14:22:56 -0600",
+      "summary": "An application created for Turing Students to hold all of their project resources in a single place. From project links to documentation, all of your needs can be met.",
+      "owner":{
+        "id": 1,
+        "name": "Ashton Huxtable",
+        "email": "aehuxtable@gmail.com",
+        "slack_handle": "Ashton Huxtable",
+        "github_handle": "ashton-huxtable",
+        "working_styles": ["string"],
+        "cohort": "2103",
+        "pronouns": "she/her",
+        "url": "https://avatars.githubusercontent.com/u/78318468?v=4",
+        "github_access_token": "string"
+      },
+      "mod_number": "4",
+      "collaborators": [ {
+        "id": 2,
+        "name": "Shawn McMahon",
+        "email": "shawnmcmahon17@gmail.com",
+        "slack_handle": "shawnmcmahon",
+        "github_handle": "shawnmcmahon",
+        "working_styles": ["string"],
+        "cohort": "2103",
+        "pronouns": "he/him",
+        "url": "https://avatars.githubusercontent.com/u/73731359?v=4",
+        "github_access_token": "string"
+      }]
     },
-    "mod_number": "4",
-    "collaborators": [ {
+    {
       "id": 2,
-      "name": "Shawn McMahon",
-      "email": "shawnmcmahon17@gmail.com",
-      "slack_handle": "shawnmcmahon",
-      "github_handle": "shawnmcmahon",
-      "working_styles": ["string"],
-      "cohort": "2103",
-      "pronouns": "he/him",
-      "url": "https://avatars.githubusercontent.com/u/73731359?v=4",
-      "github_access_token": "string"
-    }]
-  }
+      "name": "Horizon Hikes",
+      "created_at": "2021-08-24 12:28:33 -0600",
+      "updated_at": "2021-08-27 14:22:56 -0600",
+      "summary": "An application created for folks who are looking to plan sunrise or sunset hikes. Search for a park of your choice and find sunrise and sunset times on specific dates.",
+      "owner":{
+        "id": 1,
+        "name": "Ashton Huxtable",
+        "email": "aehuxtable@gmail.com",
+        "slack_handle": "Ashton Huxtable",
+        "github_handle": "ashton-huxtable",
+        "working_styles": ["string"],
+        "cohort": "2103",
+        "pronouns": "she/her",
+        "url": "https://avatars.githubusercontent.com/u/78318468?v=4",
+        "github_access_token": "string"
+      },
+      "mod_number": "3",
+      "collaborators": []
+    }
+  ]
 }
