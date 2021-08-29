@@ -1,0 +1,28 @@
+{
+  "users": [
+     {
+      "id": 1,
+      "name": "Ashton Huxtable",
+      "email": "aehuxtable@gmail.com",
+      "slack_handle": "Ashton Huxtable",
+      "github_handle": "ashton-huxtable",
+      "working_styles": ["string"],
+      "cohort": "2103",
+      "pronouns": "she/her",
+      "url": "https://avatars.githubusercontent.com/u/78318468?v=4",
+      "github_access_token": "string"
+    },
+    {
+      "id": 2,
+      "name": "Shawn McMahon",
+      "email": "shawnmcmahon17@gmail.com",
+      "slack_handle": "shawnmcmahon",
+      "github_handle": "shawnmcmahon",
+      "working_styles": ["string"],
+      "cohort": "2103",
+      "pronouns": "he/him",
+      "url": "https://avatars.githubusercontent.com/u/73731359?v=4",
+      "github_access_token": "string"
+    }
+  ]
+}
