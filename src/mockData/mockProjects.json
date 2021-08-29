@@ -1,0 +1,12 @@
+{ 
+  "project": {
+    "id": 1,
+    "name": "CodeHerd",
+    "created_at": "2021-08-24 12:28:33 -0600",
+    "updated_at": "2021-08-27 14:22:56 -0600",
+    "summary": "An application created for Turing Students to hold all of their project resources in a single place. From project links to documentation, all of your needs can be met.",
+    "owner":{},
+    "mod_number": "4",
+    "collaborators": [{}]
+  }
+}
