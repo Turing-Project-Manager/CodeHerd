@@ -1,6 +1,7 @@
 img {
-  width: 100%; 
+  width: 100vw; 
   height: auto;
+  object-fit: fill;
 }
 
 h1 {
@@ -9,12 +10,11 @@ h1 {
   font-size: 56px;
   font-weight: bold;
   margin: 0px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   justify-content: flex-start;
 }
 
 h2 {
-  margin-left: 10px;
   font-size: 30px;
 }
 
@@ -36,6 +36,8 @@ h2 {
   width: 175px;
   height: 40px;
   border-radius: 40px;
+  border: none;
+  font-weight: bold;
 }
 
 .app-description {
@@ -50,7 +52,7 @@ h2 {
   position: absolute;
   width: 20em;
   height: 10em;
-  top: 4em;
+  top: 7em;
   left: 4em;
   justify-content: flex-start;
 }
@@ -67,26 +69,12 @@ h2 {
   object-fit: fill;
 }
 
-.blue-border {
+.border {
   height: 8px;
-  width: 33.3%;
-  background-color: #12F1FC;
-  margin-top: 0px;
+  width: 33.3%; 
+  margin: 0px;
 }
 
-.yellow-border {
-  height: 8px;
-  width: 33.4%;
-  background-color: #F9AE06;
-  margin-top: 0px;
-}
-
-.red-border {
-  height: 8px;
-  width: 33.3%;
-  background-color: #EF3852;
-  margin-top: 0px;
-}
 
 .link {
   width: 20%;
@@ -99,11 +87,13 @@ h2 {
 
 }
 
-.create-project-image, .add-collaborators, .folder {
+.create-project-image,
+.add-collaborators, 
+.folder {
   height: 7em;
   width: auto;
   margin-top: 75px;
-  margin-left: 15px;
+  border: none;
 }
 
 .mini-border {
@@ -111,6 +101,6 @@ h2 {
   width: 100%;
 }
 
-/* .extra-margin-top {
-  margin-top: 50px;
-} */
+.link-description {
+  padding-bottom: 100px;
+}
