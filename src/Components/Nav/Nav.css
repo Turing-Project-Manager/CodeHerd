@@ -1,0 +1,23 @@
+.nav-bar{
+  width: 15vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.logo{
+  width: 50px;
+  height: 50px;
+  align-self: center;
+  margin-top: 1em;
+}
+
+.s-button-primary-inverse {
+  border-radius: 40px;
+  height: 3em;
+  width: 7em;
+  align-self: center;
+  margin-bottom: 1em;
+}
