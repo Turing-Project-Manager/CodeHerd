@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserLanding.css';
+import './Landing.css';
 import topImage  from '../../assets/user-landing-group-at-computers.svg';
 import createProject from '../../assets/create-project.svg';
 import addCollaborators from '../../assets/add-collaborators.svg';

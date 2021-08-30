@@ -1,5 +1,5 @@
 img {
-  width: 100%; 
+  width: 100vw; 
   height: auto;
   object-fit: fill;
 }
@@ -73,7 +73,8 @@ h1 {
 
 .link {
   width: 20%;
-  height: 100%;  justify-content: flex-start;
+  height: 100%;  
+  justify-content: flex-start;
 }
 
 .links-container {
@@ -120,6 +121,7 @@ h1 {
 
   image {
     width: 100vw;
+    height: 100vh;
   }
   
   
@@ -127,22 +129,19 @@ h1 {
     background-color: #12F1FC;
     color: #036575;
     width: 10em;
-    height: 3em;
+    height: 5em;
     border-radius: 40px;
     border: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 12px;
     align-self: center;
     justify-content: center;
-    /* margin-top: 2em;
-    margin-bottom: 10px; */
   }
 
   .app-description {
-    margin-top: 0px;
+    margin-top: 0em;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
 
   }
   
@@ -151,10 +150,10 @@ h1 {
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    width: 80%;
-    height: 20%;
+    width: 80vw;
+    height: 20vh;
     align-self: center;
-    margin-top: -40px;
+    margin-top: -2em;
     left: 2em;
     top: 3em;
   }
@@ -163,29 +162,31 @@ h1 {
     display: flex;
     flex-direction: column;
     align-content: center;
-    margin-top: 25px; 
+    margin-top: 1em; 
   }
 
   .link {
-    width: 95%;
+    width: 50vw;
     height: auto;  
     display: flex;
     flex-direction: column;
     align-self: center;
     text-overflow: ellipsis;
+    align-items: center;
+    text-align: center;
   }
 
   .create-project-image,
 .add-collaborators, 
 .folder {
-  height: 7em;
+  height: 20vh;
   width: auto;
-  margin-top: 20px;
+  margin-top: 2em;
   border: none;
 }
 
   .link-description {
-    padding-bottom: 10px;
+    padding-bottom: 1em;
   }
 
 

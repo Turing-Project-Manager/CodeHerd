@@ -1,6 +1,8 @@
 import React from 'react';
-import UserLanding from '../Landing/Landing'
-import './App.css'
+import Landing from '../Landing/Landing';
+import UserLanding from '../UserLanding/UserLanding';
+import './App.css';
+
 
 const App = () => {
 
@@ -9,7 +11,7 @@ const App = () => {
   return (
     <>
       <Landing />
-      {/* <UserProfile /> */}
+      {/* <UserLanding /> */}
     </>
   )
 };
