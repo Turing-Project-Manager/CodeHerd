@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../Nav/Nav';
+import Project from '../Project/Project';
 import UserProfile from '../UserProfile/UserProfile'
 import './UserLanding.css'
 import mockUsers from '../../mockData/mockUser.json';
@@ -22,6 +23,7 @@ const UserLanding = () => {
     <>
       <Nav />
       <UserProfile user={user} />
+      <Project />
     </>
   )
 }
