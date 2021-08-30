@@ -10,6 +10,7 @@ import './UserProfile.css';
 const UserProfile = ({ user }) => {
   const [isEditingProfile, setEditingProfile] = useState(false);
   const [program, setProgram] = useState('Back-end Program')
+  const [workingStyle, setWorkingStyle] = useState(user.working_styles);
 
   const editProfile = () => {
     if (!isEditingProfile) {
@@ -19,8 +20,14 @@ const UserProfile = ({ user }) => {
     }
   }
 
-  const handleChange = (event) => {
+  const handleProgramChange = (event) => {
     setProgram(event.target.value)
+    user.program = event.target.value
+  }
+
+  const handleWorkingStyleChange = (event) => {
+    setWorkingStyle(event.target.value);
+    user.working_styles = event.target.value
   }
 
   return (
@@ -29,7 +36,7 @@ const UserProfile = ({ user }) => {
         <h2 className="s-h2">{user.name}</h2>
         <div>
           {!!isEditingProfile ? 
-          <select className="drop-down s-content s-text-body" name="program" id="program" value={program} onChange={handleChange}>
+          <select className="drop-down s-content s-text-body" name="program" id="program" value={program} onChange={handleProgramChange}>
           <option value="Back-end-program">Back-end Program</option>
           <option value="Front-end-program">Front-end Program</option>
         </select> : <p className="s-text-body">{program}</p> }
@@ -49,6 +56,13 @@ const UserProfile = ({ user }) => {
             <p className="contact s-text-body">{user.slack_handle}</p>
           </div>
         </section>
+        <label className="label s-text-body">Preferred Working Style </label>
+        {!!isEditingProfile ? 
+          <select className="drop-down s-content s-text-body" name="working-style" id="workingStyle" value={workingStyle} onChange={handleWorkingStyleChange}>
+          <option value="Mostly Driver-Navigator">Mostly Driver-Navigator</option>
+          <option value="Even Mix">Even Mix</option>
+          <option value="Mostly Solo">Mostly Solo</option>
+        </select> : <p className="s-text-body"> {workingStyle} </p> }
           <button className="edit-button s-button" onClick={editProfile}>
             Edit Profile
           </button>

@@ -2,6 +2,10 @@ p {
   margin: .5em;
 }
 
+.label {
+  font-weight: bold;
+}
+
 .drop-down {
   height: 5vh;
   width: 100%;
