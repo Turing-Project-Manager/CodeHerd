@@ -15,21 +15,21 @@ const UserProfile = () => {
       </section>
       <section className="profile-container">
         <img src={profilePic} className="profile-pic" />
-        <h2>Morgan Turing</h2>
-        <p>Front-end Engineer</p>
-        <p>Cohort: 2013</p>
+        <h2 className="s-h2">Morgan Turing</h2>
+        <p className="s-text-body">Front-end Engineer</p>
+        <p className="s-text-body">Cohort: 2013</p>
         <section className="contact-info"> 
           <div className="info-box"> 
             <img src={email} className="contact-icon" />
-            <p className="contact">morgan@email.com</p>
+            <p className="contact s-text-body">morgan@email.com</p>
           </div>
           <div className="info-box"> 
             <img src={github} className="contact-icon" />
-            <p className="contact">@morganturing</p>
+            <p className="contact s-text-body">@morganturing</p>
           </div>
           <div className="info-box"> 
             <img src={slack} className="contact-icon" />
-            <p className="contact">@morganTuring</p>
+            <p className="contact s-text-body">@morganTuring</p>
           </div>
         </section>
           <button>Edit Profile </button>

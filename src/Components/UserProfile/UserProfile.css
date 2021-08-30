@@ -23,6 +23,7 @@
 
 .profile-pic {
   width: 90%;
+  height: auto;
 }
 
 .contact-info {
@@ -45,7 +46,6 @@
   flex-direction: row;
   display: flex;
 }
-
 
 .contact-icon {
   height: 5vh;
