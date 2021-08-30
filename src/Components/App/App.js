@@ -1,18 +1,19 @@
 import React from 'react';
-import UserLanding from '../UserLanding/UserLanding'
 import Nav from '../Nav/Nav';
-import './App.css'
+// import Landing from '../Landing/Landing';
+import UserLanding from '../UserLanding/UserLanding';
+import './App.css';
+
 
 const App = () => {
 
 
 
   return (
-    <>
+    <section className="app">
+      <Nav />
       <UserLanding />
-      {/* <Nav /> */}
-
-    </>
+    </section>
   )
 };
 
