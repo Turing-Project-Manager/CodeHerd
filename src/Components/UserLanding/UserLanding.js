@@ -11,11 +11,10 @@ const UserLanding = () => {
     <section className="userLanding">
       <div className="top-image-container">
         <section className="text-box"> 
-          <h1>CodeHerd</h1>
-          <p className="app-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero,<br/>
+          <h1 className="s-h1">CodeHerd</h1>
+          <p className="app-description s-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero,<br/>
           nec semper libero sagittis id. </p>
-          
-          <button className="continue-with-github">Continue with Github
+          <button className="continue-with-github s-text-body">Continue with Github
           </button>
         </section>
         <img src={topImage} alt="students around a table coding on laptops" className="top-image"/>
@@ -31,24 +30,24 @@ const UserLanding = () => {
       <div className="links-container"> 
         <section className="link"> 
           <img src={createProject} alt="add a project" className="create-project-image" /> 
-          <h2>CREATE A PROJECT</h2>
+          <h2 className="s-h2">CREATE A PROJECT</h2>
           <div className="mini-border blue"> 
           </div>
-          <p className="link-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero, nec semper libero sagittis id. </p>
+          <p className="link-description s-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero, nec semper libero sagittis id. </p>
         </section>
         <section className="link"> 
           <img src={addCollaborators} alt="add project collaborators" className="add-collaborators"  />
-          <h2> ADD YOUR TEAM </h2>
+          <h2 className="s-h2"> ADD YOUR TEAM </h2>
           <div className="mini-border yellow extra-top-margin"> 
           </div>
-          <p className="link-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero, nec semper libero sagittis id. </p>
+          <p className="link-description s-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero, nec semper libero sagittis id. </p>
         </section>
         <section className="link"> 
           <img src={folder} alt="keep everything for your project in one place" className="folder" />
-          <h2>EVERYTHING <br/>
+          <h2 className="s-h2">EVERYTHING <br/>
           IN ONE PLACE </h2>
           <div className="mini-border red"></div> 
-          <p className="link-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero, nec semper libero sagittis id. </p>    
+          <p className="link-description s-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero, nec semper libero sagittis id. </p>    
         </section>
       </div>
     </section>
