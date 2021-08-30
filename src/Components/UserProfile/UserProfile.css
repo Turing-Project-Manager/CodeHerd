@@ -2,6 +2,11 @@ p {
   margin: .5em;
 }
 
+.drop-down {
+  height: 5vh;
+  width: 100%;
+}
+
 .page-container {
   display: flex;
   flex-direction: row;
