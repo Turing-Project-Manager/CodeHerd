@@ -20,4 +20,7 @@
   width: 7em;
   align-self: center;
   margin-bottom: 1em;
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-bold);
+  font-family: var(--s-font-family-default);
 }
