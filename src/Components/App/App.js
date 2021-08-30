@@ -10,8 +10,8 @@ const App = () => {
 
   return (
     <>
-      <Landing />
-      {/* <UserLanding /> */}
+      {/* <Landing /> */}
+      <UserLanding />
     </>
   )
 };
