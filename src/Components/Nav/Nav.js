@@ -5,8 +5,8 @@ const Nav = () => {
 
   return(
   <aside className='nav-bar'>
-    <img src={elephant} alt='elephant logo' />
-    <button>Logout</button>
+    <img className='logo' src={elephant} alt='elephant logo' />
+    <button className='s-button-primary-inverse'>Logout</button>
   </aside>)
 }
 
