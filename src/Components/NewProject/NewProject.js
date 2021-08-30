@@ -17,7 +17,7 @@ const reducer = (project, {field, value}) => {
   }
 }
 
-const NewProject = () => {
+const NewProject = ({showForm}) => {
 
   const [project, setProject] = useReducer(reducer, initialState)
 
@@ -26,34 +26,39 @@ const NewProject = () => {
   }
 
   const { title, description, module, collaborators, projectManager } = project
- 
+
   return(
-    <form>
-      <input 
-        type='text'
-        placeholder='Project Title'
-        name='title'
-        value={project.title}
-        onChange={handleInput}
-      />
+      <>
+        {showForm && 
+        
+        <form>
+          <input 
+            type='text'
+            placeholder='Project Title'
+            name='title'
+            value={project.title}
+            onChange={handleInput}
+          />
 
-      <input 
-        type='text'
-        placeholder='Project Description'
-        name='description'
-        value={project.description}
-        onChange={handleInput}
-      />  
+          <input 
+            type='text'
+            placeholder='Project Description'
+            name='description'
+            value={project.description}
+            onChange={handleInput}
+          />  
 
-      <label>Module: 
-        <select name='module' value={project.module} onChange={handleInput}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>  
-      </label>
-    </form>
+          <label>Module: 
+            <select name='module' value={project.module} onChange={handleInput}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>  
+          </label>
+        </form>
+        }
+      </>
   )
 }
 
