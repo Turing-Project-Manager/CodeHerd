@@ -1,5 +1,6 @@
 import React from 'react';
-import Landing from '../Landing/Landing';
+import Nav from '../Nav/Nav';
+// import Landing from '../Landing/Landing';
 import UserLanding from '../UserLanding/UserLanding';
 import './App.css';
 
@@ -9,10 +10,10 @@ const App = () => {
 
 
   return (
-    <>
-      {/* <Landing /> */}
+    <section className="app">
+      <Nav />
       <UserLanding />
-    </>
+    </section>
   )
 };
 
