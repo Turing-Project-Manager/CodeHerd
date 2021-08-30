@@ -14,8 +14,8 @@ const Landing = () => {
           <h1 className="s-h1">CodeHerd</h1>
           <p className="app-description s-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero,<br/>
           nec semper libero sagittis id. </p>
-          <button className="continue-with-github s-text-body">Continue with Github
-          </button>
+          {/* <button className="continue-with-github s-text-body">Continue with Github
+          </button> */}
         </section>
         <img src={topImage} alt="students around a table coding on laptops" className="top-image"/>
       </div>
@@ -26,6 +26,10 @@ const Landing = () => {
         </section>
         <section className="border red"> 
         </section>
+      </div>
+      <div className="button-container"> 
+        <button className="continue-with-github s-text-body">Continue with Github
+        </button>
       </div>
       <div className="links-container"> 
         <section className="link"> 
