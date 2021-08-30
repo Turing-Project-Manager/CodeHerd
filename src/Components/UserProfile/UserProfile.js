@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from '../Nav/Nav.js'
 import email from '../../assets/email.svg';
 import github from '../../assets/github-logo.png';
 import slack from '../../assets/slack-logo.png';
@@ -10,9 +11,7 @@ const UserProfile = () => {
 
   return (
     <div className="page-container">
-      <section className="nav-bar"> 
-        Nav
-      </section>
+      <Nav />
       <section className="profile-container">
         <img src={profilePic} className="profile-pic" />
         <h2 className="s-h2">Morgan Turing</h2>
@@ -32,7 +31,7 @@ const UserProfile = () => {
             <p className="contact s-text-body">@morganTuring</p>
           </div>
         </section>
-          <button>Edit Profile </button>
+          <button className="edit-button s-button">Edit Profile </button>
       </section>
     </div>
   )
