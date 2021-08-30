@@ -12,10 +12,14 @@ const Project = () => {
     setShowForm(true)
   }
 
+  const closeProjectForm = () => {
+    setShowForm(false)
+  }
+
   return (
     <>
       <button onClick={showProjectForm}>New Project</button>
-      <NewProject showForm={showForm}/>
+      <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/>
     </>
   )
 }

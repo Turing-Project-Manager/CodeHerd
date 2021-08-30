@@ -17,12 +17,16 @@ const reducer = (project, {field, value}) => {
   }
 }
 
-const NewProject = ({showForm}) => {
+const NewProject = ({showForm, closeProjectForm}) => {
 
   const [project, setProject] = useReducer(reducer, initialState)
 
   const handleInput = (e) => {
     setProject({field: e.target.name, value: e.target.value})
+  }
+
+  const closeForm = () => {
+    closeProjectForm();
   }
 
   const { title, description, module, collaborators, projectManager } = project
@@ -32,6 +36,7 @@ const NewProject = ({showForm}) => {
         {showForm && 
         
         <form>
+          <button onClick={closeForm}>X</button>
           <input 
             type='text'
             placeholder='Project Title'
