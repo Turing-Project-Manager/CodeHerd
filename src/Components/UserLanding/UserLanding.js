@@ -19,7 +19,7 @@ const UserLanding = () => {
     
   return (
     <>
-      <UserProfile userDetails={user} />
+      <UserProfile user={user} />
     </>
   )
 }
