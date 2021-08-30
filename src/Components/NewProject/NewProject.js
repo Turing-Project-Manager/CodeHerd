@@ -19,6 +19,13 @@ const reducer = (project, {field, value}) => {
 
 const NewProject = () => {
 
+  const [project, setProject] = useReducer(reducer, initialState)
+
+  const handleInput = (e) => {
+    setProject({field: e.target.name, value: e.target.value})
+  }
+
+  const { title, description, module, collaborators, projectManager } = project
  
   return(
     <form>
