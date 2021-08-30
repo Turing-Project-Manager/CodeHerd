@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Landing.css';
 import topImage  from '../../assets/user-landing-group-at-computers.svg';
 import createProject from '../../assets/create-project.svg';
@@ -28,8 +29,10 @@ const Landing = () => {
         </section>
       </div>
       <div className="button-container"> 
+      <Link to='/userLanding'>
         <button className="continue-with-github s-text-body">Continue with Github
         </button>
+      </Link>
       </div>
       <div className="links-container"> 
         <section className="link"> 
