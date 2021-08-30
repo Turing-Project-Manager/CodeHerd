@@ -2,6 +2,20 @@ import React, { useReducer, useEffect } from 'react';
 
 import PropTypes from 'prop-types'
 
+const initialState = {
+  title: '',
+  description: '',
+  module: '',
+  collaborators: [],
+  projectManager: ''
+}
+
+const reducer = (project, {field, value}) => {
+  return {
+    ...project,
+    [field]: value
+  }
+}
 
 const NewProject = () => {
 

@@ -4,6 +4,8 @@ import Nav from '../Nav/Nav';
 import UserLanding from '../UserLanding/UserLanding';
 import './App.css';
 
+import NewProject from '../NewProject/NewProject';
+import './App.css'
 
 const App = () => {
 
@@ -13,6 +15,7 @@ const App = () => {
     <section className="app">
       <Nav />
       <UserLanding />
+      <NewProject />
     </section>
   )
 };
