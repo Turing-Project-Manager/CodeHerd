@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+html, body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 h2 {
   margin: 1em;
 }
