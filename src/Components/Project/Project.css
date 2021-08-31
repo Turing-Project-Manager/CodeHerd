@@ -3,13 +3,38 @@
   width: 90%;
   height: auto;
   margin: .5em;
+  display: flex;
+  flex-direction: column;
 }
 
+.body-text {
+  margin: 1em;
+}
+
+.footer {
+  margin: 0em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
 .title {
-  margin: 0;
+  margin: .5em;
+  margin-bottom: .2;
 }
 
 .subtitle {
+  margin: 0em;
+}
 
+.subtitle {
   margin-left: 1.3em;;
+}
+
+.view-project-button {
+  margin: 1em;
+  display: flex;
+  align-self: center;
+  align-content: center;
 }
