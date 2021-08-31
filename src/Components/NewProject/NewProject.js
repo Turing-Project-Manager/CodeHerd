@@ -37,7 +37,7 @@ const NewProject = ({showForm, closeProjectForm}) => {
       <>
         {showForm && 
         
-        <form className='new-project'>
+        <form className='s-shadow-lg new-project'>
           <button className='s-button-secondary close-btn' onClick={closeForm}>X</button>
           <input 
             className='text-input'

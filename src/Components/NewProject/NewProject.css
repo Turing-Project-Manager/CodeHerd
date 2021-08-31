@@ -19,7 +19,7 @@
 }
 
 .new-project {
-  border: 2px solid black;
+  border: 2px solid #6d6e71;
   height: 50vh;
   width: 50vw;
   position: fixed;
@@ -30,6 +30,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  border-radius: 5px;
 }
 
 .submit-proj-btn {
