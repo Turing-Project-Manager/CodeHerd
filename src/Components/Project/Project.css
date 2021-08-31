@@ -1,0 +1,15 @@
+.project {
+  border: 3px solid black;
+  width: 90%;
+  height: auto;
+  margin: .5em;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+
+  margin-left: 1.3em;;
+}
