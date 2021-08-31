@@ -34,6 +34,7 @@ const UserProfile = ({ user }) => {
       <section className="profile-container">
         <img src={profilePic} className="profile-pic" alt="imported from Github profile"/>
         <h2 className="s-h2">{user.name}</h2>
+        <p className="s-text-body"> {user.pronouns} </p>
         <div>
           {!!isEditingProfile ? 
           <select className="drop-down s-content s-text-body" name="program" id="program" value={program} onChange={handleProgramChange}>

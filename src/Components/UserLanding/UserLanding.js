@@ -14,10 +14,11 @@ const UserLanding = () => {
     const [user, setUser] = useState({});
     // const [projects, setProjects] = useState([])
     const [showForm, setShowForm] = useState(false)
+    const [projects, setProjects] = useState([])
 
     useEffect(() => {
       setUser(mockUsers.users[0])
-      // setProjects(mockProjects.projects)
+      setProjects(mockProjects.projects)
     }, []);
     
 
