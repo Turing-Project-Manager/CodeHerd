@@ -7,6 +7,10 @@
   font-size: var(--s-font-size-sm);
   font-weight: var(--s-font-weight-bold);
   font-family: var(--s-font-family-default);
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  text-transform: uppercase;
 }
 
 .profile-projects {
