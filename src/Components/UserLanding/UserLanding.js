@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../Nav/Nav';
-import Project from '../Project/Project';
+import ProjectList from '../ProjectList/ProjectList';
+//import Project from '../Project/Project';
 import UserProfile from '../UserProfile/UserProfile'
 import './UserLanding.css'
 import mockUsers from '../../mockData/mockUser.json';
 import NewProject from '../NewProject/NewProject';
-// import mockProjects from '../../mockData/mockProjects.json';
+import mockProjects from '../../mockData/mockProjects.json';
 
 
 
 
 const UserLanding = () => {
     const [user, setUser] = useState({});
-    // const [projects, setProjects] = useState([])
     const [showForm, setShowForm] = useState(false)
     const [projects, setProjects] = useState([])
 
@@ -34,9 +34,14 @@ const UserLanding = () => {
     <>
       <Nav />
       <section className='profile-projects'>
-        <button className='s-button-primary new-proj-btn' onClick={showProjectForm}>New Project</button>
+        {/* <button className='s-button-primary new-proj-btn' onClick={showProjectForm}>New Project</button> */}
         <UserProfile user={user} />
-        <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/>
+        <ProjectList 
+          projects={projects} 
+          user={user}
+          showProjectForm={showProjectForm} 
+          closeProjectForm={closeProjectForm}/>
+        {/* <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/> */}
       </section>
     </>
   )
