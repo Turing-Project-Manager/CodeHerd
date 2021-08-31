@@ -8,3 +8,7 @@
   font-weight: var(--s-font-weight-bold);
   font-family: var(--s-font-family-default);
 }
+
+.profile-projects {
+  position: relative;
+}

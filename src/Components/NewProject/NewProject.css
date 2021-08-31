@@ -1,8 +1,49 @@
+.close-btn {
+  align-self: flex-end;
+  margin-right: 1em;
+  height: 2em;
+  width: 2em;
+  text-align: center;
+  font-weight: bolder;
+  border-radius: 10px;
+}
+
+.mod-form {
+  font-size: 1.3em;
+}
+
+.mod-select{
+  margin-left: 0.5em;
+  width: 2em;
+  text-align: center;
+}
+
 .new-project {
   border: 2px solid black;
-  height: 20vh;
-  width: 30vw;
+  height: 50vh;
+  width: 50vw;
   position: fixed;
   top: 20vh;
-  left: 30vh
+  left: 30vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.submit-proj-btn {
+  border-radius: 40px;
+  height: 3em;
+  width: 7em;
+  align-self: center;
+  margin-bottom: 1em;
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-bold);
+  font-family: var(--s-font-family-default);
+}
+
+.text-input {
+  width: 20em;
+  height: 3em;
 }
