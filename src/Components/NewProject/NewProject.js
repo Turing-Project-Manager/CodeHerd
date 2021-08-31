@@ -38,8 +38,9 @@ const NewProject = ({showForm, closeProjectForm}) => {
         {showForm && 
         
         <form className='new-project'>
-          <button className='close-btn' onClick={closeForm}>X</button>
+          <button className='s-button-secondary close-btn' onClick={closeForm}>X</button>
           <input 
+            className='text-input'
             type='text'
             placeholder='Project Title'
             name='title'
@@ -48,6 +49,7 @@ const NewProject = ({showForm, closeProjectForm}) => {
           />
 
           <input 
+            className='text-input'
             type='text'
             placeholder='Project Description'
             name='description'
@@ -55,14 +57,16 @@ const NewProject = ({showForm, closeProjectForm}) => {
             onChange={handleInput}
           />  
 
-          <label>Module: 
-            <select name='module' value={project.module} onChange={handleInput}>
+          <label className='mod-form'> Module: 
+            <select className='mod-select' name='module' value={project.module} onChange={handleInput}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
             </select>  
           </label>
+
+          <button className='s-button-primary submit-proj-btn'>Create Project!</button>
         </form>
         }
       </>
