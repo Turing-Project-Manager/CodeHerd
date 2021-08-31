@@ -1,0 +1,8 @@
+.new-project {
+  border: 2px solid black;
+  height: 20vh;
+  width: 30vw;
+  position: fixed;
+  top: 20vh;
+  left: 30vh
+}

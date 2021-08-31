@@ -2,6 +2,8 @@ import React, { useReducer, useEffect } from 'react';
 
 import PropTypes from 'prop-types'
 
+import './NewProject.css'
+
 const initialState = {
   title: '',
   description: '',
@@ -35,8 +37,8 @@ const NewProject = ({showForm, closeProjectForm}) => {
       <>
         {showForm && 
         
-        <form>
-          <button onClick={closeForm}>X</button>
+        <form className='new-project'>
+          <button className='close-btn' onClick={closeForm}>X</button>
           <input 
             type='text'
             placeholder='Project Title'
