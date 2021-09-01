@@ -9,6 +9,7 @@
 
 .body-text {
   margin: 1em;
+  font-weight: var(--s-font-weight-normal);
 }
 
 .footer {
@@ -22,6 +23,7 @@
 .title {
   margin: .5em;
   margin-bottom: .2;
+  font-size: 32px;
 }
 
 .subtitle {
