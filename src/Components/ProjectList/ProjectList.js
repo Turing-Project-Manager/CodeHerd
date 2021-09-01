@@ -5,7 +5,7 @@ import Project from '../Project/Project';
 
 
 const ProjectList = ({ projects }) => {
-  const [viewingModNumber, setViewingModNumber] = useState(1)
+  const [viewingModNumber, setViewingModNumber] = useState("1")
 
   const filterByMod = (event) => {
     setViewingModNumber(event.target.value)

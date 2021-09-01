@@ -7,9 +7,9 @@ const Project = ({projects, viewingModNumber}) => {
 
 
 
-  const projectsByCurrentMod = projects.filter(project => project.mod_number === viewingModNumber).map(currentProject => {
+  const projectsByCurrentMod = () => projects.filter(project => project.mod_number === viewingModNumber).map(currentProject => {
     return (
-      <div class="s-card s-card-profile s-border-yellow-500" key={currentProject.id}>
+      <div className="s-card s-card-profile s-border-yellow-500" key={currentProject.id}>
         <div className="project s-card">
           <div className="s-card-header">
             <h2 className="s-card-title title">{currentProject.name}</h2>
@@ -34,7 +34,7 @@ const Project = ({projects, viewingModNumber}) => {
 
   return (
     <div>
-      {projectsByCurrentMod}
+      {projectsByCurrentMod()}
     </div>
   )
 }
