@@ -31,7 +31,7 @@ const UserProfile = ({ user }) => {
 
   return (
       <section className="profile-container">
-        <img src={profilePic} className="profile-pic" alt="imported from Github profile"/>
+        <img src={user.url} className="profile-pic" alt="imported from Github profile"/>
         <h2 className="s-h2">{user.name}</h2>
         <p className="s-text-body"> {user.pronouns} </p>
         <div>
