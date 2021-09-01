@@ -10,6 +10,7 @@ const UserProfile = ({ user }) => {
   const [isEditingProfile, setEditingProfile] = useState(false);
   const [program, setProgram] = useState('Back-end Program')
   const [workingStyle, setWorkingStyle] = useState(user.working_styles);
+  const [cohort, setCohort] = useState(user.cohort)
 
   const editProfile = () => {
     if (!isEditingProfile) {
@@ -29,6 +30,11 @@ const UserProfile = ({ user }) => {
     user.working_styles = event.target.value
   }
 
+  const handleCohortChange = (event) => {
+    setCohort(event.target.value);
+    user.cohort = event.target.value;
+  }
+
   return (
       <section className="profile-container">
         <img src={user.url} className="profile-pic" alt="imported from Github profile"/>
@@ -41,7 +47,9 @@ const UserProfile = ({ user }) => {
           <option value="Front-end-program">Front-end Program</option>
         </select> : <p className="s-text-body">{program}</p> }
         </div>
-        <p className="s-text-body">Cohort {user.cohort}</p>
+        <p className="s-text-body"> Cohort  
+          {!!isEditingProfile ? <input type="text" maxlength="4" placeholder={cohort}  onChange={handleCohortChange} required /> : ` ${cohort}` }
+        </p>
         <section className="contact-info"> 
           <div className="info-box"> 
             <img src={emailIcon} className="contact-icon" alt="email icon" />
