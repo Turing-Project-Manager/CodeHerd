@@ -1,0 +1,39 @@
+.project-list {
+  width: 50vw; 
+  height: 100vh;
+  border: 3px solid blue;
+  display: flex;
+  flex-direction: column;
+}
+
+.mod-selection {
+  display: flex;
+  justify-content: space-evenly;
+  height: 1vh;
+}
+
+.project-section {
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+  flex-direction: column;
+  margin-top: 3em;
+  height: 95vh;
+  z-index: 3;
+}
+
+.project-name {
+  margin: .5em;
+}
+
+.mod-button {
+  background-color: transparent;
+  border: none;
+}
+
+.project {
+  border: 3px solid black;
+  width: 90%;
+  height: 25vh;
+  margin: .5em;
+}

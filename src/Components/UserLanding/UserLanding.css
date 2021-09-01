@@ -8,11 +8,11 @@
   font-weight: var(--s-font-weight-bold);
   font-family: var(--s-font-family-default);
   position: absolute;
-  top: 2em;
+  top: 3em;
   right: 2em;
   text-transform: uppercase;
 }
 
 .profile-projects {
-  position: relative;
+  display: flex;
 }
