@@ -63,9 +63,13 @@ const UserProfile = ({ user }) => {
           <option value="Even Mix">Even Mix</option>
           <option value="Mostly Solo">Mostly Solo</option>
         </select> : <p className="s-text-body"> {workingStyle} </p> }
-          <button className="edit-button s-button" onClick={editProfile}>
-            Edit Profile
-          </button>
+
+        
+
+        <button className="edit-button s-button" onClick={editProfile}>
+        {!!isEditingProfile ? 
+          "Save Profile" : "Edit Profile" } 
+        </button>
       </section>
   )
 }
