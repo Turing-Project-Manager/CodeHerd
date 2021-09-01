@@ -1,4 +1,3 @@
-import { program } from '@babel/types';
 import React, { useState } from 'react';
 import emailIcon from '../../assets/email.svg';
 import githubIcon from '../../assets/github-logo.png';
