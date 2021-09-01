@@ -7,6 +7,10 @@
   flex-direction: column;
 }
 
+.s-card-profile {
+  
+}
+
 .body-text {
   margin: 1em;
   font-weight: var(--s-font-weight-normal);

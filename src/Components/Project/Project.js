@@ -9,7 +9,7 @@ const Project = ({projects, viewingModNumber}) => {
 
   const projectsByCurrentMod = () => projects.filter(project => project.mod_number === viewingModNumber).map(currentProject => {
     return (
-      <div className="s-card s-card-profile s-border-yellow-500" key={currentProject.id}>
+      <div className="s-card s-card-profile" key={currentProject.id}>
         <div className="project s-card">
           <div className="s-card-header">
             <h2 className="s-card-title title">{currentProject.name}</h2>
@@ -24,10 +24,11 @@ const Project = ({projects, viewingModNumber}) => {
               <p> Created {currentProject.created_at} </p>
           </div>
           <div className="s-card-footer footer">
-            <button class="s-button s-button-secondary view-project-button">View Project</button>
+            <button className="s-button s-button-secondary view-project-button">View Project</button>
           </div>
         </div>
       </div>
+
       
     )
   })
