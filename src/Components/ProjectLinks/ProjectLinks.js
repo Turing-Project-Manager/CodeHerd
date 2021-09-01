@@ -38,7 +38,30 @@ const ProjectLinks = ({showAddLink, closeLinkForm}) => {
         <h3>No project links yet! Click below to add one.</h3> :
         <h3>{linksToDisplay}</h3>
       }
-      
+      {showAddLink && 
+        <form>
+          <button className='s-button-secondary close-btn' onClick={closeLinkForm}>X</button>
+          <input
+            className='text-input'
+            type='text'
+            placeholder='Link Name'
+            name='name'
+            value={newLink.name}
+            onChange={handleLinkInput}
+            />
+
+          <input
+            className='text-input'
+            type='text'
+            placeholder='Link URL'
+            name='url'
+            value={newLink.url}
+            onChange={handleLinkInput}
+            />  
+
+            <button onClick={submitLink}>Add Link!</button>
+        </form>
+      }
       
     </section>
   )
