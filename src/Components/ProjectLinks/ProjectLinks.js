@@ -40,7 +40,9 @@ const ProjectLinks = ({showAddLink, closeLinkForm}) => {
     <section className='project-links'>
       {!links.length ?
         <h3>No project links yet! Click below to add one.</h3> :
-        <h3>{linksToDisplay}</h3>
+        <section className='links-to-display'>
+          {linksToDisplay}
+        </section>
       }
       {showAddLink && 
         <form className='s-shadow-md add-link-form'>
