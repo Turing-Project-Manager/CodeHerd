@@ -1,5 +1,7 @@
 import React, {useReducer, useState} from 'react'
 
+import './ProjectLinks.css'
+
 const initialState = {
   name: '',
   url: ''
@@ -18,7 +20,9 @@ const ProjectLinks = ({showAddLink, closeLinkForm}) => {
 
   const submitLink = (e) => {
     e.preventDefault();
-    setLinks(allLinks => [...allLinks, newLink])
+    {newLink.name.length && newLink.url.length &&
+      setLinks(allLinks => [...allLinks, newLink])
+    }
     clearInputs();
   }
 
@@ -39,7 +43,7 @@ const ProjectLinks = ({showAddLink, closeLinkForm}) => {
         <h3>{linksToDisplay}</h3>
       }
       {showAddLink && 
-        <form>
+        <form className='s-shadow-md add-link-form'>
           <button className='s-button-secondary close-btn' onClick={closeLinkForm}>X</button>
           <input
             className='text-input'
@@ -59,7 +63,7 @@ const ProjectLinks = ({showAddLink, closeLinkForm}) => {
             onChange={handleLinkInput}
             />  
 
-            <button onClick={submitLink}>Add Link!</button>
+            <button className='s-button btn' onClick={submitLink}>Add Link!</button>
         </form>
       }
       
