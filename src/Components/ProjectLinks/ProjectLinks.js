@@ -28,7 +28,9 @@ const ProjectLinks = ({showAddLink, closeLinkForm}) => {
 
   const linksToDisplay = links.map(link => {
     return(
-      <a href={link.url} key={link.url}>{link.name}</a>
+      <a className='proj-link' 
+        href={link.url} 
+        key={link.url}>{link.name}</a>
     )
   })
 
@@ -38,12 +40,12 @@ const ProjectLinks = ({showAddLink, closeLinkForm}) => {
 
   return(
     <section className='project-links'>
+      <article className='links-to-display'>
       {!links.length ?
-        <h3>No project links yet! Click below to add one.</h3> :
-        <section className='links-to-display'>
-          {linksToDisplay}
-        </section>
+        <p className='s-font-lg s-text-center .s-m-3'>No project links yet! Click below to add one.</p> :
+        {linksToDisplay}
       }
+      </article>
       {showAddLink && 
         <form className='s-shadow-md add-link-form'>
           <button className='s-button-secondary close-btn' onClick={closeLinkForm}>X</button>

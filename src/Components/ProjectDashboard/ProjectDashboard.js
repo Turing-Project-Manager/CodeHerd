@@ -23,7 +23,9 @@ const ProjectDashboard = ({project}) => {
     <>
       <ProjectNav />
       <main className='project-dashboard'>
-        <h2 className='s-h2 s-text-center'>Project Title</h2>
+        <section className='project-header'>
+          <h2 className='s-h2 s-text-center'>CodeHerd</h2>
+        </section>
         <ProjectLinks showAddLink={showAddLink} closeLinkForm={closeLinkForm} />
         <div className='add-link-btn-text'>
           <button className='s-button-secondary s-border-radius-2 add-link-btn'onClick={showLinkForm}>
