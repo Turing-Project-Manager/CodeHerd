@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../Nav/Nav';
 import ProjectList from '../ProjectList/ProjectList';
+import Landing from '../Landing/Landing';
 //import Project from '../Project/Project';
 import UserProfile from '../UserProfile/UserProfile'
 import './UserLanding.css'
@@ -15,6 +16,7 @@ const UserLanding = () => {
     const [user, setUser] = useState({});
     const [showForm, setShowForm] = useState(false)
     const [projects, setProjects] = useState([])
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
       setUser(mockUsers.users[0])
@@ -42,6 +44,7 @@ const UserLanding = () => {
           showProjectForm={showProjectForm} 
           closeProjectForm={closeProjectForm}/>
         <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/>
+        {/* <Landing />  */}
       </section>
     </>
   )

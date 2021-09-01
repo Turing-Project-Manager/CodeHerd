@@ -30,8 +30,10 @@ const Landing = () => {
       </div>
       <div className="button-container"> 
       <Link to='/userLanding'>
-        <button className="continue-with-github s-text-body">Continue with Github
-        </button>
+        <a href="https://codeherdapi.herokuapp.com/auth/github">
+          <button className="continue-with-github s-text-body">Continue with Github
+          </button>
+        </a>
       </Link>
       </div>
       <div className="links-container"> 
