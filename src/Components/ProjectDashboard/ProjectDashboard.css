@@ -1,0 +1,23 @@
+
+.add-link-btn-text{
+  display: flex;
+  font-size: larger;
+  align-items: center;
+}
+
+.add-link-btn{
+  width: 3em;
+  margin: 0 1em 0 1em;
+}
+
+.project-dashboard{
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.plus {
+  width: 2em;
+  height: 2em;
+}
+

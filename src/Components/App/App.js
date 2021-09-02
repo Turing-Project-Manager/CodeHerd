@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import Landing from '../Landing/Landing';
 import UserLanding from '../UserLanding/UserLanding';
+import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
 import './App.css';
 
 import NewProject from '../NewProject/NewProject';
@@ -14,12 +15,13 @@ const App = () => {
 
   return (
     <section className="app">
-      <Switch>
+      {/* <Switch>
         <Route exact path='/' component={Landing} />
         <Route path='/userLanding' component={UserLanding} />
 
-      {/* <NewProject /> */}
-      </Switch>
+   
+      </Switch> */}
+      <ProjectDashboard />
     </section>
   )
 };

@@ -66,7 +66,7 @@ const NewProject = ({showForm, closeProjectForm}) => {
             </select>  
           </label>
 
-          <button className='s-button-primary submit-proj-btn'>Create Project!</button>
+          <button className='s-button btn'>Create Project!</button>
         </form>
         }
       </>

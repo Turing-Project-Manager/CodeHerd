@@ -16,12 +16,12 @@ p {
   flex-direction: row;
 }
 
-.nav-bar {
+/* .nav-bar {
   display: flex;
   height: 100vh;
   width: 15vw;
   border: 3px solid red;
-}
+} */
 
 .profile-container {
   display: flex;
