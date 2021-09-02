@@ -2,13 +2,21 @@ p {
   margin: .5em;
 }
 
+
+.name-input {
+  width: 95%;
+}
+
+.cohort-input {
+  width: 20%;
+}
+
 .label {
   font-weight: bold;
 }
 
 .drop-down {
   height: 5vh;
-  width: 100%;
 }
 
 .page-container {

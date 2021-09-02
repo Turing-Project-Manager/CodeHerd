@@ -10,7 +10,8 @@ const UserProfile = ({ user }) => {
   const [isEditingProfile, setEditingProfile] = useState(false);
   const [program, setProgram] = useState('Back-end Program')
   const [workingStyle, setWorkingStyle] = useState(user.working_styles);
-  const [cohort, setCohort] = useState(user.cohort)
+  const [cohort, setCohort] = useState(user.cohort);
+  const [name, setName] = useState(user.name);
 
   const editProfile = () => {
     if (!isEditingProfile) {
@@ -35,10 +36,18 @@ const UserProfile = ({ user }) => {
     user.cohort = event.target.value;
   }
 
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+    user.name = event.target.value;
+  }
+
   return (
       <section className="profile-container">
         <img src={user.url} className="profile-pic" alt="imported from Github profile"/>
-        <h2 className="s-h2">{user.name}</h2>
+        <h2 className="s-h2">
+          
+          {!!isEditingProfile ? <input type="text" className="name-input" placeholder={user.name} value={name}  onChange={handleNameChange} required /> : ` ${user.name}` }
+        </h2>
         <p className="s-text-body"> {user.pronouns} </p>
         <div>
           {!!isEditingProfile ? 
@@ -48,7 +57,7 @@ const UserProfile = ({ user }) => {
         </select> : <p className="s-text-body">{program}</p> }
         </div>
         <p className="s-text-body"> Cohort  
-          {!!isEditingProfile ? <input type="text" maxlength="4" placeholder={cohort}  onChange={handleCohortChange} required /> : ` ${cohort}` }
+          {!!isEditingProfile ? <input type="text" className="cohort-input" maxlength="4" placeholder={user.cohort} value={cohort} onChange={handleCohortChange} required /> : ` ${user.cohort}` }
         </p>
         <section className="contact-info"> 
           <div className="info-box"> 
