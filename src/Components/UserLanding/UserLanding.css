@@ -9,7 +9,7 @@
   font-family: var(--s-font-family-default);
   position: absolute;
   top: 3em;
-  right: 2em;
+  left: 3em;
   text-transform: uppercase;
 }
 
