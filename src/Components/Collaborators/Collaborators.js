@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import'./Collaborators.css'
 
 const initialState = {
   name: '',
@@ -6,7 +8,7 @@ const initialState = {
   isPM: false
 }
 
-const Collaborators = () => {
+const Collaborators = ({showAddCollab, closeCollabForm}) => {
 
   const [newCollaborator, setNewCollaborator] = useState(initialState)
   const [collaborators, setCollaborators] = useState([])
@@ -51,8 +53,51 @@ const Collaborators = () => {
   return(
     <section className='project-collabs'>
     
+        <article className='s-h3 s-shadow-md collaborator-profile'>
+          <h3 className='s-text-center s-m-3'>Project Collaborators</h3>
+          {!collaborators.length ?
+            <p className='s-font-lg s-text-center .s-m-3'>No collaborators yet! Click below to add one.</p> :
+            <div className='collaborator-names'>
+              {collaboratorProfiles}
+            </div>
+          }
+        </article>
       
+      {showAddCollab && 
+        <form className='s-shadow-md add-collab-form'>
+          <button className='s-button-secondary close-btn' onClick={closeCollabForm}>X</button>
+          <input
+            className='text-input'
+            type='text'
+            placeholder='Collaborator Name'
+            name='name'
+            value={newCollaborator.name}
+            onChange={handleCollabInput}
+            />
+
+          <input
+            className='text-input'
+            type='text'
+            placeholder='Collaborator Email'
+            name='email'
+            value={newCollaborator.email}
+            onChange={handleCollabInput}
+            />  
+
+          <label className='pm'> Project Manager: 
+            <input
+              type="checkbox"
+              name="isPM"
+              value={true}
+              onChange={handleCollabInput}
+            />
+          </label>
+
+            <button className='s-button btn' onClick={submitCollaborator}>Add Collaborator!</button>
+        </form>
+      }
     </section>
+  )
 
 }
 
