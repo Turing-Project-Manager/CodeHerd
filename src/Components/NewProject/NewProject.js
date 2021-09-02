@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types'
 
@@ -12,19 +12,14 @@ const initialState = {
   projectManager: ''
 }
 
-const reducer = (project, {field, value}) => {
-  return {
-    ...project,
-    [field]: value
-  }
-}
 
 const NewProject = ({showForm, closeProjectForm}) => {
 
-  const [project, setProject] = useReducer(reducer, initialState)
+  const [project, setProject] = useState(initialState)
 
   const handleInput = (e) => {
-    setProject({field: e.target.name, value: e.target.value})
+    const { name, value } = e.target;
+    setProject((prevState) => ({ ...prevState, [name]: value.trim() }));
   }
 
   const closeForm = () => {
@@ -65,6 +60,15 @@ const NewProject = ({showForm, closeProjectForm}) => {
               <option value="4">4</option>
             </select>  
           </label>
+
+          <input 
+            className='text-input'
+            type='text'
+            placeholder='Collaborator Emails'
+            name='collaborators'
+            value={project.collaborators}
+            onChange={handleCollaborators}
+          />  
 
           <button className='s-button btn'>Create Project!</button>
         </form>
