@@ -4,6 +4,7 @@
 
 html, body {
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
 }
 
 h2 {
@@ -24,8 +25,7 @@ button,
   align-items: center;
   border-radius: 50px;
   height: 3em;
-  width: 14vw;
-  font-size: 5vw;
+  width: 15vw;
   align-self: center;
   margin-bottom: 1em;
   font-size: var(--s-font-size-sm);
