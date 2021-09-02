@@ -12,6 +12,7 @@ const UserProfile = ({ user }) => {
   const [workingStyle, setWorkingStyle] = useState(user.working_styles);
   const [cohort, setCohort] = useState(user.cohort);
   const [name, setName] = useState(user.name);
+  const [slackHandle, setSlackHandle] = useState(user.slack_handle)
 
   const editProfile = () => {
     if (!isEditingProfile) {
@@ -41,12 +42,17 @@ const UserProfile = ({ user }) => {
     user.name = event.target.value;
   }
 
+  const handleSlackHandleChange = (event) => {
+    setSlackHandle(event.target.value);
+    user.slack_handle = event.target.value;
+  }
+
   return (
       <section className="profile-container">
         <img src={user.url} className="profile-pic" alt="imported from Github profile"/>
         <h2 className="s-h2">
           
-          {!!isEditingProfile ? <input type="text" className="name-input" placeholder={user.name} value={name}  onChange={handleNameChange} required /> : ` ${user.name}` }
+          {!!isEditingProfile ? <input type="text" className="input" placeholder={user.name} value={name}  onChange={handleNameChange} required /> : ` ${user.name}` }
         </h2>
         <p className="s-text-body"> {user.pronouns} </p>
         <div>
@@ -70,7 +76,9 @@ const UserProfile = ({ user }) => {
           </div>
           <div className="info-box"> 
             <img src={slackIcon} className="contact-icon" alt="slack icon"/>
-            <p className="contact s-text-body">{user.slack_handle}</p>
+            <p className="contact s-text-body">
+            {!!isEditingProfile ? <input type="text" className="input" placeholder={user.slack_handle} value={slackHandle}  onChange={handleSlackHandleChange} required /> : ` ${user.slack_handle}` }
+            </p>
           </div>
         </section>
         <label className="label s-text-body">Preferred Working Style </label>
