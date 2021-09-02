@@ -2,13 +2,21 @@ p {
   margin: .5em;
 }
 
+
+.input {
+  width: 95%;
+}
+
+.cohort-input {
+  width: 20%;
+}
+
 .label {
   font-weight: bold;
 }
 
 .drop-down {
   height: 5vh;
-  width: 100%;
 }
 
 .page-container {
@@ -16,19 +24,11 @@ p {
   flex-direction: row;
 }
 
-/* .nav-bar {
-  display: flex;
-  height: 100vh;
-  width: 15vw;
-  border: 3px solid red;
-} */
-
 .profile-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid black;
   height: 100vh;
   width: 35vw;
   margin: 0px;
@@ -36,8 +36,9 @@ p {
 }
 
 .profile-pic {
-  width: 90%;
-  height: auto;
+  max-width: 90%;
+  width: auto;
+  height: 30%;
 }
 
 .contact-info {
@@ -69,4 +70,6 @@ p {
 
 .edit-button {
   margin-top: 2em;
+  width: 60%;
+
 }

@@ -15,13 +15,13 @@ const App = () => {
 
   return (
     <section className="app">
-      {/* <Switch>
+      <Switch>
         <Route exact path='/' component={Landing} />
         <Route path='/userLanding' component={UserLanding} />
 
    
-      </Switch> */}
-      <ProjectDashboard />
+      </Switch>
+      {/* <ProjectDashboard /> */}
     </section>
   )
 };
