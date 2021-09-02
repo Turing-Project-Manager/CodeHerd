@@ -14,3 +14,16 @@
   align-self: center;
   margin-top: 1em;
 }
+
+.new-proj-btn {
+  border-radius: 40px;
+  height: 3em;
+  width: 7em;
+  align-self: center;
+  margin-bottom: 1em;
+  font-size: var(--s-font-size-sm);
+  font-weight: var(--s-font-weight-bold);
+  font-family: var(--s-font-family-default);
+  display: flex;
+  text-transform: uppercase;
+}

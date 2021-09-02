@@ -17,12 +17,9 @@
 
 .project-section {
   display: flex;
-  justify-content: center;
   overflow-y: scroll;
   flex-direction: column;
-  margin-top: 3em;
   height: 95vh;
-  padding-top: 30em;
 }
 
 .project-name {

@@ -36,8 +36,8 @@ const UserLanding = () => {
     <>
       <Nav />
       <section className='profile-projects'>
-        <button className='s-button-primary new-proj-btn' onClick={showProjectForm}>New Project</button>
-        <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/>
+        {/* <button className='s-button-primary new-proj-btn' onClick={showProjectForm}>New Project</button>
+        <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/> */}
         <UserProfile user={user} />
         <ProjectList 
           projects={projects} 
