@@ -61,15 +61,6 @@ const NewProject = ({showForm, closeProjectForm}) => {
             </select>  
           </label>
 
-          <input 
-            className='text-input'
-            type='text'
-            placeholder='Collaborator Emails'
-            name='collaborators'
-            value={project.collaborators}
-            onChange={handleCollaborators}
-          />  
-
           <button className='s-button btn'>Create Project!</button>
         </form>
         }
