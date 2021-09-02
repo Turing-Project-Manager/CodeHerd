@@ -9,7 +9,11 @@
 .mod-selection {
   display: flex;
   justify-content: space-evenly;
-  height: 1vh;
+  height: 3em;
+}
+
+.project {
+  z-index: 0;
 }
 
 .project-section {
@@ -19,7 +23,7 @@
   flex-direction: column;
   margin-top: 3em;
   height: 95vh;
-  z-index: 3;
+  padding-top: 30em;
 }
 
 .project-name {
