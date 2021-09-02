@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailIcon from '../../assets/email.svg';
 import githubIcon from '../../assets/github-logo.png';
 import slackIcon from '../../assets/slack-logo.png';
@@ -13,6 +13,12 @@ const UserProfile = ({ user }) => {
   const [cohort, setCohort] = useState(user.cohort);
   const [name, setName] = useState(user.name);
   const [slackHandle, setSlackHandle] = useState(user.slack_handle)
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    setUserInfo(user)
+    console.log({user})
+  }, []);
 
   const editProfile = () => {
     if (!isEditingProfile) {
