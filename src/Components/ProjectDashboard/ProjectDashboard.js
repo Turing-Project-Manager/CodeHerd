@@ -25,6 +25,7 @@ const ProjectDashboard = ({project}) => {
       <main className='project-dashboard'>
         <section className='project-header'>
           <h2 className='s-h2 s-text-center'>CodeHerd</h2>
+          <p className='s-text-center s-font-lg s-m-3 project-summary'>A summary here about some project info and why it is important</p>
         </section>
         <ProjectLinks showAddLink={showAddLink} closeLinkForm={closeLinkForm} />
         <div className='add-link-btn-text'>

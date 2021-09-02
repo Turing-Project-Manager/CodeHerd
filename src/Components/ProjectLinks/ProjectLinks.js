@@ -40,12 +40,16 @@ const ProjectLinks = ({showAddLink, closeLinkForm}) => {
 
   return(
     <section className='project-links'>
-      <article className='links-to-display'>
-      {!links.length ?
-        <p className='s-font-lg s-text-center .s-m-3'>No project links yet! Click below to add one.</p> :
-        {linksToDisplay}
-      }
+      <article className='s-h3 s-shadow-md links-to-display'>
+        <h3 className='s-text-center s-m-3'>Project Links</h3>
+        {!links.length ?
+          <p className='s-font-lg s-text-center .s-m-3'>No project links yet! Click below to add one.</p> :
+          <div className='link-names'>
+            {linksToDisplay}
+          </div>
+        }
       </article>
+      
       {showAddLink && 
         <form className='s-shadow-md add-link-form'>
           <button className='s-button-secondary close-btn' onClick={closeLinkForm}>X</button>

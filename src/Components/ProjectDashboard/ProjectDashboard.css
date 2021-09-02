@@ -12,6 +12,8 @@
 
 .project-dashboard{
   width: 85vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .plus {
@@ -19,6 +21,3 @@
   height: 2em;
 }
 
-.project-header{
-  
-}
