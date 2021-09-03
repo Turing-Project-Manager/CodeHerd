@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ProjectNav from '../ProjectNav/ProjectNav'
 import ProjectLinks from '../ProjectLinks/ProjectLinks'
+import Collaborators from '../Collaborators/Collaborators'
 import PropTypes from 'prop-types'
 
 import plus from '../../assets/plus.png'
@@ -10,6 +11,7 @@ import'./ProjectDashboard.css'
 const ProjectDashboard = ({project}) => {
 
   const [showAddLink, setShowAddLink] = useState(false)
+  const [showAddCollab, setShowAddCollab] = useState(false)
 
   const showLinkForm = () => {
     setShowAddLink(true)
@@ -17,6 +19,14 @@ const ProjectDashboard = ({project}) => {
 
   const closeLinkForm = () => {
     setShowAddLink(false)
+  }
+
+  const showCollabForm = () => {
+    setShowAddCollab(true)
+  }
+
+  const closeCollabForm = () => {
+    setShowAddCollab(false)
   }
 
   return (
@@ -32,6 +42,12 @@ const ProjectDashboard = ({project}) => {
           <button className='s-button-secondary s-border-radius-2 add-link-btn'onClick={showLinkForm}>
             <img className='plus' src={plus} alt='plus sign' /></button>
           <h4>Add Links</h4>
+        </div>
+        <Collaborators showAddCollab={showAddCollab} closeCollabForm={closeCollabForm} />
+        <div className='add-collab-btn-text'>
+          <button className='s-button-secondary s-border-radius-2 add-collab-btn'onClick={showCollabForm}>
+            <img className='plus' src={plus} alt='plus sign' /></button>
+          <h4>Add Collaborators</h4>
         </div>
         
 

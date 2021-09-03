@@ -44,6 +44,8 @@ const UserLanding = () => {
           user={user}
         />
         {/* <Landing />  */}
+    
+        <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/>
       </section>
     </>
   )

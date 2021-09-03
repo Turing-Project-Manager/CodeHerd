@@ -1,11 +1,13 @@
 
-.add-link-btn-text{
+.add-link-btn-text,
+.add-collab-btn-text{
   display: flex;
   font-size: larger;
   align-items: center;
 }
 
-.add-link-btn{
+.add-link-btn,
+.add-collab-btn {
   width: 3em;
   margin: 0 1em 0 1em;
 }

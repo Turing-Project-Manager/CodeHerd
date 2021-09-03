@@ -1,0 +1,27 @@
+.add-collab-form{
+  border: 2px solid #6d6e71;
+  height: 40vh;
+  width: 35vw;
+  position: fixed;
+  left: 57%;
+  top: 20%;
+  transform: translate(-50%, 0);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.collaborator-profile{
+  margin: 1em;
+  width: 60vw;
+  border: 1px solid #bcbec0;
+  border-top: 4px solid #05c2d1;
+}
+
+.project-collabs{
+  align-self: center;
+  margin: 0;
+}
