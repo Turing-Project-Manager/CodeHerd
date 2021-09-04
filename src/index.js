@@ -8,7 +8,8 @@ import {
   InMemoryCache,
   ApolloProvider,
   useQuery,
-  gql
+  gql, 
+  useMutation
 } from "@apollo/client";
 
 const client = new ApolloClient({
@@ -27,6 +28,18 @@ export const GET_USER = gql `
       pronouns
       slackHandle
       workingStyles
+    }
+  }
+`
+export const EDIT_USER_INPUT = gql `
+  mutation editUserInput($input: EditUserInput) {
+    editUserInput(input: $input) {
+      userId
+      name
+      slackHandle
+      workingStyles
+      cohort
+      pronouns
     }
   }
 `
