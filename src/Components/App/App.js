@@ -1,5 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import queryString from 'query-string'
+import { GET_USER } from '../..';
+import { useQuery } from '@apollo/client';
 import Nav from '../Nav/Nav';
 import Landing from '../Landing/Landing';
 import UserLanding from '../UserLanding/UserLanding';
@@ -10,22 +13,28 @@ import NewProject from '../NewProject/NewProject';
 import './App.css'
 
 const App = () => {
-
+  
+  const { search } = useLocation();
+  
+  const values = queryString.parse(search, {arrayFormat: 'bracket'});
 
 
   return (
     <section className="app">
-      {/* <Switch>
+      <Switch>
         <Route exact path='/' component={Landing} />
-        <Route path='/userLanding' component={UserLanding} />
+        {/* <Route exact path='/userLanding' component={Landing} /> */}
+
+        <Route path='/:githubName' render={({match}) => {
+          console.log(match)
+        return <UserLanding query={values}/>}} 
+        />
 
    
-      </Switch> */}
-      <ProjectDashboard />
+      </Switch>
+      {/* <ProjectDashboard /> */}
     </section>
   )
 };
 
 export default App;
-
-

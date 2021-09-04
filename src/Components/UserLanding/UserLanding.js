@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { GET_USER } from '../..';
+import { useQuery } from '@apollo/client';
 import Nav from '../Nav/Nav';
 import ProjectList from '../ProjectList/ProjectList';
 import Landing from '../Landing/Landing';
@@ -12,16 +14,33 @@ import mockProjects from '../../mockData/mockProjects.json';
 
 
 
-const UserLanding = () => {
+const UserLanding = ({query}) => {
+  console.log(query)
+
+  let currentUser = JSON.parse(query.info)
+  let id = currentUser.id
+  console.log({currentUser})
+
     const [user, setUser] = useState({});
     const [showForm, setShowForm] = useState(false)
     const [projects, setProjects] = useState([])
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { data, loading, error } = useQuery(GET_USER, {
+      variables: { id }
+    })
 
     useEffect(() => {
-      setUser(mockUsers.users[0])
-      setProjects(mockProjects.projects)
-    }, []);
+      console.log(data)
+      if(!!error) {
+        console.log(error)
+      }
+
+      if(!loading && data) {
+
+        setUser(data.user)
+      }
+      // setProjects(mockProjects.projects)
+    }, [data, loading]);
     
 
     const showProjectForm = () => {

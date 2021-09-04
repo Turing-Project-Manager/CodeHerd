@@ -3,13 +3,42 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './Components/App/App';
 import reportWebVitals from './reportWebVitals';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql
+} from "@apollo/client";
+
+const client = new ApolloClient({
+  uri: 'https://codeherdapi.herokuapp.com/graphql',
+  cache: new InMemoryCache()
+});
+
+export const GET_USER = gql `
+  query user($id: ID!){
+    user (id: $id) {
+      cohort
+      email
+      githubHandle
+      id
+      name
+      pronouns
+      slackHandle
+      workingStyles
+    }
+  }
+`
 
 ReactDOM.render(
-  <BrowserRouter>
-    {/* <React.StrictMode> */}
-      <App />
-    {/* </React.StrictMode> */}
-  </BrowserRouter>,
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
