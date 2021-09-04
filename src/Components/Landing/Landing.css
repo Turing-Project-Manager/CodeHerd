@@ -13,7 +13,7 @@ h1 {
 }
 
 .top-image-container {
-  width: 100vh;
+  width: 100vw;
   height: auto;
 }
 
@@ -119,7 +119,7 @@ h1 {
   }
 
   image {
-    width: 100%;
+    width: 100vw;
     height: 100%;
   }
 
