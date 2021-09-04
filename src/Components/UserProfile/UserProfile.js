@@ -17,9 +17,9 @@ const UserProfile = ({ user }) => {
   const [slackHandle, setSlackHandle] = useState(user.slack_handle);
   const [pronouns, setPronouns] = useState(user.pronouns);
   const [userInfo, setUserInfo] = useState({});
-  const [editUserInput] = useMutation(EDIT_USER_INPUT, {
-    refetchQueries: [GET_USER]
-  })
+  // const [editUserInput] = useMutation(EDIT_USER_INPUT, {
+  //   refetchQueries: [GET_USER]
+  // })
 
   useEffect(() => {
     setUserInfo(user)
@@ -30,17 +30,17 @@ const UserProfile = ({ user }) => {
     if (!isEditingProfile) {
       setEditingProfile(true)
     } else {
-      editUserInput({
-        variables: {
-          input: {
-            userId: 2,
-            name: name,
-            slackHandle: slackHandle,
-            workingStyles: workingStyle,
-            cohort: cohort
-          }
-        }
-      })
+      // editUserInput({
+      //   variables: {
+      //     input: {
+      //       userId: 2,
+      //       name: name,
+      //       slackHandle: slackHandle,
+      //       workingStyles: workingStyle,
+      //       cohort: cohort
+      //     }
+      //   }
+      // })
       setEditingProfile(false)
     }
   }
@@ -49,27 +49,27 @@ const UserProfile = ({ user }) => {
 
   const handleProgramChange = (event) => {
     setProgram(event.target.value)
-    user.program = event.target.value
+    // user.program = event.target.value
   }
 
   const handleWorkingStyleChange = (event) => {
     setWorkingStyle(event.target.value);
-    user.working_styles = event.target.value
+    // user.working_styles = event.target.value
   }
 
   const handleCohortChange = (event) => {
     setCohort(event.target.value);
-    user.cohort = event.target.value;
+    // user.cohort = event.target.value;
   }
 
   const handleNameChange = (event) => {
     setName(event.target.value);
-    user.name = event.target.value;
+    // user.name = event.target.value;
   }
 
   const handleSlackHandleChange = (event) => {
     setSlackHandle(event.target.value);
-    user.slack_handle = event.target.value;
+    // user.slack_handle = event.target.value;
   }
 
   return (

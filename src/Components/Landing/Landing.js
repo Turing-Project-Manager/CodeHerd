@@ -29,12 +29,12 @@ const Landing = () => {
         </section>
       </div>
       <div className="button-container"> 
-      <Link to='/userLanding'>
+      {/* <Link to='/userLanding'> */}
         <a href="https://codeherdapi.herokuapp.com/auth/github">
           <button className="continue-with-github s-text-body">Continue with Github
           </button>
         </a>
-      </Link>
+      {/* </Link> */}
       </div>
       <div className="links-container"> 
         <section className="link"> 

@@ -44,6 +44,17 @@ export const EDIT_USER_INPUT = gql `
   }
 `
 
+export const CREATE_NEW_PROJECT = gql`
+  mutation creatNewProject($input: CreateNewProject) {
+    createNewProject(input: $input) {
+      name
+      summary
+      modNumber
+      ownerId
+    }
+  }
+` 
+
 ReactDOM.render(
   <ApolloProvider client={client}>
     <BrowserRouter>

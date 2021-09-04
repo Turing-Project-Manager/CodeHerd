@@ -19,7 +19,7 @@ const UserLanding = ({query}) => {
 
   let currentUser = JSON.parse(query.info)
   let id = currentUser.id
-  console.log({currentUser})
+  // console.log({currentUser})
 
     const [user, setUser] = useState({});
     const [showForm, setShowForm] = useState(false)
@@ -64,7 +64,7 @@ const UserLanding = ({query}) => {
         />
         {/* <Landing />  */}
     
-        <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/>
+        <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/>
       </section>
     </>
   )
