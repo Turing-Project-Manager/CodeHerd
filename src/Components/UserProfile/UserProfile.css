@@ -71,5 +71,7 @@ p {
 .edit-button {
   margin-top: 2em;
   width: 60%;
+  font-size: .75em;
+  padding: 0em;
 
 }

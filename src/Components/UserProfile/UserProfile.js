@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import emailIcon from '../../assets/email.svg';
 import githubIcon from '../../assets/github-logo.png';
 import slackIcon from '../../assets/slack-logo.png';
-import profilePic from '../../assets/user-profile-pic-2.jpeg';
 import { GET_USER, EDIT_USER_INPUT } from '../..';
 import { useMutation, userMutation } from '@apollo/client';
 import './UserProfile.css';
@@ -10,16 +9,18 @@ import './UserProfile.css';
 
 const UserProfile = ({ user }) => {
   const [isEditingProfile, setEditingProfile] = useState(false);
+  const [cohort, setCohort] = useState(user.cohort);
+  const [email, setEmail] = useState(user.email);
+  const [githubHandle, setGithubHandle] = useState(user.githubHandle);
   const [program, setProgram] = useState('Back-end Program')
   const [workingStyle, setWorkingStyle] = useState(user.working_styles);
-  const [cohort, setCohort] = useState(user.cohort);
   const [name, setName] = useState(user.name);
   const [slackHandle, setSlackHandle] = useState(user.slack_handle);
   const [pronouns, setPronouns] = useState(user.pronouns);
   const [userInfo, setUserInfo] = useState({});
-  // const [editUserInput] = useMutation(EDIT_USER_INPUT, {
-  //   refetchQueries: [GET_USER]
-  // })
+  const [editUserInput] = useMutation(EDIT_USER_INPUT, {
+    refetchQueries: [GET_USER]
+  })
 
   useEffect(() => {
     setUserInfo(user)
@@ -30,17 +31,18 @@ const UserProfile = ({ user }) => {
     if (!isEditingProfile) {
       setEditingProfile(true)
     } else {
-      // editUserInput({
-      //   variables: {
-      //     input: {
-      //       userId: 2,
-      //       name: name,
-      //       slackHandle: slackHandle,
-      //       workingStyles: workingStyle,
-      //       cohort: cohort
-      //     }
-      //   }
-      // })
+      editUserInput({
+        variables: {
+          input: {
+            userId: 2,
+            githubHandle: githubHandle,
+            name: name,
+            slackHandle: slackHandle,
+            workingStyles: workingStyle,
+            cohort: cohort
+          }
+        }
+      })
       setEditingProfile(false)
     }
   }

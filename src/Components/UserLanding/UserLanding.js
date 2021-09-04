@@ -57,7 +57,7 @@ const UserLanding = ({query}) => {
       <section className='profile-projects'>
         {/* <button className='s-button-primary new-proj-btn' onClick={showProjectForm}>New Project</button>
         <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/> */}
-        <UserProfile user={user} />
+        <UserProfile user={user} query={query} />
         <ProjectList 
           projects={projects} 
           user={user}
