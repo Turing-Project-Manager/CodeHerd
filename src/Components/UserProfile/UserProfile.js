@@ -167,10 +167,7 @@ const UserProfile = ({ user }) => {
           <option value="Even Mix">Even Mix</option>
           <option value="Mostly Solo">Mostly Solo</option>
         </select> : <p className="s-text-body"> {userInfo.workingStyle} </p> }
-
-        
-
-        <button className="edit-button s-button" onChange={editProfile}>
+        <button className="edit-button s-button" onClick={editProfile}>
         {!!isEditingProfile ? 
           "Save Profile" : "Edit Profile" } 
         </button>

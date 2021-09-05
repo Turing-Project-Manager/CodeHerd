@@ -34,6 +34,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   margin-top: 2em;
+  height: auto;
 }
 
 .continue-with-github {
@@ -65,8 +66,15 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  height: auto;
 }
 
+.links-container {
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+
+}
 
 .border {
   height: 8px;
@@ -81,11 +89,6 @@ h1 {
   justify-content: flex-start;
 }
 
-.links-container {
-  display: flex;
-  justify-content: space-around;
-
-}
 
 .create-project-image,
 .add-collaborators, 
