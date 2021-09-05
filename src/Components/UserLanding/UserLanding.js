@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { GET_USER } from '../..';
+import { GET_USER, GET_ALL_USER_PROJECTS } from '../..';
 import { useQuery } from '@apollo/client';
 import Nav from '../Nav/Nav';
 import ProjectList from '../ProjectList/ProjectList';
@@ -33,21 +33,37 @@ const UserLanding = ({query}) => {
     const { data, loading, error } = useQuery(GET_USER, {
       variables: { id }
     })
+    const allProjects = useQuery(GET_ALL_USER_PROJECTS, {
+      variables: { userId: id }
+    })
 
+    console.log('allProjects', allProjects)
+    
     useEffect(() => {
+      
       
       if(!!error) {
         console.log(error)
       }
-
+      
       if(!loading && data) {
-
+        
         setUser(data.user)
       }
-      // setProjects(mockProjects.projects)
-    }, [data, loading]);
+      
+      if (!allProjects.loading && allProjects.data) {
+        
+        setProjects(allProjects.data.usersProjects)
+      }
 
-  
+        
+    }, [data, loading, allProjects]);
+    
+    
+    // console.log('qData from UserLanding', qData)
+    console.log('id', id)
+    console.log('projects', projects)
+
     
 
     const showProjectForm = () => {
@@ -65,10 +81,11 @@ const UserLanding = ({query}) => {
         {/* <button className='s-button-primary new-proj-btn' onClick={showProjectForm}>New Project</button>
         <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/> */}
         <UserProfile user={user} query={query} />
+        {!!projects ? 
         <ProjectList 
           projects={projects} 
           user={user}
-        />
+        /> : 'Loading' }
         {/* <Landing />  */}
     
         {!!user ? <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/> : 'Loading'}

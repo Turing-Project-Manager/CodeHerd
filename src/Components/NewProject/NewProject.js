@@ -28,18 +28,18 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
   })
 
 
-  console.log('project', project)
+  console.log('project', data)
 
   if ( qData ) {
-    console.log('data from mutation new project', qData)
+    // console.log('data from mutation new project', qData)
   }
 
   if ( qError ) {
-    console.log('new project error', qError);
+    // console.log('new project error', qError);
   }
 
   if ( qLoading) {
-    console.log("One monument please. New Project Loading: ", qLoading)
+    // console.log("One monument please. New Project Loading: ", qLoading)
   }
 
 
