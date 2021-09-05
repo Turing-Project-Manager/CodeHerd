@@ -3,6 +3,7 @@ import ProjectNav from '../ProjectNav/ProjectNav'
 import ProjectLinks from '../ProjectLinks/ProjectLinks'
 import Collaborators from '../Collaborators/Collaborators'
 import ProjectResources from '../ProjectResources/ProjectResources'
+import Templates from '../Templates/Templates'
 import PropTypes from 'prop-types'
 
 import plus from '../../assets/plus.png'
@@ -51,6 +52,8 @@ const ProjectDashboard = ({project}) => {
           <h4>Add Collaborators</h4>
         </div>
         <ProjectResources />
+
+        <Templates />
         
 
       </main>
