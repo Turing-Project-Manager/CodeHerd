@@ -48,7 +48,7 @@ const UserProfile = ({ user }) => {
   
   useEffect(() => {
     setUserInfo(user)
-
+    console.log({user})
   }, [user]);
   
   
@@ -63,7 +63,8 @@ const UserProfile = ({ user }) => {
             name: userInfo.name,
             slackHandle: userInfo.slackHandle,
             workingStyles: userInfo.workingStyle,
-            cohort: userInfo.cohort
+            cohort: userInfo.cohort,
+            pronouns: userInfo.pronouns
           }
       })
       setEditingProfile(false)
@@ -75,33 +76,6 @@ const UserProfile = ({ user }) => {
     setUserInfo((prevState) => ({ ...prevState, [name]: value.trim() }));
   }
 
-
-  
-
-  // const handleProgramChange = (event) => {
-  //   setProgram(event.target.value)
-  //   // user.program = event.target.value
-  // }
-
-  // const handleWorkingStyleChange = (event) => {
-  //   setWorkingStyle(event.target.value);
-  //   // user.working_styles = event.target.value
-  // }
-
-  // const handleCohortChange = (event) => {
-  //   setCohort(event.target.value);
-  //   // user.cohort = event.target.value;
-  // }
-
-  // const handleNameChange = (event) => {
-  //   setName(event.target.value);
-  //   // user.name = event.target.value;
-  // }
-
-  // const handleSlackHandleChange = (event) => {
-  //   setSlackHandle(event.target.value);
-  //   // user.slack_handle = event.target.value;
-  // }
 
   return (
       <section className="profile-container">
@@ -118,19 +92,18 @@ const UserProfile = ({ user }) => {
             required 
           /> : ` ${user.name}` }
         </h2>
-        <p className="s-text-body"> {userInfo.pronouns} </p>
-        <div>
+        <p className="s-text-body"> Pronouns  
           {!!isEditingProfile ? 
-          <select 
-            className="drop-down s-content s-text-body" 
-            name="program" 
-            id="program" 
-            value={userInfo.program} 
-            onChange={handleInput}>
-          <option value="Back-end-program">Back-end Program</option>
-          <option value="Front-end-program">Front-end Program</option>
-        </select> : <p className="s-text-body">{userInfo.program}</p> }
-        </div>
+          <input 
+            type="text" 
+            className="input"
+            placeholder={userInfo.pronouns} 
+            name="pronouns"
+            value={userInfo.pronouns} 
+            onChange={handleInput} 
+            required 
+          /> : ` ${userInfo.pronouns}` }
+        </p>
         <p className="s-text-body"> Cohort  
           {!!isEditingProfile ? 
           <input 
@@ -138,6 +111,7 @@ const UserProfile = ({ user }) => {
             className="cohort-input"
             maxLength="4" 
             placeholder={userInfo.cohort} 
+            name="cohort"
             value={userInfo.cohort} 
             onChange={handleInput} 
             required 
@@ -160,6 +134,7 @@ const UserProfile = ({ user }) => {
               type="text" 
               className="input" 
               placeholder={userInfo.slackHandle} 
+              name="slackHandle"
               value={userInfo.slackHandle}  
               onChange={handleInput}
               required
@@ -171,14 +146,14 @@ const UserProfile = ({ user }) => {
         {!!isEditingProfile ? 
           <select 
             className="drop-down s-content s-text-body" 
-            name="working-style" 
+            name="workingStyles" 
             id="workingStyle" 
-            value={userInfo.workingStyle} 
+            value={userInfo.workingStyles} 
             onChange={handleInput}>
           <option value="Mostly Driver-Navigator">Mostly Driver-Navigator</option>
           <option value="Even Mix">Even Mix</option>
           <option value="Mostly Solo">Mostly Solo</option>
-        </select> : <p className="s-text-body"> {userInfo.workingStyle} </p> }
+        </select> : <p className="s-text-body"> {userInfo.workingStyles} </p> }
         <button className="edit-button s-button" onClick={editProfile}>
         {!!isEditingProfile ? 
           "Save Profile" : "Edit Profile" } 
