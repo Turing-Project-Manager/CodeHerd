@@ -1,4 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import './ProjectResources.css'
+
+import plus from '../../assets/plus.png'
 
 const initialState = {
   content: '',
@@ -12,6 +16,15 @@ const ProjectResources = () => {
 
   const [newResource, setNewResource] = useState(initialState)
   const [resources, setResources] = useState([])
+  const [showAddResource, setShowAddResource] = useState(false)
+
+  const showResourceForm = () => {
+    setShowAddResource(true)
+  }
+
+  const closeResourceForm = () => {
+    setShowAddResource(false)
+  }
 
   const handleResourceInput = (e) => {
     const { name, value } = e.target;
@@ -41,6 +54,11 @@ const ProjectResources = () => {
   return(
     <section className='project-resources'>
       <article className='s-h3 s-shadow-md resources-to-display'>
+       <div className='add-resource-btn-text'>
+          <button className='s-button-secondary s-border-radius-2 add-resource-btn'onClick={showResourceForm}>
+            <img className='plus' src={plus} alt='plus sign' /></button>
+          <h4>Add Resource</h4>
+        </div>
         <h3 className='s-text-center s-m-3'>Project resources</h3>
         {!resources.length ?
           <p className='s-font-lg s-text-center .s-m-3'>No project resources yet! Click below to add one.</p> :
