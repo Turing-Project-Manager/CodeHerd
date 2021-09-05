@@ -16,7 +16,6 @@ const initialState = {
 const NewProject = ({user, showForm, closeProjectForm}) => {
 
   let currentUser = 2
-  console.log('user in new project', user)
 
   const [project, setProject] = useState(initialState)
   const [createProjectInput, { data, loading, error }] = useMutation(CREATE_PROJECT , {
@@ -28,7 +27,6 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
   })
 
 
-  console.log('project', data)
 
   if ( qData ) {
     // console.log('data from mutation new project', qData)

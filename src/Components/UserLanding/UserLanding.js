@@ -36,11 +36,8 @@ const UserLanding = ({query}) => {
     const allProjects = useQuery(GET_ALL_USER_PROJECTS, {
       variables: { userId: id }
     })
-
-    console.log('allProjects', allProjects)
     
     useEffect(() => {
-      
       
       if(!!error) {
         console.log(error)
@@ -59,10 +56,7 @@ const UserLanding = ({query}) => {
         
     }, [data, loading, allProjects]);
     
-    
-    // console.log('qData from UserLanding', qData)
-    console.log('id', id)
-    console.log('projects', projects)
+  
 
     
 

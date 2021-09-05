@@ -4,9 +4,6 @@ import './Project.css'
 
 const Project = ({projects, viewingModNumber}) => {
 
-
-
-
   const projectsByCurrentMod = () => projects.filter(project => project.modNumber === viewingModNumber).map(currentProject => {
     return (
       <article className="s-card s-card-profile" key={currentProject.id}>
