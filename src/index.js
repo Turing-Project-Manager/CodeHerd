@@ -31,6 +31,21 @@ export const GET_USER = gql `
     }
   }
 `
+export const GET_ALL_USER_PROJECTS = gql`
+  query usersProjects($userId: ID!) {
+    userProjects($userId: ID!) {
+      collaborators 
+      id
+      modNumber
+      name
+      owner 
+      projectRepo
+      resources
+      summary
+    }
+  }
+`
+
 export const EDIT_USER_INPUT = gql `
   mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: [String!], $cohort: String, $pronouns: String ) {
     editUser(input: {

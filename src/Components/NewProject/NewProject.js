@@ -19,7 +19,9 @@ const initialState = {
 const NewProject = ({user, showForm, closeProjectForm}) => {
 
   const [project, setProject] = useState(initialState)
-  // const [createProjectInput, { data, loading, error }] = useMutation(CREATE_NEW_PROJECT)
+  const [createProjectInput, { data, loading, error }] = useMutation(CREATE_NEW_PROJECT , {
+    refetchQueries: [CREATE_NEW_PROJECT]
+  })
   const { title, description, module} = project
 
 
@@ -33,19 +35,31 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
   }
 
   const submitProject = () => {
-    // if (!!error) {
-    //   console.log(error)
-    // }
-    // createProjectInput({
-    //   variables: {
-    //     input: {
-    //       name: title,
-    //       summary: description, 
-    //       modNumber: module, 
-    //       ownerId: user.id
-    //     }
-    //   }
-    // })
+    if (!!error) {
+      console.log(error)
+    }
+    createProjectInput({
+      variables: {
+        input: {
+          name: title,
+          summary: description, 
+          modNumber: module, 
+          ownerId: user.id
+        }
+      }
+    })
+  }
+
+  if ( data ) {
+    console.log('data from mutation new project', data)
+  }
+
+  if ( error ) {
+    console.log('new project error', error);
+  }
+
+  if ( loading) {
+    console.log("One monument please. New Project Loading: ", loading)
   }
 
 
