@@ -49,6 +49,40 @@ const ProjectResources = () => {
           </div>
         }
       </article>
+
+      {showAddResource && 
+        <form className='s-shadow-md add-resource-form'>
+          <button className='s-button-secondary close-btn' onClick={closeResourceForm}>X</button>
+          <input
+            className='text-input'
+            type='text'
+            placeholder='Resource Name'
+            name='name'
+            value={newResource.name}
+            onChange={handleResourceInput}
+          />
+
+          <input
+            className='text-input'
+            type='text'
+            placeholder='Resource URL'
+            name='content'
+            value={newResource.content}
+            onChange={handleResourceInput}
+          />  
+
+          <input
+            className='text-input'
+            type='text'
+            placeholder='Resource Type (??)'
+            name='resourceType'
+            value={newResource.resourceType}
+            onChange={handleResourceInput}
+          />  
+
+            <button className='s-button btn' onClick={submitResource}>Add Resource!</button>
+        </form>
+      }
       
       
     </section>
