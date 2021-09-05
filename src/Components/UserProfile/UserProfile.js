@@ -76,7 +76,6 @@ const UserProfile = ({ user }) => {
     setUserInfo((prevState) => ({ ...prevState, [name]: value.trim() }));
   }
 
-
   return (
       <section className="profile-container">
         <img src={user.url} className="profile-pic" alt="imported from Github profile"/>
