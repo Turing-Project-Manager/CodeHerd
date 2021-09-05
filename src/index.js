@@ -33,15 +33,22 @@ export const GET_USER = gql `
 `
 export const GET_ALL_USER_PROJECTS = gql`
   query usersProjects($userId: ID!) {
-    userProjects($userId: ID!) {
-      collaborators 
-      id
-      modNumber
-      name
-      owner 
-      projectRepo
-      resources
-      summary
+    usersProjects(userId: $userId) {
+        collaborators {
+            user {
+                name
+            }
+        }
+        id
+        modNumber
+        name
+        owner {
+            name
+        }
+        resources {
+            name
+        }
+        summary
     }
   }
 `
@@ -71,16 +78,38 @@ export const EDIT_USER_INPUT = gql `
 }
 `
 
-export const CREATE_NEW_PROJECT = gql`
-  mutation creatNewProject($input: CreateNewProject) {
-    createNewProject(input: $input) {
-      name
-      summary
-      modNumber
-      ownerId
+
+export const CREATE_PROJECT = gql `
+  mutation ($name: String!, $summary: String!, $modNumber: String!, $ownerId: ID! ) {
+    createProject (input: {
+      name: $name,
+      summary: $summary,
+      modNumber: $modNumber,
+      ownerId: $ownerId
+    }) {
+      project {
+        collaborators {
+            user {
+                name
+            }
+        }
+        id
+        modNumber
+        name
+        owner {
+            name
+        }
+        resources {
+            name
+        }
+        summary
     }
+    errors
   }
-` 
+
+}
+`
+
 
 ReactDOM.render(
   <ApolloProvider client={client}>

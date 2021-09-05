@@ -15,9 +15,16 @@ import NewProject from '../NewProject/NewProject';
 
 
 const UserLanding = ({query}) => {
-
-  let currentUser = JSON.parse(query.info)
-  let id = currentUser.id
+  let id;
+  if (query.info) {
+    let currentUser = JSON.parse(query.info)
+    id = currentUser.id
+    localStorage.setItem('userId', id )
+  } else if (localStorage.getItem('userId')) {
+    id = localStorage.getItem('userId');
+  } else {
+    console.error("No user is logged in")
+  }
 
     const [user, setUser] = useState({});
     const [showForm, setShowForm] = useState(false)
@@ -28,6 +35,7 @@ const UserLanding = ({query}) => {
     })
 
     useEffect(() => {
+      
       if(!!error) {
         console.log(error)
       }
@@ -38,6 +46,8 @@ const UserLanding = ({query}) => {
       }
       // setProjects(mockProjects.projects)
     }, [data, loading]);
+
+  
     
 
     const showProjectForm = () => {
@@ -61,7 +71,7 @@ const UserLanding = ({query}) => {
         />
         {/* <Landing />  */}
     
-        <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/>
+        {!!user ? <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/> : 'Loading'}
       </section>
     </>
   )

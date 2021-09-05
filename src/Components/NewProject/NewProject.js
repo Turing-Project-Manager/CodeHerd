@@ -1,16 +1,13 @@
 import React, { useReducer, useEffect, useState } from 'react';
-import { useMutation } from '@apollo/client';
-
-import PropTypes from 'prop-types'
-
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_ALL_USER_PROJECTS, CREATE_PROJECT } from '../..';
+import PropTypes from 'prop-types';
 import './NewProject.css'
-import { CREATE_NEW_PROJECT } from '../..';
-import { mod } from 'prelude-ls';
 
 const initialState = {
   title: '',
   description: '',
-  module: '',
+  module: "1",
   collaborators: [],
   projectManager: ''
 }
@@ -18,11 +15,32 @@ const initialState = {
 
 const NewProject = ({user, showForm, closeProjectForm}) => {
 
+  let currentUser = 2
+  console.log('user in new project', user)
+
   const [project, setProject] = useState(initialState)
-  const [createProjectInput, { data, loading, error }] = useMutation(CREATE_NEW_PROJECT , {
-    refetchQueries: [CREATE_NEW_PROJECT]
+  const [createProjectInput, { data, loading, error }] = useMutation(CREATE_PROJECT , {
+    refetchQueries: [GET_ALL_USER_PROJECTS]
   })
   const { title, description, module} = project
+  const { qData, qLoading, qError } = useQuery(GET_ALL_USER_PROJECTS, {
+    variables: { currentUser }
+  })
+
+
+  console.log('project', project)
+
+  if ( qData ) {
+    console.log('data from mutation new project', qData)
+  }
+
+  if ( qError ) {
+    console.log('new project error', qError);
+  }
+
+  if ( qLoading) {
+    console.log("One monument please. New Project Loading: ", qLoading)
+  }
 
 
   const handleInput = (e) => {
@@ -34,19 +52,20 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
     closeProjectForm();
   }
 
-  const submitProject = () => {
+
+
+  const submitProject = (event) => {
+    event.preventDefault()
     if (!!error) {
       console.log(error)
     }
     createProjectInput({
       variables: {
-        input: {
-          name: title,
-          summary: description, 
-          modNumber: module, 
-          ownerId: user.id
+          name: project.title, 
+          modNumber: String(project.module),
+          summary: project.description,
+          ownerId: localStorage.getItem('userId') 
         }
-      }
     })
   }
 
