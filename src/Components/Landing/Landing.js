@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Landing.css';
 import topImage  from '../../assets/user-landing-group-at-computers.svg';
 import createProject from '../../assets/create-project.svg';
@@ -13,8 +12,8 @@ const Landing = () => {
       <div className="top-image-container">
         <section className="text-box"> 
           <h1 className="s-h1">CodeHerd</h1>
-          <p className="app-description s-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero,<br/>
-          nec semper libero sagittis id. </p>
+          <p className="app-description s-text-body"> Search Less, Code More<br/>
+          </p>
           {/* <button className="continue-with-github s-text-body">Continue with Github
           </button> */}
         </section>
@@ -29,12 +28,12 @@ const Landing = () => {
         </section>
       </div>
       <div className="button-container"> 
-      <Link to='/userLanding'>
+      {/* <Link to='/userLanding'> */}
         <a href="https://codeherdapi.herokuapp.com/auth/github">
           <button className="continue-with-github s-text-body">Continue with Github
           </button>
         </a>
-      </Link>
+      {/* </Link> */}
       </div>
       <div className="links-container"> 
         <section className="link"> 
@@ -42,21 +41,21 @@ const Landing = () => {
           <h2 className="s-h2">CREATE A PROJECT</h2>
           <div className="mini-border blue"> 
           </div>
-          <p className="link-description s-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero, nec semper libero sagittis id. </p>
+          <p className="link-description s-text-body"> Link your Github Repository. Add project resources and critical documents. View open issues and pull requests. </p>
         </section>
         <section className="link"> 
           <img src={addCollaborators} alt="add project collaborators" className="add-collaborators"  />
           <h2 className="s-h2"> ADD YOUR TEAM </h2>
           <div className="mini-border yellow extra-top-margin"> 
           </div>
-          <p className="link-description s-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero, nec semper libero sagittis id. </p>
+          <p className="link-description s-text-body"> Invite your team to view project resources. </p>
         </section>
         <section className="link"> 
           <img src={folder} alt="keep everything for your project in one place" className="folder" />
           <h2 className="s-h2">EVERYTHING <br/>
           IN ONE PLACE </h2>
           <div className="mini-border red"></div> 
-          <p className="link-description s-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacinia dui libero, nec semper libero sagittis id. </p>    
+          <p className="link-description s-text-body"> Codeherd keeps everything for your project in one place. Spend less looking for what you need and more time coding. </p>    
         </section>
       </div>
     </section>

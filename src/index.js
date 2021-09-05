@@ -3,13 +3,78 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './Components/App/App';
 import reportWebVitals from './reportWebVitals';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql, 
+  useMutation
+} from "@apollo/client";
+
+const client = new ApolloClient({
+  uri: 'https://codeherdapi.herokuapp.com/graphql',
+  cache: new InMemoryCache()
+});
+
+export const GET_USER = gql `
+  query user($id: ID!){
+    user (id: $id) {
+      cohort
+      email
+      githubHandle
+      id
+      name
+      pronouns
+      slackHandle
+      workingStyles
+    }
+  }
+`
+export const EDIT_USER_INPUT = gql `
+  mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: [String!], $cohort: String, $pronouns: String ) {
+    editUser(input: {
+      userId: $userId,
+      name: $name,
+      slackHandle: $slackHandle,
+      workingStyles: $workingStyles, 
+      cohort: $cohort, 
+      pronouns: $pronouns
+    }) {
+      user {
+        cohort
+        email
+        githubHandle
+        id
+        name
+        pronouns
+        slackHandle
+        workingStyles
+    }
+  }
+
+}
+`
+
+export const CREATE_NEW_PROJECT = gql`
+  mutation creatNewProject($input: CreateNewProject) {
+    createNewProject(input: $input) {
+      name
+      summary
+      modNumber
+      ownerId
+    }
+  }
+` 
 
 ReactDOM.render(
-  <BrowserRouter>
-    {/* <React.StrictMode> */}
-      <App />
-    {/* </React.StrictMode> */}
-  </BrowserRouter>,
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

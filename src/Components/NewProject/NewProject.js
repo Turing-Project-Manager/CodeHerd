@@ -1,8 +1,11 @@
 import React, { useReducer, useEffect, useState } from 'react';
+import { useMutation } from '@apollo/client';
 
 import PropTypes from 'prop-types'
 
 import './NewProject.css'
+import { CREATE_NEW_PROJECT } from '../..';
+import { mod } from 'prelude-ls';
 
 const initialState = {
   title: '',
@@ -13,9 +16,12 @@ const initialState = {
 }
 
 
-const NewProject = ({showForm, closeProjectForm}) => {
+const NewProject = ({user, showForm, closeProjectForm}) => {
 
   const [project, setProject] = useState(initialState)
+  // const [createProjectInput, { data, loading, error }] = useMutation(CREATE_NEW_PROJECT)
+  const { title, description, module} = project
+
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -26,7 +32,22 @@ const NewProject = ({showForm, closeProjectForm}) => {
     closeProjectForm();
   }
 
-  const { title, description, module, collaborators, projectManager } = project
+  const submitProject = () => {
+    // if (!!error) {
+    //   console.log(error)
+    // }
+    // createProjectInput({
+    //   variables: {
+    //     input: {
+    //       name: title,
+    //       summary: description, 
+    //       modNumber: module, 
+    //       ownerId: user.id
+    //     }
+    //   }
+    // })
+  }
+
 
   return(
       <>
@@ -61,7 +82,7 @@ const NewProject = ({showForm, closeProjectForm}) => {
             </select>  
           </label>
 
-          <button className='s-button btn'>Create Project!</button>
+          <button className='s-button btn' onClick={submitProject}>Create Project!</button>
         </form>
         }
       </>
