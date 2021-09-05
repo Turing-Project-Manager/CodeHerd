@@ -1,4 +1,4 @@
-# Description
+## Description
 
 Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
 
@@ -10,14 +10,14 @@ Please include a summary of the change and which issue is fixed. Please also inc
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Refactoring
 
-# How Has This Been Tested?
+## How Has This Been Tested?
 
 - [ ] open localHost
 - [ ] Cypress
 - [ ] dev tools
 - [ ] React Server
 
-# Checklist:
+## Checklist:
 
 - [ ] My code follows the Turing’s guidelines of this project
 - [ ] I have performed a self-review of my own code
