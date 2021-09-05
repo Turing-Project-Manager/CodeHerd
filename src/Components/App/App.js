@@ -4,7 +4,7 @@ import queryString from 'query-string'
 import Landing from '../Landing/Landing';
 import UserLanding from '../UserLanding/UserLanding';
 import './App.css';
-// import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
+import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
 // import { useQuery } from '@apollo/client';
 // import { GET_USER } from '../..';
 // import Nav from '../Nav/Nav';
@@ -21,17 +21,13 @@ const App = () => {
 
   return (
     <section className="app">
-      <Switch>
+      {/* <Switch>
         <Route exact path='/' component={Landing} />
-        {/* <Route exact path='/userLanding' component={Landing} /> */}
-
         <Route path='/:githubName' render={({match}) => {
         return <UserLanding query={values}/>}} 
         />
-
-   
-      </Switch>
-      {/* <ProjectDashboard /> */}
+      </Switch> */}
+      <ProjectDashboard />
     </section>
   )
 };
