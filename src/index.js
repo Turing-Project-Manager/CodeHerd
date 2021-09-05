@@ -32,16 +32,28 @@ export const GET_USER = gql `
   }
 `
 export const EDIT_USER_INPUT = gql `
-  mutation editUserInput($input: EditUserInput) {
-    editUserInput(input: $input) {
-      userId
-      name
-      slackHandle
-      workingStyles
-      cohort
-      pronouns
+  mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: [String!], $cohort: String, $pronouns: String ) {
+    editUser(input: {
+      userId: $userId,
+      name: $name,
+      slackHandle: $slackHandle,
+      workingStyles: $workingStyles, 
+      cohort: $cohort, 
+      pronouns: $pronouns
+    }) {
+      user {
+        cohort
+        email
+        githubHandle
+        id
+        name
+        pronouns
+        slackHandle
+        workingStyles
     }
   }
+
+}
 `
 
 export const CREATE_NEW_PROJECT = gql`

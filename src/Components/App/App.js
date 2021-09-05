@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import queryString from 'query-string'
-import { GET_USER } from '../..';
-import { useQuery } from '@apollo/client';
-import Nav from '../Nav/Nav';
 import Landing from '../Landing/Landing';
 import UserLanding from '../UserLanding/UserLanding';
-import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
 import './App.css';
+// import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
+// import { useQuery } from '@apollo/client';
+// import { GET_USER } from '../..';
+// import Nav from '../Nav/Nav';
+// import NewProject from '../NewProject/NewProject';
 
-import NewProject from '../NewProject/NewProject';
 import './App.css'
 
 const App = () => {
@@ -26,7 +26,6 @@ const App = () => {
         {/* <Route exact path='/userLanding' component={Landing} /> */}
 
         <Route path='/:githubName' render={({match}) => {
-          console.log(match)
         return <UserLanding query={values}/>}} 
         />
 

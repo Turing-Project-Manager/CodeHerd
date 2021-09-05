@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Landing.css';
 import topImage  from '../../assets/user-landing-group-at-computers.svg';
 import createProject from '../../assets/create-project.svg';

@@ -3,23 +3,21 @@ import { GET_USER } from '../..';
 import { useQuery } from '@apollo/client';
 import Nav from '../Nav/Nav';
 import ProjectList from '../ProjectList/ProjectList';
-import Landing from '../Landing/Landing';
+// import Landing from '../Landing/Landing';
 //import Project from '../Project/Project';
 import UserProfile from '../UserProfile/UserProfile'
 import './UserLanding.css'
-import mockUsers from '../../mockData/mockUser.json';
+// import mockUsers from '../../mockData/mockUser.json';
 import NewProject from '../NewProject/NewProject';
-import mockProjects from '../../mockData/mockProjects.json';
+// import mockProjects from '../../mockData/mockProjects.json';
 
 
 
 
 const UserLanding = ({query}) => {
-  console.log(query)
 
   let currentUser = JSON.parse(query.info)
   let id = currentUser.id
-  // console.log({currentUser})
 
     const [user, setUser] = useState({});
     const [showForm, setShowForm] = useState(false)
@@ -30,7 +28,6 @@ const UserLanding = ({query}) => {
     })
 
     useEffect(() => {
-      console.log(data)
       if(!!error) {
         console.log(error)
       }
