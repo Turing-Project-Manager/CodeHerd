@@ -23,3 +23,7 @@
   height: 2em;
 }
 
+.project-dashboard{
+  overflow-y: scroll;
+}
+

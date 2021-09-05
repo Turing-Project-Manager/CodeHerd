@@ -26,6 +26,8 @@ const App = () => {
         <Route path='/:githubName' render={({match}) => {
         return <UserLanding query={values}/>}} 
         />
+
+   
       </Switch>
       {/* <ProjectDashboard /> */}
     </section>
