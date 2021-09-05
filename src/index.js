@@ -32,8 +32,8 @@ export const GET_USER = gql `
   }
 `
 export const EDIT_USER_INPUT = gql `
-  mutation editUser($input: EditUserInput) {
-    editUser(input: $input) {
+  mutation editUserInput($input: EditUserInput) {
+    editUserInput(input: $input) {
       userId
       name
       slackHandle

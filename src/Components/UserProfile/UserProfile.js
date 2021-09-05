@@ -44,18 +44,18 @@ const UserProfile = ({ user }) => {
     if (!isEditingProfile) {
       setEditingProfile(true)
     } else {
-      // editUserInput({
-      //   variables: {
-      //     input: {
-      //       userId: 2,
-      //       githubHandle: userInfo.githubHandle,
-      //       name: userInfo.name,
-      //       slackHandle: userInfo.slackHandle,
-      //       workingStyles: userInfo.workingStyle,
-      //       cohort: userInfo.cohort
-      //     }
-      //   }
-      // })
+      editUserInput({
+        variables: {
+          input: {
+            userId: 2,
+            githubHandle: userInfo.githubHandle,
+            name: userInfo.name,
+            slackHandle: userInfo.slackHandle,
+            workingStyles: userInfo.workingStyle,
+            cohort: userInfo.cohort
+          }
+        }
+      })
       setEditingProfile(false)
     }
   }
