@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { GET_USER } from '../..';
+import { GET_USER, GET_ALL_USER_PROJECTS } from '../..';
 import { useQuery } from '@apollo/client';
 import Nav from '../Nav/Nav';
 import ProjectList from '../ProjectList/ProjectList';
@@ -15,9 +15,16 @@ import NewProject from '../NewProject/NewProject';
 
 
 const UserLanding = ({query}) => {
-
-  let currentUser = JSON.parse(query.info)
-  let id = currentUser.id
+  let id;
+  if (query.info) {
+    let currentUser = JSON.parse(query.info)
+    id = currentUser.id
+    localStorage.setItem('userId', id )
+  } else if (localStorage.getItem('userId')) {
+    id = localStorage.getItem('userId');
+  } else {
+    console.error("No user is logged in")
+  }
 
     const [user, setUser] = useState({});
     const [showForm, setShowForm] = useState(false)
@@ -26,18 +33,31 @@ const UserLanding = ({query}) => {
     const { data, loading, error } = useQuery(GET_USER, {
       variables: { id }
     })
-
+    const allProjects = useQuery(GET_ALL_USER_PROJECTS, {
+      variables: { userId: id }
+    })
+    
     useEffect(() => {
+      
       if(!!error) {
         console.log(error)
       }
-
+      
       if(!loading && data) {
-
+        
         setUser(data.user)
       }
-      // setProjects(mockProjects.projects)
-    }, [data, loading]);
+      
+      if (!allProjects.loading && allProjects.data) {
+        
+        setProjects(allProjects.data.usersProjects)
+      }
+
+        
+    }, [data, loading, allProjects]);
+    
+  
+
     
 
     const showProjectForm = () => {
@@ -55,13 +75,14 @@ const UserLanding = ({query}) => {
         {/* <button className='s-button-primary new-proj-btn' onClick={showProjectForm}>New Project</button>
         <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/> */}
         <UserProfile user={user} query={query} />
+        {!!projects ? 
         <ProjectList 
           projects={projects} 
           user={user}
-        />
+        /> : 'Loading' }
         {/* <Landing />  */}
     
-        <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/>
+        {!!user ? <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/> : 'Loading'}
       </section>
     </>
   )

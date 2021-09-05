@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './Components/App/App';
-import reportWebVitals from './reportWebVitals';
 import {
   ApolloClient,
   InMemoryCache,
@@ -31,6 +30,28 @@ export const GET_USER = gql `
     }
   }
 `
+export const GET_ALL_USER_PROJECTS = gql`
+  query usersProjects($userId: ID!) {
+    usersProjects(userId: $userId) {
+        collaborators {
+            user {
+                name
+            }
+        }
+        id
+        modNumber
+        name
+        owner {
+            name
+        }
+        resources {
+            name
+        }
+        summary
+    }
+  }
+`
+
 export const EDIT_USER_INPUT = gql `
   mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: [String!], $cohort: String, $pronouns: String ) {
     editUser(input: {
@@ -56,16 +77,38 @@ export const EDIT_USER_INPUT = gql `
 }
 `
 
-export const CREATE_NEW_PROJECT = gql`
-  mutation creatNewProject($input: CreateNewProject) {
-    createNewProject(input: $input) {
-      name
-      summary
-      modNumber
-      ownerId
+
+export const CREATE_PROJECT = gql `
+  mutation ($name: String!, $summary: String!, $modNumber: String!, $ownerId: ID! ) {
+    createProject (input: {
+      name: $name,
+      summary: $summary,
+      modNumber: $modNumber,
+      ownerId: $ownerId
+    }) {
+      project {
+        collaborators {
+            user {
+                name
+            }
+        }
+        id
+        modNumber
+        name
+        owner {
+            name
+        }
+        resources {
+            name
+        }
+        summary
     }
+    errors
   }
-` 
+
+}
+`
+
 
 ReactDOM.render(
   <ApolloProvider client={client}>
@@ -81,4 +124,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//reportWebVitals();
