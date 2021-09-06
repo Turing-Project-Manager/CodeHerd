@@ -1,5 +1,6 @@
 import React, {useReducer, useState} from 'react'
 
+import plus from '../../assets/plus.png'
 import './ProjectLinks.css'
 
 const initialState = {
@@ -8,10 +9,12 @@ const initialState = {
 }
 
 
-const ProjectLinks = ({showAddLink, closeLinkForm}) => {
+const ProjectLinks = () => {
 
   const [newLink, setNewLink] = useState(initialState)
   const [links, setLinks] = useState([])
+  const [showAddLink, setShowAddLink] = useState(false)
+
 
   const handleLinkInput = (e) => {
     const { name, value } = e.target;
@@ -38,12 +41,24 @@ const ProjectLinks = ({showAddLink, closeLinkForm}) => {
     setNewLink({...initialState})
   }
 
+  const showLinkForm = () => {
+    setShowAddLink(true)
+  }
+
+  const closeLinkForm = () => {
+    setShowAddLink(false)
+  }
+
   return(
     <section className='project-links'>
       <article className='s-h3 s-shadow-md links-to-display'>
-        <h3 className='s-text-center s-m-3'>Project Links</h3>
+        <div className='add-link-btn-text'>
+            <button className='s-button-secondary s-border-radius-2 add-link-btn'onClick={showLinkForm}>
+              <img className='plus' src={plus} alt='plus sign' /></button>
+          </div>
+        <h3 className='s-text-center s-m-3 resource-h3'>Project Links</h3>
         {!links.length ?
-          <p className='s-font-lg s-text-center .s-m-3'>No project links yet! Click below to add one.</p> :
+          <p className='s-font-lg s-text-center .s-m-3 no-text'>No project links yet! Click above to add one.</p> :
           <div className='link-names'>
             {linksToDisplay}
           </div>
