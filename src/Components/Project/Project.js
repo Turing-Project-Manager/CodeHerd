@@ -7,7 +7,6 @@ import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
 const Project = ({ project, user }) => {
 
     const githubHandle = user.githubHandle;
-    console.log('user in project', user)
 
   const handleViewProjectClick = () => {
 

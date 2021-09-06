@@ -10,7 +10,6 @@ const ProjectList = ({ user, projects }) => {
     setViewingModNumber(event.target.value)
   } 
 
-  console.log('projects in ProjectList', projects)
 
 
   const projectsByCurrentMod = () => projects.filter(project => project.modNumber === viewingModNumber).map(currentProject => {

@@ -30,6 +30,22 @@ export const GET_USER = gql `
     }
   }
 `
+
+export const GET_PROJECT = gql`
+  query project($id: ID!) {
+    project(id: $id) {
+      collaborators
+      id
+      modNumber
+      name
+      owner
+      projectRepo
+      resources
+      summary
+    }
+  }
+`
+
 export const GET_ALL_USER_PROJECTS = gql`
   query usersProjects($userId: ID!) {
     usersProjects(userId: $userId) {
