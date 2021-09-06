@@ -108,7 +108,25 @@ export const CREATE_RESOURCE = gql`
 
 
 `
-
+export const CREATE_COLLABORATOR = gql `
+  mutation ($userId: ID!, $email: String!, projectId: ID!) {
+    createUser (input: {
+      userId: $userId,
+      email: $email,
+      projectId: $projectId,
+    }) {
+      collaborator {
+        id
+        project {
+          name
+        }
+        user {
+          name
+        }
+      }
+    }
+  }
+`
 
 export const EDIT_USER_INPUT = gql `
   mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: [String!], $cohort: String, $pronouns: String ) {
