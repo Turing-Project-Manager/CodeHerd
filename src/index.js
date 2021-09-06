@@ -34,13 +34,23 @@ export const GET_USER = gql `
 export const GET_PROJECT = gql`
   query project($id: ID!) {
     project(id: $id) {
-      collaborators
+      collaborators{
+        user {
+          name
+          image
+          githubHandle
+        }
+      }
       id
       modNumber
       name
-      owner
-      projectRepo
-      resources
+      owner {
+        name
+        id
+      }
+      resources {
+        content
+      }
       summary
     }
   }
@@ -128,10 +138,18 @@ export const CREATE_COLLABORATOR = gql `
       collaborator {
         id
         project {
-          name
+          collaborators {
+            user {
+              name
+              image
+              githubHandle
+            }
+          }
         }
         user {
           name
+          id
+          image
         }
       }
     }
