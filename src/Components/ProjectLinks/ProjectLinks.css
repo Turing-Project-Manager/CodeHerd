@@ -1,3 +1,15 @@
+.add-link-btn-text{
+  display: flex;
+  align-items: center;
+  font-size: 2.5vw;
+  justify-content: flex-end;
+}
+
+.add-link-btn{
+  width: 3em;
+  margin: 1em;
+}
+
 .add-link-form{
   border: 2px solid #6d6e71;
   height: 30vh;
@@ -41,3 +53,4 @@
   font-size: x-large;
   margin: 0.3em;
 }
+

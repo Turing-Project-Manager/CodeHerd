@@ -57,11 +57,10 @@ const ProjectResources = () => {
        <div className='add-resource-btn-text'>
           <button className='s-button-secondary s-border-radius-2 add-resource-btn'onClick={showResourceForm}>
             <img className='plus' src={plus} alt='plus sign' /></button>
-          <h4>Add Resource</h4>
         </div>
-        <h3 className='s-text-center s-m-3'>Project resources</h3>
+        <h3 className='s-text-center s-m-3 resource-h3'>Project resources</h3>
         {!resources.length ?
-          <p className='s-font-lg s-text-center .s-m-3'>No project resources yet! Click below to add one.</p> :
+          <p className='s-font-lg s-text-center .s-m-3 no-text'>No project resources yet! Click above to add one.</p> :
           <div className='resource-names'>
             {resourcesToDisplay}
           </div>

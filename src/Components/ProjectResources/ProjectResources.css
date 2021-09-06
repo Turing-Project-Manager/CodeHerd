@@ -31,9 +31,18 @@
   font-size: larger;
   align-items: center;
   font-size: 2.5vw;
+  justify-content: flex-end;
 }
 
 .add-resource-btn{
   width: 3em;
-  margin: 0 1em 0 1em;
-}
+  margin: 1em;
+ }
+
+ .no-text{
+   margin: 0 1em 1em 1em;
+ }
+
+ .resource-h3{
+   margin: 1em 1em 0 1em;
+ }
