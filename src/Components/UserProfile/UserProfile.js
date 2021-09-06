@@ -48,7 +48,7 @@ const UserProfile = ({ user }) => {
   
   useEffect(() => {
     setUserInfo(user)
-    // console.log({user})
+    console.log({user})
   }, [user]);
   
   

@@ -46,27 +46,62 @@ export const GET_PROJECT = gql`
   }
 `
 
+
 export const GET_ALL_USER_PROJECTS = gql`
-  query usersProjects($userId: ID!) {
-    usersProjects(userId: $userId) {
-        collaborators {
-            user {
-                name
-            }
-        }
+query usersProjects($userId: ID!) {
+  usersProjects(userId: $userId) {
+    collaborators {
+      user {
+        name
+      }
+    }
+    id
+    modNumber
+    name
+    owner {
+      name
+    }
+    resources {
+      name
+    }
+    summary
+  }
+}
+`
+
+export const CREATE_RESOURCE = gql`
+  mutation ( $userId: ID!, $name: String!, $projectId: ID!, $resourceType: String!, $content: String!, $tags: [String!] ) {
+    CreateResource(input: {
+      userId: $userId, 
+      name: $name, 
+      projectId: $projectId, 
+      resourceType: $resourceType, 
+      content: $content, 
+      tags: $tags
+    }) {
+    resource {
+      content
+      id
+      name
+      project {
+        collaborators
         id
         modNumber
         name
-        owner {
-            name
-        }
-        resources {
-            name
-        }
+        owner
+        projectRepo
+        resources
         summary
+      }
+      resourceType
+      tags
     }
   }
+}
+
+
 `
+
 
 export const EDIT_USER_INPUT = gql `
   mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: [String!], $cohort: String, $pronouns: String ) {
