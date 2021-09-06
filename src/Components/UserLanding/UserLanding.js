@@ -3,9 +3,12 @@ import { GET_USER, GET_ALL_USER_PROJECTS } from '../..';
 import { useQuery } from '@apollo/client';
 import Nav from '../Nav/Nav';
 import ProjectList from '../ProjectList/ProjectList';
+import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
+import Project from '../Project/Project';
 // import Landing from '../Landing/Landing';
 //import Project from '../Project/Project';
 import UserProfile from '../UserProfile/UserProfile'
+import { Route, Switch } from 'react-router-dom';
 import './UserLanding.css'
 // import mockUsers from '../../mockData/mockUser.json';
 import NewProject from '../NewProject/NewProject';
@@ -51,6 +54,8 @@ const UserLanding = ({query}) => {
       if (!allProjects.loading && allProjects.data) {
         
         setProjects(allProjects.data.usersProjects)
+        const stringifyProjects = JSON.stringify(allProjects.data.usersProjects);
+        localStorage.setItem('allProjects', stringifyProjects);
       }
 
         
@@ -77,12 +82,18 @@ const UserLanding = ({query}) => {
         <UserProfile user={user} query={query} />
         {!!projects ? 
         <ProjectList 
-          projects={projects} 
-          user={user}
+        projects={projects} 
+        user={user}
         /> : 'Loading' }
         {/* <Landing />  */}
     
         {!!user ? <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/> : 'Loading'}
+        {/* <Switch>
+          <Route exact path='/:githubName/:projectId' render={({match}) => {
+            const selectedProject = projects.find(currentProject => currentProject.id === parseInt(match.params.id))
+            return <ProjectDashboard project={selectedProject}/>}} 
+            />
+        </Switch> */}
       </section>
     </>
   )

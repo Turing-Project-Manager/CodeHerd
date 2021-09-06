@@ -3,15 +3,13 @@ import './ProjectList.css';
 import Project from '../Project/Project';
 
 
-
-const ProjectList = ({ projects }) => {
+const ProjectList = ({ user, projects }) => {
   const [viewingModNumber, setViewingModNumber] = useState("1")
   
   const filterByMod = (event) => {
     setViewingModNumber(event.target.value)
   } 
 
-  console.log('projects in ProjectList', projects)
 
 
   const projectsByCurrentMod = () => projects.filter(project => project.modNumber === viewingModNumber).map(currentProject => {
@@ -19,6 +17,7 @@ const ProjectList = ({ projects }) => {
       <article key={currentProject.id}>
         <Project 
             project={currentProject}
+            user={user}
 
         />
       </article>

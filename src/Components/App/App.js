@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import queryString from 'query-string'
 import Landing from '../Landing/Landing';
@@ -13,23 +13,27 @@ import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
 import './App.css'
 
 const App = () => {
-  
   const { search } = useLocation();
-  
   const values = queryString.parse(search, {arrayFormat: 'bracket'});
+  
 
+  
 
   return (
     <section className="app">
-      {/* <Switch>
+      <Switch>
         <Route exact path='/' component={Landing} />
-        <Route path='/:githubName' render={({match}) => {
-        return <UserLanding query={values}/>}} 
-        />
-
-   
-      </Switch> */}
-      <ProjectDashboard />
+        <Route exact path='/:githubName' render={({match}) => {
+          return <UserLanding query={values}/>}} 
+          />
+        <Route exact path='/:githubName/:projectId' render={({match}) => {
+          const selectedProject = JSON.parse((localStorage.getItem('allProjects'))).find
+          (currentProject => {
+            return currentProject.id === match.params.projectId
+          })
+          return !!selectedProject && <ProjectDashboard project={selectedProject}/>}}
+          />
+      </Switch>
     </section>
   )
 };

@@ -5,6 +5,9 @@ import slackIcon from '../../assets/slack-logo.png';
 import { GET_USER, EDIT_USER_INPUT } from '../..';
 import { useMutation } from '@apollo/client';
 import './UserProfile.css';
+import { useLocation } from 'react-router-dom'
+import queryString from 'query-string'
+
 
 // const initialState = {
 //   cohort: '',
@@ -18,12 +21,17 @@ import './UserProfile.css';
 // }
 
 
-const UserProfile = ({ user }) => {
+const UserProfile = ({ user, query }) => {
   const [isEditingProfile, setEditingProfile] = useState(false);
   const [userInfo, setUserInfo] = useState({});
   const [editUserInput, { loading, error, data }] = useMutation(EDIT_USER_INPUT, {
     refetchQueries: [GET_USER]
   })
+
+  const { search } = useLocation();
+  const values = queryString.parse(search, {arrayFormat: 'bracket'});
+
+  console.log('query in user profile', queryString.parse(search, {arrayFormat: 'bracket'}))
   // const { cohort, email, githubHandle, id, name, pronouns, slackHandle, workingStyles} = userInfo
   // const [cohort, setCohort] = useState(user.cohort);
   // const [email, setEmail] = useState(user.email);
@@ -48,7 +56,7 @@ const UserProfile = ({ user }) => {
   
   useEffect(() => {
     setUserInfo(user)
-    // console.log({user})
+    console.log({user})
   }, [user]);
   
   

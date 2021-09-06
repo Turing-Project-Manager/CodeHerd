@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useMutation } from '@apollo/client'
+import { GET_PROJECT, CREATE_RESOURCE } from '../..'
 
 import './ProjectResources.css'
 
@@ -12,12 +14,28 @@ const initialState = {
   tags: []
 }
 
-const ProjectResources = () => {
+const ProjectResources = ({ project }) => {
 
   const [newResource, setNewResource] = useState(initialState)
   const [resources, setResources] = useState([])
   const [showAddResource, setShowAddResource] = useState(false)
   const [formError, setFormError] = useState('')
+  const [editProjectResources, { loading , error, data }] = useMutation(CREATE_RESOURCE, {
+    refetechQueries: [GET_PROJECT]
+  })
+
+  if ( error) {
+    console.log('error from projectResources', error)
+  }
+
+  if ( loading) {
+    console.log('loading from projectResources', loading)
+  }
+
+  if ( data ) {
+    console.log('data from projectResources', data)
+  }
+  
 
   const showResourceForm = () => {
     setShowAddResource(true)
@@ -38,12 +56,24 @@ const ProjectResources = () => {
     if (!newResource.content.length || !newResource.name.length || !newResource.resourceType.length) {
       setFormError('You must fill out all form fields to continue.')
     } else {
-      setResources(allResources => [...allResources, newResource])
+      editProjectResources({
+        variables: {
+          userId: localStorage.getItem('userId'),
+          projectId: project.id,
+          content: newResource.content, 
+          name: newResource.name,
+          project: newResource.project, 
+          resourceType: newResource.resourceType,
+          tags: newResource.tags
+        }
+      })
+
+
       setFormError('')
     } 
     clearInputs();
   }
-
+  console.log('resources', resources)
   const resourcesToDisplay = resources.map(resource => {
     return(
       <article className='resource-card'>

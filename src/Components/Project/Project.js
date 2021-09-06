@@ -1,14 +1,19 @@
 import React from 'react';
 import './Project.css';
-import { Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
+import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
 
 
-const Project = ({ project }) => {
+const Project = ({ project, user }) => {
 
+    const githubHandle = user.githubHandle;
+
+  const handleViewProjectClick = () => {
+
+  }
 
   return (
-    <Switch>
-      <article className="project-preview">
+    <article className="project-preview">
         <div key={project.id}>
           <article className="s-card s-card-profile">
             <div className="project s-card">
@@ -25,13 +30,24 @@ const Project = ({ project }) => {
                   <p> Created {project.created_at} </p>
               </div>
               <div className="s-card-footer footer">
-                <button className="s-button s-button-secondary view-project-button">View Project</button>
+                <Link to={`/${githubHandle}/${project.id}`}> 
+                  <button 
+                    className="s-button s-button-secondary view-project-button"
+                    onClick={handleViewProjectClick}
+                    >View Project
+                    </button>
+                </Link>
               </div>
             </div>
           </article>
         </div>
-      </article>
-    </Switch>
+      {/* <Switch>
+          <Route path='/:githubName/:projectId' render={({match}) => {
+            console.log(match)
+            return <ProjectDashboard project={project}/>}} 
+            />
+      </Switch> */}
+    </article>
   )
 }
 
