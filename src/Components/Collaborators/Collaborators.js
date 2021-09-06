@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useMutation } from '@apollo/client'
 import { CREATE_COLLABORATOR, GET_COLLABORATOR } from '../..'
@@ -13,7 +13,6 @@ const initialState = {
 }
 
 const Collaborators = ({project}) => {
-  console.log(project)
 
   const [newCollaborator, setNewCollaborator] = useState(initialState)
   const [collaborators, setCollaborators] = useState([])
@@ -23,13 +22,15 @@ const Collaborators = ({project}) => {
     refetchQueries: GET_COLLABORATOR
   })
 
-  // const {error, loading, data} = useQuery(GET_USER, {
-  //     variables: email
-  // })
+  useEffect(() => {
+    {!!error && console.log('error in collaborators', error)}
+    {!!loading && console.log('loading collaborators', loading)}
+    setCollaborators(project.data.project.collaborators)
+  }, collaborators)
 
   const handleCollabInput = (e) => {
     const { name, value } = e.target;
-    setNewCollaborator((prevState) => ({ ...prevState, [name]: value.trim() }));
+    setNewCollaborator((prevState) => ({ ...prevState, [name]: value }));
   }
 
   const submitCollaborator = (e) => {
@@ -39,20 +40,18 @@ const Collaborators = ({project}) => {
     } else {
       addToCollaborators({
         variables: {
-          userId: project.owner.id,
+          userId: project.data.project.owner.id,
           email: newCollaborator.email,
-          projectId: project.id
+          projectId: project.data.project.id
         }
       })
-
-      console.log(data)
       setFormError('')
-      // setCollaborators(allCollaborators => [...allCollaborators, newCollaborator])
     }
-
+    
     clearInputs();
   }
 
+  
   const showCollabForm = () => {
     setShowAddCollab(true)
   }
@@ -66,14 +65,16 @@ const Collaborators = ({project}) => {
     setNewCollaborator({...initialState})
   }
 
+
   const collaboratorProfiles = collaborators.map(collaborator => {
+    
     return(
       <article class="s-card s-card-profile s-border-yellow-500 collab-card">
         <div class="s-card-header collab-info">
-          <img class="s-card-profile-pic collab-img" src="https://d682ma8ami8n4.cloudfront.net/images/staff/kasperowicz.jpg" />
+          <img class="s-card-profile-pic collab-img" src={collaborator.user.image} />
           <div class="s-card-header-right collab-name-email">
-            <h2 class="s-card-title collab-name">{collaborator.name}</h2>
-            <h3 class="s-card-subtitle collab-email">{collaborator.email}</h3>
+            <h2 class="s-card-title collab-name">{collaborator.user.name}</h2>
+            <h3 class="s-card-subtitle collab-email">{collaborator.user.githubHandle}</h3>
           </div> 
         </div> 
       </article>
