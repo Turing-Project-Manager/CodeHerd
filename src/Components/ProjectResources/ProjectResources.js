@@ -30,7 +30,7 @@ const ProjectResources = ({ project }) => {
     setCurrentProject(project)
     const resourcesToTransfer = currentProject.data
     setResources(project.data.project.resources)
-    console.log('in useEffect', resourcesToTransfer)
+    console.log('in useEffect', resources)
   
 
   }, [currentProject, project, resources])
@@ -88,9 +88,8 @@ const ProjectResources = ({ project }) => {
   }
 
 const resourcesToDisplay = () => {
-  console.log('im here')
-  if (!!currentProject.data) {
-    console.log('project inside resourcesDisplay', project)
+
+  
     const resourcesToMap = resources.map(resource => {
       return(
         <article className='resource-card'>
@@ -102,8 +101,8 @@ const resourcesToDisplay = () => {
         </article>
       )
     })
+    console.log('resoucesToMap', resourcesToMap)
     return resourcesToMap
-  }
 }
 
   
@@ -123,7 +122,7 @@ const resourcesToDisplay = () => {
         {!resources.length ?
           <p className='s-font-lg s-text-center .s-m-3 no-text'>No project resources yet! Click above to add one.</p> :
           <div className='resource-names'>
-            {resourcesToDisplay}
+            {resourcesToDisplay()}
           </div>
         }
       </article>
