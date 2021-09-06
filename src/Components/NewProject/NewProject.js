@@ -62,7 +62,7 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
     if (!!error) {
       console.log(error)
     }
-    if (!project.title.length && !project.module.length && !project.description.length) {
+    if (!project.title.length || !project.module.length || !project.description.length) {
       setFormError('Sorry, you must enter a value for all fields to submit.')
     } else {
       setFormError('') 

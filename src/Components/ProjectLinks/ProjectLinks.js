@@ -24,7 +24,7 @@ const ProjectLinks = () => {
 
   const submitLink = (e) => {
     e.preventDefault();
-    if (!newLink.name.length && !newLink.url.length) {
+    if (!newLink.name.length || !newLink.url.length) {
       setFormError('You must enter values in both field to submit.')
     } else {
       setFormError('')

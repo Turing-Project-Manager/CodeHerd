@@ -14,17 +14,22 @@ const Collaborators = () => {
   const [newCollaborator, setNewCollaborator] = useState(initialState)
   const [collaborators, setCollaborators] = useState([])
   const [showAddCollab, setShowAddCollab] = useState(false)
+  const [formError, setFormError] = useState('')
 
   const handleCollabInput = (e) => {
     const { name, value } = e.target;
-    setNewCollaborator((prevState) => ({ ...prevState, [name]: value }));
+    setNewCollaborator((prevState) => ({ ...prevState, [name]: value.trim() }));
   }
 
   const submitCollaborator = (e) => {
     e.preventDefault();
-    {newCollaborator.name.length && newCollaborator.email.length &&
+    if (!newCollaborator.name.length || !newCollaborator.email.length){
+      setFormError('You must enter a value for name and email to submit.')
+    } else {
+      setFormError('')
       setCollaborators(allCollaborators => [...allCollaborators, newCollaborator])
     }
+
     clearInputs();
   }
 
@@ -34,6 +39,7 @@ const Collaborators = () => {
 
   const closeCollabForm = () => {
     setShowAddCollab(false)
+    setFormError('')
   }
 
   const clearInputs = () => {
@@ -100,8 +106,10 @@ const Collaborators = () => {
               onChange={handleCollabInput}
             />
           </label>
+          
+          {!!formError.length && <p className='form-error'>{formError}</p>}
 
-            <button className='s-button btn' onClick={submitCollaborator}>Add Collaborator!</button>
+          <button className='s-button btn' onClick={submitCollaborator}>Add Collaborator!</button>
         </form>
       }
     </section>
