@@ -37,3 +37,38 @@
   align-self: center;
   margin: 0;
 }
+
+.collab-card{
+  display: flex;
+  align-items: center;
+  width: 30vw;
+  height: 10vh;
+  border: 1px solid #bcbec0;
+  margin: 1em;
+}
+
+.collab-name{
+  font-size: 2vw;
+  margin: 0.3em;
+}
+.collab-email{
+  font-size: 1.5vw;
+  margin: 0.3em;
+}
+
+.collab-img{
+  width: 60px;
+  height: 60px;
+  margin: 0.5em;
+}
+
+.collab-info{
+  display: flex;
+  align-items: center;
+}
+
+.collab-name-email{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
