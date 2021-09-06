@@ -55,7 +55,6 @@ const UserLanding = ({query}) => {
         
         setProjects(allProjects.data.usersProjects)
         const stringifyProjects = JSON.stringify(allProjects.data.usersProjects);
-        console.log('userlanding stringifyprojects', stringifyProjects)
         localStorage.setItem('allProjects', stringifyProjects);
       }
 
