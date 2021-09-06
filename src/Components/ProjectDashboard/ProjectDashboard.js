@@ -6,7 +6,7 @@ import Collaborators from '../Collaborators/Collaborators'
 import ProjectResources from '../ProjectResources/ProjectResources'
 import Templates from '../Templates/Templates'
 import PropTypes from 'prop-types'
-import { GET_PROJECT } from '../..'
+import { CREATE_RESOURCE, GET_PROJECT } from '../..'
 
 import plus from '../../assets/plus.png'
 import'./ProjectDashboard.css'
@@ -18,6 +18,7 @@ const ProjectDashboard = ({project}) => {
     variables: {id: project.id}
   })
   const [projectResources, setProjectResources] = useState([])
+  
 
   useEffect(() => {
 
@@ -45,7 +46,7 @@ const ProjectDashboard = ({project}) => {
       
         <Collaborators />
        
-        <ProjectResources />
+        <ProjectResources project={project} />
 
         <Templates />
         

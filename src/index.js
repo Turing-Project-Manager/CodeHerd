@@ -71,7 +71,7 @@ query usersProjects($userId: ID!) {
 
 export const CREATE_RESOURCE = gql`
   mutation ( $userId: ID!, $name: String!, $projectId: ID!, $resourceType: String!, $content: String!, $tags: [String!] ) {
-    CreateResource(input: {
+    createResource (input: {
       userId: $userId, 
       name: $name, 
       projectId: $projectId, 
@@ -84,13 +84,20 @@ export const CREATE_RESOURCE = gql`
       id
       name
       project {
-        collaborators
+        collaborators {
+          user {
+            name
+          }
+        }
         id
         modNumber
         name
-        owner
-        projectRepo
-        resources
+        owner {
+          name
+        }
+        resources {
+          name
+        }
         summary
       }
       resourceType

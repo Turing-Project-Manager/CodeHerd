@@ -14,7 +14,7 @@ const initialState = {
   tags: []
 }
 
-const ProjectResources = () => {
+const ProjectResources = ({ project }) => {
 
   const [newResource, setNewResource] = useState(initialState)
   const [resources, setResources] = useState([])
@@ -58,6 +58,8 @@ const ProjectResources = () => {
     } else {
       editProjectResources({
         variables: {
+          userId: localStorage.getItem('userId'),
+          projectId: project.id,
           content: newResource.content, 
           name: newResource.name,
           project: newResource.project, 
