@@ -18,6 +18,7 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
   let currentUser = user
   console.log(user)
 
+  const [formError, setFormError] = useState('')
   const [project, setProject] = useState(initialState)
   const [createProjectInput, { data, loading, error }] = useMutation(CREATE_PROJECT , {
     refetchQueries: [GET_ALL_USER_PROJECTS]
@@ -49,23 +50,33 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
 
   const closeForm = () => {
     closeProjectForm();
+    clearInput();
   }
 
-
+  const clearInput = () => {
+    setProject(initialState)
+    setFormError('')
+  }
 
   const submitProject = (event) => {
     event.preventDefault()
     if (!!error) {
       console.log(error)
     }
-    createProjectInput({
-      variables: {
-          name: project.title, 
-          modNumber: String(project.module),
-          summary: project.description,
-          ownerId: localStorage.getItem('userId') 
-        }
-    })
+    {(project.title.length && project.module.length && project.description.length) ?
+      (setFormError('') &&
+      createProjectInput({
+        variables: {
+            name: project.title, 
+            modNumber: String(project.module),
+            summary: project.description,
+            ownerId: localStorage.getItem('userId') 
+          }
+      }) ) :
+      setFormError('Sorry, you must enter a value for all fields to submit.')
+    }
+
+    // clearInput();
   }
 
   if ( data ) {
@@ -113,6 +124,8 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
               <option value="4">4</option>
             </select>  
           </label>
+
+          {!!formError.length && <p className='form-error'>{formError}</p>}
 
           <button className='s-button btn' onClick={submitProject}>Create Project!</button>
         </form>

@@ -21,15 +21,15 @@ const App = () => {
 
   return (
     <section className="app">
-      {/* <Switch>
+      <Switch>
         <Route exact path='/' component={Landing} />
         <Route path='/:githubName' render={({match}) => {
         return <UserLanding query={values}/>}} 
         />
 
    
-      </Switch> */}
-      <ProjectDashboard />
+      </Switch>
+      {/* <ProjectDashboard /> */}
     </section>
   )
 };
