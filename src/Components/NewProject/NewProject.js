@@ -45,7 +45,7 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setProject((prevState) => ({ ...prevState, [name]: value.trim() }));
+    setProject((prevState) => ({ ...prevState, [name]: value }));
   }
 
   const closeForm = () => {
