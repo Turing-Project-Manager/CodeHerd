@@ -1,0 +1,36 @@
+.template-modal>h2{
+  font-size: 1em;
+}
+
+.template-modal>p,
+.template-modal>ul>li{
+  font-size: 0.7em;
+  margin: 1em;
+}
+
+.template-modal>h1{
+  color: black;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.close-btn{
+  margin: 1em;
+}
+
+.template-div{
+  border-top: 4px solid #05c2d1;
+  width: 40vw;
+  margin: 0 10vw 0 10vw
+}
+
+.templates{
+  align-self: center;
+  margin: 0;
+  /* width: 60vw; */
+}
+
+.template-buttons{
+  display: flex;
+  justify-content: space-evenly;
+}
