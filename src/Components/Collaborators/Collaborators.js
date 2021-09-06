@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 
+import { useMutation } from '@apollo/client'
+import { CREATE_COLLABORATOR, GET_COLLABORATOR } from '../..'
+
 import plus from '../../assets/plus.png'
 import'./Collaborators.css'
 
@@ -9,12 +12,20 @@ const initialState = {
   isPM: false
 }
 
-const Collaborators = () => {
+const Collaborators = ({project}) => {
+  console.log(project)
 
   const [newCollaborator, setNewCollaborator] = useState(initialState)
   const [collaborators, setCollaborators] = useState([])
   const [showAddCollab, setShowAddCollab] = useState(false)
   const [formError, setFormError] = useState('')
+  const [addToCollaborators, {error, loading, data} ] = useMutation(CREATE_COLLABORATOR,  {
+    refetchQueries: GET_COLLABORATOR
+  })
+
+  // const {error, loading, data} = useQuery(GET_USER, {
+  //     variables: email
+  // })
 
   const handleCollabInput = (e) => {
     const { name, value } = e.target;
@@ -26,8 +37,17 @@ const Collaborators = () => {
     if (!newCollaborator.name.length || !newCollaborator.email.length){
       setFormError('You must enter a value for name and email to submit.')
     } else {
+      addToCollaborators({
+        variables: {
+          userId: project.owner.id,
+          email: newCollaborator.email,
+          projectId: project.id
+        }
+      })
+
+      console.log(data)
       setFormError('')
-      setCollaborators(allCollaborators => [...allCollaborators, newCollaborator])
+      // setCollaborators(allCollaborators => [...allCollaborators, newCollaborator])
     }
 
     clearInputs();

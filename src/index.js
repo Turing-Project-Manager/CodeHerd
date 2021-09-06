@@ -46,6 +46,16 @@ export const GET_PROJECT = gql`
   }
 `
 
+export const GET_COLLABORATOR = gql `
+  query collaborator($id: ID!) {
+    collaborator(id: $id) {
+      id
+      project
+      user
+    }
+  }
+`
+
 
 export const GET_ALL_USER_PROJECTS = gql`
 query usersProjects($userId: ID!) {
@@ -109,8 +119,8 @@ export const CREATE_RESOURCE = gql`
 
 `
 export const CREATE_COLLABORATOR = gql `
-  mutation ($userId: ID!, $email: String!, projectId: ID!) {
-    createUser (input: {
+  mutation ($userId: ID!, $email: String!, $projectId: ID!) {
+    createCollaboration (input: {
       userId: $userId,
       email: $email,
       projectId: $projectId,

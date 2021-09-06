@@ -13,10 +13,11 @@ import'./ProjectDashboard.css'
 
 
 const ProjectDashboard = ({project}) => {
-
+  
   const currentProject = useQuery(GET_PROJECT, {
     variables: {id: project.id}
   })
+
   const [projectResources, setProjectResources] = useState([])
   
 
@@ -29,8 +30,6 @@ const ProjectDashboard = ({project}) => {
     if (!currentProject.loading && currentProject.data) {
       setProjectResources(currentProject.data.project.resources)
     }
-
-
   }, [currentProject, projectResources])
 
 
@@ -44,7 +43,7 @@ const ProjectDashboard = ({project}) => {
         </section>
         {/* <ProjectLinks /> */}
       
-        <Collaborators />
+        <Collaborators project={project}/>
        
         <ProjectResources project={project} />
 
