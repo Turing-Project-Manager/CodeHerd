@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import plus from '../../assets/plus.png'
 import'./Collaborators.css'
 
 const initialState = {
@@ -8,10 +9,11 @@ const initialState = {
   isPM: false
 }
 
-const Collaborators = ({showAddCollab, closeCollabForm}) => {
+const Collaborators = () => {
 
   const [newCollaborator, setNewCollaborator] = useState(initialState)
   const [collaborators, setCollaborators] = useState([])
+  const [showAddCollab, setShowAddCollab] = useState(false)
 
   const handleCollabInput = (e) => {
     const { name, value } = e.target;
@@ -24,6 +26,18 @@ const Collaborators = ({showAddCollab, closeCollabForm}) => {
       setCollaborators(allCollaborators => [...allCollaborators, newCollaborator])
     }
     clearInputs();
+  }
+
+  const showCollabForm = () => {
+    setShowAddCollab(true)
+  }
+
+  const closeCollabForm = () => {
+    setShowAddCollab(false)
+  }
+
+  const clearInputs = () => {
+    setNewCollaborator({...initialState})
   }
 
   const collaboratorProfiles = collaborators.map(collaborator => {
@@ -46,17 +60,17 @@ const Collaborators = ({showAddCollab, closeCollabForm}) => {
     )
   })
 
-  const clearInputs = () => {
-    setNewCollaborator({...initialState})
-  }
-
   return(
     <section className='project-collabs'>
     
         <article className='s-h3 s-shadow-md collaborator-profile'>
-          <h3 className='s-text-center s-m-3'>Project Collaborators</h3>
+          <div className='add-collab-btn-text'>
+            <button className='s-button-secondary s-border-radius-2 add-collab-btn'onClick={showCollabForm}>
+              <img className='plus' src={plus} alt='plus sign' /></button>
+          </div>
+          <h3 className='s-text-center s-m-3 resource-h3'>Project Collaborators</h3>
           {!collaborators.length ?
-            <p className='s-font-lg s-text-center .s-m-3'>No collaborators yet! Click below to add one.</p> :
+            <p className='s-font-lg s-text-center .s-m-3 no-text'>No collaborators yet! Click above to add one.</p> :
             <div className='collaborator-names'>
               {collaboratorProfiles}
             </div>
