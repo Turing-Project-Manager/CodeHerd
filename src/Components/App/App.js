@@ -21,15 +21,21 @@ const App = () => {
 
   return (
     <section className="app">
-      {/* <Switch>
+      <Switch>
         <Route exact path='/' component={Landing} />
-        <Route path='/:githubName' render={({match}) => {
+        <Route exact path='/:githubName' render={({match}) => {
         return <UserLanding query={values}/>}} 
         />
+        <Route exact path='/:githubName/:projectId' render={({match}) => {
+          const projects = JSON.parse((localStorage.getItem('allProjects')))
+          console.log(projects)
+          const selectedProject = projects.find(currentProject => currentProject.id === parseInt(match.params.id))
+          return <ProjectDashboard project={selectedProject}/>}} 
+          />
 
    
-      </Switch> */}
-      <ProjectDashboard />
+      </Switch>
+      {/* <ProjectDashboard /> */}
     </section>
   )
 };

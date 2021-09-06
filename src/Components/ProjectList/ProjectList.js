@@ -3,8 +3,7 @@ import './ProjectList.css';
 import Project from '../Project/Project';
 
 
-
-const ProjectList = ({ projects }) => {
+const ProjectList = ({ user, projects }) => {
   const [viewingModNumber, setViewingModNumber] = useState("1")
   
   const filterByMod = (event) => {
@@ -19,6 +18,7 @@ const ProjectList = ({ projects }) => {
       <article key={currentProject.id}>
         <Project 
             project={currentProject}
+            user={user}
 
         />
       </article>
