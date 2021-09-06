@@ -11,6 +11,20 @@ const ProjectList = ({ projects }) => {
     setViewingModNumber(event.target.value)
   } 
 
+  console.log('projects in ProjectList', projects)
+
+
+  const projectsByCurrentMod = () => projects.filter(project => project.modNumber === viewingModNumber).map(currentProject => {
+    return (
+      <article key={currentProject.id}>
+        <Project 
+            project={currentProject}
+
+        />
+      </article>
+    )
+  })
+
 
     
   return (
@@ -21,8 +35,10 @@ const ProjectList = ({ projects }) => {
         <button className="mod-button s-link" value="3" onClick={filterByMod}>Mod 3</button>
         <button className="mod-button s-link" value="4" onClick={filterByMod}>Mod 4</button>
       </section>
-      <section className="project-section"> 
-        <Project projects={projects} viewingModNumber={viewingModNumber} />
+      <section className="project-section">  {!!projects ?
+        <article> 
+          {projectsByCurrentMod()}
+        </article> : "Loading"}
       </section>
     </section>
   )

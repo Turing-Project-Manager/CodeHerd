@@ -54,7 +54,7 @@ const UserLanding = ({query}) => {
       }
 
         
-    }, [data, loading, allProjects]);
+    }, [data, loading, allProjects, user]);
     
   
 
