@@ -15,7 +15,8 @@ const initialState = {
 
 const NewProject = ({user, showForm, closeProjectForm}) => {
 
-  let currentUser = 2
+  let currentUser = user
+  console.log(user)
 
   const [project, setProject] = useState(initialState)
   const [createProjectInput, { data, loading, error }] = useMutation(CREATE_PROJECT , {
