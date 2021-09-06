@@ -55,7 +55,6 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
 
   const clearInput = () => {
     setProject(initialState)
-    setFormError('')
   }
 
   const submitProject = (event) => {
@@ -63,8 +62,10 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
     if (!!error) {
       console.log(error)
     }
-    {(project.title.length && project.module.length && project.description.length) ?
-      (setFormError('') &&
+    if (!project.title.length && !project.module.length && !project.description.length) {
+      setFormError('Sorry, you must enter a value for all fields to submit.')
+    } else {
+      setFormError('') 
       createProjectInput({
         variables: {
             name: project.title, 
@@ -72,11 +73,11 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
             summary: project.description,
             ownerId: localStorage.getItem('userId') 
           }
-      }) ) :
-      setFormError('Sorry, you must enter a value for all fields to submit.')
+      }) 
+
     }
 
-    // clearInput();
+    clearInput();
   }
 
   if ( data ) {
