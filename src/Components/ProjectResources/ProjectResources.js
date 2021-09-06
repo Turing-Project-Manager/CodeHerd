@@ -17,6 +17,7 @@ const ProjectResources = () => {
   const [newResource, setNewResource] = useState(initialState)
   const [resources, setResources] = useState([])
   const [showAddResource, setShowAddResource] = useState(false)
+  const [formError, setFormError] = useState('')
 
   const showResourceForm = () => {
     setShowAddResource(true)
@@ -24,26 +25,34 @@ const ProjectResources = () => {
 
   const closeResourceForm = () => {
     setShowAddResource(false)
+    setFormError('')
   }
 
   const handleResourceInput = (e) => {
     const { name, value } = e.target;
-    setNewResource((prevState) => ({ ...prevState, [name]: value }));
+    setNewResource((prevState) => ({ ...prevState, [name]: value.trim() }));
   }
 
   const submitResource = (e) => {
     e.preventDefault();
-    {newResource.content.length && newResource.name.length && newResource.resourceType.length &&
+    if (!newResource.content.length || !newResource.name.length || !newResource.resourceType.length) {
+      setFormError('You must fill out all form fields to continue.')
+    } else {
       setResources(allResources => [...allResources, newResource])
-    }
+      setFormError('')
+    } 
     clearInputs();
   }
 
   const resourcesToDisplay = resources.map(resource => {
     return(
-      <a className='proj-resource' 
-        href={resource.content} 
-        key={resource.content}>{resource.name}</a>
+      <article className='resource-card'>
+        <a className='proj-resource' 
+          href={resource.content} 
+          key={resource.content}>{resource.name}</a>
+          <p>{resource.resourceType}</p>
+
+      </article>
     )
   })
 
@@ -96,8 +105,10 @@ const ProjectResources = () => {
             value={newResource.resourceType}
             onChange={handleResourceInput}
           />  
+          
+          {!!formError.length && <p className='form-error'>{formError}</p>}
 
-            <button className='s-button btn' onClick={submitResource}>Add Resource!</button>
+          <button className='s-button btn' onClick={submitResource}>Add Resource!</button>
         </form>
       }
       

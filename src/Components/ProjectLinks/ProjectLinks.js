@@ -14,19 +14,24 @@ const ProjectLinks = () => {
   const [newLink, setNewLink] = useState(initialState)
   const [links, setLinks] = useState([])
   const [showAddLink, setShowAddLink] = useState(false)
+  const [formError, setFormError] = useState('')
 
 
   const handleLinkInput = (e) => {
     const { name, value } = e.target;
-    setNewLink((prevState) => ({ ...prevState, [name]: value }));
+    setNewLink((prevState) => ({ ...prevState, [name]: value.trim() }));
   }
 
   const submitLink = (e) => {
     e.preventDefault();
-    {newLink.name.length && newLink.url.length &&
+    if (!newLink.name.length || !newLink.url.length) {
+      setFormError('You must enter values in both field to submit.')
+    } else {
+      setFormError('')
       setLinks(allLinks => [...allLinks, newLink])
     }
-    clearInputs();
+    
+    clearInputs()
   }
 
   const linksToDisplay = links.map(link => {
@@ -47,6 +52,7 @@ const ProjectLinks = () => {
 
   const closeLinkForm = () => {
     setShowAddLink(false)
+    setFormError('')
   }
 
   return(
@@ -84,7 +90,9 @@ const ProjectLinks = () => {
             name='url'
             value={newLink.url}
             onChange={handleLinkInput}
-            />  
+            />    
+
+            {!!formError.length && <p className='form-error'>{formError}</p>}
 
             <button className='s-button btn' onClick={submitLink}>Add Link!</button>
         </form>
