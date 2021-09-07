@@ -66,7 +66,7 @@ const ProjectResources = ({ project }) => {
 
   const submitResource = (e) => {
     e.preventDefault();
-    if (!newResource.content.length || !newResource.name.length || !newResource.resourceType.length) {
+    if (!newResource.content.length || !newResource.name.length) {
       setFormError('You must fill out all form fields to continue.')
     } else {
       createProjectResources({
@@ -76,7 +76,7 @@ const ProjectResources = ({ project }) => {
           content: newResource.content, 
           name: newResource.name,
           project: newResource.project, 
-          resourceType: newResource.resourceType,
+          resourceType: "link",
           tags: newResource.tags
         }
       })
@@ -148,14 +148,14 @@ const resourcesToDisplay = () => {
             onChange={handleResourceInput}
           />  
 
-          <input
+          {/* <input
             className='text-input'
             type='text'
             placeholder='Resource Type (??)'
             name='resourceType'
             value={newResource.resourceType}
             onChange={handleResourceInput}
-          />  
+          />   */}
           
           {!!formError.length && <p className='form-error'>{formError}</p>}
 
