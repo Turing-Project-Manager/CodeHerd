@@ -23,6 +23,7 @@ export const GET_USER = gql `
       email
       githubHandle
       id
+      image
       name
       pronouns
       slackHandle
