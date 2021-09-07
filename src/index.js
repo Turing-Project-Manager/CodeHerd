@@ -238,6 +238,7 @@ export const CREATE_PROJECT = gql `
         name
         owner {
             name
+            id
         }
         resources {
             name

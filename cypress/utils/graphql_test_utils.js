@@ -31,8 +31,17 @@ export const aliasProjectsQuery = (req, operationName) => {
 export const aliasProfileMutation = (req, operationName) => {
   if (hasOperationName(req, operationName)) {
     req.reply((res) => {
-      res.body.data.user.name = 'Ashton H.'
       res.body.data.user.cohort = '2105'
+    })
+  }
+}
+
+export const aliasNewProjectMutation = (req, operationName) => {
+  if (hasOperationName(req, operationName)) {
+    req.reply((res) => {
+      res.body.data.projects.length = 5
+      res.body.data.projects[4].name = 'Rock Paper Scissors'
+      res.body.data.projects[4].modNumber = '1'
     })
   }
 }

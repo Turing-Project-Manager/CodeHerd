@@ -3,8 +3,6 @@ describe('User Landing', () => {
 
   beforeEach(() => {
       cy.visit('http://localhost:3000/')
-      Cypress.Cookies.debug(true)
-      Cypress.Cookies.preserveOnce('session_id', 'remember_token')
   })
   
   it('Should have a title and subtitle', () => {
@@ -19,11 +17,8 @@ describe('User Landing', () => {
   })
 
   it('Should have a button to continue with GitHub', () => {
-    cy.get('button').contains('Continue with Github').click()
-    .get('input[id="login_field"]').type('aehuxtable@gmail.com')
-    .should('have.value', 'aehuxtable@gmail.com')
-    .get('input[id="password"]').type('password')
-    .should('have.value', 'password')
+    cy.get('button').contains('Continue with Github')
+      .get('a').should('have.attr', 'href', 'https://codeherdapi.herokuapp.com/auth/github')
     })
   
 })
