@@ -28,10 +28,6 @@ const UserProfile = ({ user, query }) => {
     refetchQueries: [GET_USER]
   })
 
-  const { search } = useLocation();
-  const values = queryString.parse(search, {arrayFormat: 'bracket'});
-
-  console.log('query in user profile', queryString.parse(search, {arrayFormat: 'bracket'}))
   // const { cohort, email, githubHandle, id, name, pronouns, slackHandle, workingStyles} = userInfo
   // const [cohort, setCohort] = useState(user.cohort);
   // const [email, setEmail] = useState(user.email);

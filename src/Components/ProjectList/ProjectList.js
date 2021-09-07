@@ -18,7 +18,6 @@ const ProjectList = ({ user, projects }) => {
         <Project 
             project={currentProject}
             user={user}
-
         />
       </article>
     )

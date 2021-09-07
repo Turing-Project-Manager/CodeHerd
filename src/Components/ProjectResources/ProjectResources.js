@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { useMutation } from '@apollo/client'
-import { GET_PROJECT, CREATE_RESOURCE } from '../..'
+import React, { useState, useEffect } from 'react'
+import { useMutation, useQuery } from '@apollo/client'
+import { GET_PROJECT, CREATE_RESOURCE, DELETE_RESOURCE } from '../..'
 
 import './ProjectResources.css'
 
@@ -15,25 +15,44 @@ const initialState = {
 }
 
 const ProjectResources = ({ project }) => {
-
+  const [currentProject, setCurrentProject] = useState({})
   const [newResource, setNewResource] = useState(initialState)
   const [resources, setResources] = useState([])
   const [showAddResource, setShowAddResource] = useState(false)
   const [formError, setFormError] = useState('')
-  const [editProjectResources, { loading , error, data }] = useMutation(CREATE_RESOURCE, {
+  const [createProjectResources, { loading , error, data }] = useMutation(CREATE_RESOURCE, {
+    refetechQueries: [GET_PROJECT]
+  })
+  const [deleteProjectResource, { dLoading, dError, dData }] = useMutation(DELETE_RESOURCE, {
     refetechQueries: [GET_PROJECT]
   })
 
-  if ( error) {
+  
+
+  useEffect(() => {
+    // console.log('project from projectResources', project.data.project.resources)
+    setCurrentProject(project)
+    const resourcesToTransfer = currentProject.data
+    setResources(project.data.project.resources)
+    console.log('in useEffect', resources)
+  
+
+  }, [currentProject, project, resources])
+
+
+  if ( error || dError) {
     console.log('error from projectResources', error)
+    console.log('Derror from projectResources', dError)
   }
 
-  if ( loading) {
+  if ( loading || dLoading) {
     console.log('loading from projectResources', loading)
+    console.log('Derror from projectResources', dLoading)
   }
 
-  if ( data ) {
+  if ( data || dData ) {
     console.log('data from projectResources', data)
+    console.log('Ddata from projectResources', dData)
   }
   
 
@@ -51,19 +70,33 @@ const ProjectResources = ({ project }) => {
     setNewResource((prevState) => ({ ...prevState, [name]: value }));
   }
 
+  const handleDeleteResourceClick = (e, resource) => {
+    console.log('e', e)
+    console.log('resource', resource)
+    e.preventDefault();
+    deleteProjectResource({
+      variables: {
+        userId: localStorage.getItem('userId'),
+        projectId: project.data.project.id,
+        resourceId: resource
+      }
+    })
+
+  }
+
   const submitResource = (e) => {
     e.preventDefault();
-    if (!newResource.content.length || !newResource.name.length || !newResource.resourceType.length) {
+    if (!newResource.content.length || !newResource.name.length) {
       setFormError('You must fill out all form fields to continue.')
     } else {
-      editProjectResources({
+      createProjectResources({
         variables: {
           userId: localStorage.getItem('userId'),
-          projectId: project.id,
+          projectId: project.data.project.id,
           content: newResource.content, 
           name: newResource.name,
           project: newResource.project, 
-          resourceType: newResource.resourceType,
+          resourceType: "link",
           tags: newResource.tags
         }
       })
@@ -73,18 +106,24 @@ const ProjectResources = ({ project }) => {
     } 
     clearInputs();
   }
-  console.log('resources', resources)
-  const resourcesToDisplay = resources.map(resource => {
-    return(
-      <article className='resource-card'>
-        <a className='proj-resource' 
-          href={resource.content} 
-          key={resource.content}>{resource.name}</a>
-          <p>{resource.resourceType}</p>
 
-      </article>
-    )
-  })
+const resourcesToDisplay = () => {
+    const resourcesToMap = resources.map(resource => {
+      return(
+        <article className=' s-h3 s-shadow-md resource-card' key={resource.id}>
+          <a className='proj-resource' 
+            href={`http://${resource.content}`}
+            key={resource.content}>{resource.name}</a>
+            <p>{resource.resourceType}</p>
+          <button       className="s-button-secondary"
+          onClick={(e) => handleDeleteResourceClick(e, resource.id)}>Delete</button>
+        </article>
+      )
+    })
+    return resourcesToMap
+}
+
+  
 
   const clearInputs = () => {
     setNewResource({...initialState})
@@ -101,7 +140,7 @@ const ProjectResources = ({ project }) => {
         {!resources.length ?
           <p className='s-font-lg s-text-center .s-m-3 no-text'>No project resources yet! Click above to add one.</p> :
           <div className='resource-names'>
-            {resourcesToDisplay}
+            {resourcesToDisplay()}
           </div>
         }
       </article>
@@ -127,14 +166,14 @@ const ProjectResources = ({ project }) => {
             onChange={handleResourceInput}
           />  
 
-          <input
+          {/* <input
             className='text-input'
             type='text'
             placeholder='Resource Type (??)'
             name='resourceType'
             value={newResource.resourceType}
             onChange={handleResourceInput}
-          />  
+          />   */}
           
           {!!formError.length && <p className='form-error'>{formError}</p>}
 
