@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useMutation } from '@apollo/client'
+import React, { useState, useEffect } from 'react'
+import { useMutation, useQuery } from '@apollo/client'
 import { GET_PROJECT, CREATE_RESOURCE } from '../..'
 
 import './ProjectResources.css'
@@ -15,14 +15,27 @@ const initialState = {
 }
 
 const ProjectResources = ({ project }) => {
-
+  const [currentProject, setCurrentProject] = useState({})
   const [newResource, setNewResource] = useState(initialState)
   const [resources, setResources] = useState([])
   const [showAddResource, setShowAddResource] = useState(false)
   const [formError, setFormError] = useState('')
-  const [editProjectResources, { loading , error, data }] = useMutation(CREATE_RESOURCE, {
+  const [createProjectResources, { loading , error, data }] = useMutation(CREATE_RESOURCE, {
     refetechQueries: [GET_PROJECT]
   })
+  
+
+  useEffect(() => {
+    // console.log('project from projectResources', project)
+    setCurrentProject(project)
+    const resourcesToTransfer = currentProject.data
+    setResources(resourcesToTransfer)
+    console.log('in useEffect', resourcesToTransfer)
+  
+
+  }, [currentProject, project, resources])
+
+  // console.log('currentProject from PR', project)
 
   if ( error) {
     console.log('error from projectResources', error)
@@ -56,7 +69,7 @@ const ProjectResources = ({ project }) => {
     if (!newResource.content.length || !newResource.name.length || !newResource.resourceType.length) {
       setFormError('You must fill out all form fields to continue.')
     } else {
-      editProjectResources({
+      createProjectResources({
         variables: {
           userId: localStorage.getItem('userId'),
           projectId: project.id,
@@ -73,18 +86,27 @@ const ProjectResources = ({ project }) => {
     } 
     clearInputs();
   }
-  console.log('resources', resources)
-  const resourcesToDisplay = resources.map(resource => {
-    return(
-      <article className='resource-card'>
-        <a className='proj-resource' 
-          href={resource.content} 
-          key={resource.content}>{resource.name}</a>
-          <p>{resource.resourceType}</p>
 
-      </article>
-    )
-  })
+const resourcesToDisplay = () => {
+  console.log('im here')
+  if (!!currentProject.data) {
+    console.log('project inside resourcesDisplay', project)
+    const resourcesToMap = resources.map(resource => {
+      return(
+        <article className='resource-card'>
+          <a className='proj-resource' 
+            href={resource.content} 
+            key={resource.content}>{resource.name}</a>
+            <p>{resource.resourceType}</p>
+
+        </article>
+      )
+    })
+    return resourcesToMap
+  }
+}
+
+  
 
   const clearInputs = () => {
     setNewResource({...initialState})

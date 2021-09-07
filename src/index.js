@@ -47,10 +47,12 @@ export const GET_PROJECT = gql`
       name
       owner {
         name
-        id
       }
       resources {
         content
+        name
+        resourceType
+        tags
       }
       summary
     }
@@ -69,25 +71,25 @@ export const GET_COLLABORATOR = gql `
 
 
 export const GET_ALL_USER_PROJECTS = gql`
-query usersProjects($userId: ID!) {
-  usersProjects(userId: $userId) {
-    collaborators {
-      user {
+  query usersProjects($userId: ID!) {
+    usersProjects(userId: $userId) {
+      collaborators {
+        user {
+          name
+        }
+      }
+      id
+      modNumber
+      name
+      owner {
         name
       }
+      resources {
+        name
+      }
+      summary
     }
-    id
-    modNumber
-    name
-    owner {
-      name
-    }
-    resources {
-      name
-    }
-    summary
   }
-}
 `
 
 export const CREATE_RESOURCE = gql`

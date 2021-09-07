@@ -82,8 +82,8 @@ const UserLanding = ({query}) => {
         <UserProfile user={user} query={query} />
         {!!projects ? 
         <ProjectList 
-        projects={projects} 
-        user={user}
+          projects={projects} 
+          user={user}
         /> : 'Loading' }
         {/* <Landing />  */}
     
