@@ -97,6 +97,7 @@ const resourcesToDisplay = () => {
             href={`http://${resource.content}`}
             key={resource.content}>{resource.name}</a>
             <p>{resource.resourceType}</p>
+          <button className="s-button-secondary">Delete</button>
 
         </article>
       )
