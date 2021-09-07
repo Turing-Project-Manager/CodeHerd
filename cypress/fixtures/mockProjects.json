@@ -1,0 +1,160 @@
+{
+  "projects": [
+    {
+      "collaborators": [
+        {
+          "id": 1,
+          "project": {},
+          "user": {
+            "id": 2,
+            "name": "Shawn McMahon",
+            "email": "shawnmcmahon17@gmail.com",
+            "slack_handle": "shawnmcmahon",
+            "github_handle": "shawnmcmahon",
+            "working_styles": [
+              "string"
+            ],
+            "cohort": "2103",
+            "pronouns": "he/him",
+            "url": "https://avatars.githubusercontent.com/u/73731359?v=4",
+            "github_access_token": "string"
+          }
+        }
+      ],
+      "id": 1,
+      "mod_number": "4",
+      "name": "CodeHerd",
+      "owner": {
+        "id": 5,
+        "name": "Ashton Huxtable",
+        "email": "aehuxtable@gmail.com",
+        "slack_handle": "Ashton Huxtable",
+        "github_handle": "ashton-huxtable",
+        "working_styles": [
+          "string"
+        ],
+        "cohort": "2103",
+        "pronouns": "she/her",
+        "url": "https://avatars.githubusercontent.com/u/78318468?v=4",
+        "github_access_token": "string"
+      },
+      "projectRepo": {},
+      "resources": [{}],
+      "summary": "An application created for Turing Students to hold all of their project resources in a single place. From project links to documentation, all of your needs can be met."
+    },
+    {
+      "collaborators": [
+        {
+          "id": 2,
+          "name": "Shawn McMahon",
+          "email": "shawnmcmahon17@gmail.com",
+          "slack_handle": "shawnmcmahon",
+          "github_handle": "shawnmcmahon",
+          "working_styles": [
+            "string"
+          ],
+          "cohort": "2103",
+          "pronouns": "he/him",
+          "url": "https://avatars.githubusercontent.com/u/73731359?v=4",
+          "github_access_token": "string"
+        }
+      ],
+      "id": 2,
+      "mod_number": "2",
+      "name": "CodeHerd 2",
+      "owner": {
+        "id": 5,
+        "name": "Ashton Huxtable",
+        "email": "aehuxtable@gmail.com",
+        "slack_handle": "Ashton Huxtable",
+        "github_handle": "ashton-huxtable",
+        "working_styles": [
+          "string"
+        ],
+        "cohort": "2103",
+        "pronouns": "she/her",
+        "url": "https://avatars.githubusercontent.com/u/78318468?v=4",
+        "github_access_token": "string"
+      },
+      "projectRepo": {},
+      "resources": [{}],
+      "summary": "An application created for Turing Students to hold all of their project resources in a single place. From project links to documentation, all of your needs can be met."
+    },
+    {
+      "collaborators": [
+        {
+          "id": 2,
+          "name": "Shawn McMahon",
+          "email": "shawnmcmahon17@gmail.com",
+          "slack_handle": "shawnmcmahon",
+          "github_handle": "shawnmcmahon",
+          "working_styles": [
+            "string"
+          ],
+          "cohort": "2103",
+          "pronouns": "he/him",
+          "url": "https://avatars.githubusercontent.com/u/73731359?v=4",
+          "github_access_token": "string"
+        }
+      ],
+      "id": 3,
+      "mod_number": "3",
+      "name": "CodeHerd 3",
+      "owner": {
+        "id": 5,
+        "name": "Ashton Huxtable",
+        "email": "aehuxtable@gmail.com",
+        "slack_handle": "Ashton Huxtable",
+        "github_handle": "ashton-huxtable",
+        "working_styles": [
+          "string"
+        ],
+        "cohort": "2103",
+        "pronouns": "she/her",
+        "url": "https://avatars.githubusercontent.com/u/78318468?v=4",
+        "github_access_token": "string"
+      },
+      "projectRepo": {},
+      "resources": [{}],
+      "summary": "An application created for Turing Students to hold all of their project resources in a single place. From project links to documentation, all of your needs can be met."
+    },
+    {
+      "collaborators": [
+        {
+          "id": 2,
+          "name": "Shawn McMahon",
+          "email": "shawnmcmahon17@gmail.com",
+          "slack_handle": "shawnmcmahon",
+          "github_handle": "shawnmcmahon",
+          "working_styles": [
+            "string"
+          ],
+          "cohort": "2103",
+          "pronouns": "he/him",
+          "url": "https://avatars.githubusercontent.com/u/73731359?v=4",
+          "github_access_token": "string"
+        }
+      ],
+      "id": 4,
+      "mod_number": "1",
+      "name": "CodeHerd 4",
+      "owner": {
+        "id": 5,
+        "name": "Ashton Huxtable",
+        "email": "aehuxtable@gmail.com",
+        "slack_handle": "Ashton Huxtable",
+        "github_handle": "ashton-huxtable",
+        "working_styles": [
+          "string"
+        ],
+        "cohort": "2103",
+        "pronouns": "she/her",
+        "url": "https://avatars.githubusercontent.com/u/78318468?v=4",
+        "github_access_token": "string"
+      },
+      "projectRepo": {},
+      "resources": [{}],
+      "summary": "An application created for Turing Students to hold all of their project resources in a single place. From project links to documentation, all of your needs can be met."
+    }
+  ]
+}
