@@ -26,10 +26,10 @@ const ProjectResources = ({ project }) => {
   
 
   useEffect(() => {
-    // console.log('project from projectResources', project)
+    // console.log('project from projectResources', project.data.project.resources)
     setCurrentProject(project)
     const resourcesToTransfer = currentProject.data
-    setResources(resourcesToTransfer)
+    setResources(project.data.project.resources)
     console.log('in useEffect', resourcesToTransfer)
   
 

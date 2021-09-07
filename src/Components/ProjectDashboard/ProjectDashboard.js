@@ -40,11 +40,7 @@ const ProjectDashboard = ({project}) => {
         </section>
      
        
-      {!currentProject.data ?
-      <p>loading...</p> :  
-      <Collaborators project={currentProject}/>
-    }
-        <ProjectResources project={project} />
+        {currentProject.data ? <ProjectResources project={currentProject} /> : 'Nothing yet'}
 
         <Templates />
         
