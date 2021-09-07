@@ -53,6 +53,7 @@ export const GET_PROJECT = gql`
         name
         resourceType
         tags
+        id
       }
       summary
     }
@@ -182,6 +183,38 @@ export const EDIT_USER_INPUT = gql `
   }
 
 }
+`
+
+export const DELETE_RESOURCE = gql`
+  mutation ($userId: ID!, $projectId: ID!, $resourceId: ID!) {
+    deleteResource (input: {
+      userId: $userId
+      projectId: $projectId
+      resourceId: $resourceId
+    }) {
+    project {
+      collaborators {
+          user {
+              name
+          }
+      }
+      id
+      modNumber
+      name
+      owner {
+          name
+      }
+      resources {
+          name
+          id
+      }
+      summary
+    }
+    errors
+  }
+}
+
+
 `
 
 

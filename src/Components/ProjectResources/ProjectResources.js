@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useMutation, useQuery } from '@apollo/client'
-import { GET_PROJECT, CREATE_RESOURCE } from '../..'
+import { GET_PROJECT, CREATE_RESOURCE, DELETE_RESOURCE } from '../..'
 
 import './ProjectResources.css'
 
@@ -23,6 +23,10 @@ const ProjectResources = ({ project }) => {
   const [createProjectResources, { loading , error, data }] = useMutation(CREATE_RESOURCE, {
     refetechQueries: [GET_PROJECT]
   })
+  const [deleteProjectResource, { dLoading, dError, dData }] = useMutation(DELETE_RESOURCE, {
+    refetechQueries: [GET_PROJECT]
+  })
+
   
 
   useEffect(() => {
@@ -35,18 +39,20 @@ const ProjectResources = ({ project }) => {
 
   }, [currentProject, project, resources])
 
-  // console.log('currentProject from PR', project)
 
-  if ( error) {
+  if ( error || dError) {
     console.log('error from projectResources', error)
+    console.log('Derror from projectResources', dError)
   }
 
-  if ( loading) {
+  if ( loading || dLoading) {
     console.log('loading from projectResources', loading)
+    console.log('Derror from projectResources', dLoading)
   }
 
-  if ( data ) {
+  if ( data || dData ) {
     console.log('data from projectResources', data)
+    console.log('Ddata from projectResources', dData)
   }
   
 
@@ -62,6 +68,20 @@ const ProjectResources = ({ project }) => {
   const handleResourceInput = (e) => {
     const { name, value } = e.target;
     setNewResource((prevState) => ({ ...prevState, [name]: value }));
+  }
+
+  const handleDeleteResourceClick = (e, resource) => {
+    console.log('e', e)
+    console.log('resource', resource)
+    e.preventDefault();
+    deleteProjectResource({
+      variables: {
+        userId: localStorage.getItem('userId'),
+        projectId: project.data.project.id,
+        resourceId: resource
+      }
+    })
+
   }
 
   const submitResource = (e) => {
@@ -88,17 +108,15 @@ const ProjectResources = ({ project }) => {
   }
 
 const resourcesToDisplay = () => {
-
-  
     const resourcesToMap = resources.map(resource => {
       return(
-        <article className=' s-h3 s-shadow-md resource-card'>
+        <article className=' s-h3 s-shadow-md resource-card' key={resource.id}>
           <a className='proj-resource' 
             href={`http://${resource.content}`}
             key={resource.content}>{resource.name}</a>
             <p>{resource.resourceType}</p>
-          <button className="s-button-secondary">Delete</button>
-
+          <button       className="s-button-secondary"
+          onClick={(e) => handleDeleteResourceClick(e, resource.id)}>Delete</button>
         </article>
       )
     })
