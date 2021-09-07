@@ -66,7 +66,7 @@ const UserProfile = ({ user, query }) => {
     } else {
       editUserInput({
         variables: {
-            userId: 2,
+            userId: userInfo.id,
             githubHandle: userInfo.githubHandle,
             name: userInfo.name,
             slackHandle: userInfo.slackHandle,
@@ -81,12 +81,12 @@ const UserProfile = ({ user, query }) => {
   
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setUserInfo((prevState) => ({ ...prevState, [name]: value.trim() }));
+    setUserInfo((prevState) => ({ ...prevState, [name]: value }));
   }
 
   return (
       <section className="profile-container">
-        <img src={user.url} className="profile-pic" alt="imported from Github profile"/>
+        <img src={userInfo.image} className="profile-pic" alt="imported from Github profile"/>
         <h2 className="s-h2">      
           {!!isEditingProfile ? 
           <input 

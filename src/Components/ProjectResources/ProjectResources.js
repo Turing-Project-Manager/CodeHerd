@@ -48,7 +48,7 @@ const ProjectResources = ({ project }) => {
 
   const handleResourceInput = (e) => {
     const { name, value } = e.target;
-    setNewResource((prevState) => ({ ...prevState, [name]: value.trim() }));
+    setNewResource((prevState) => ({ ...prevState, [name]: value }));
   }
 
   const submitResource = (e) => {

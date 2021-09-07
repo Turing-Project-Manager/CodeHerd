@@ -19,7 +19,7 @@ const ProjectLinks = () => {
 
   const handleLinkInput = (e) => {
     const { name, value } = e.target;
-    setNewLink((prevState) => ({ ...prevState, [name]: value.trim() }));
+    setNewLink((prevState) => ({ ...prevState, [name]: value }));
   }
 
   const submitLink = (e) => {

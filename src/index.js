@@ -34,14 +34,34 @@ export const GET_USER = gql `
 export const GET_PROJECT = gql`
   query project($id: ID!) {
     project(id: $id) {
-      collaborators
+      collaborators{
+        user {
+          name
+          image
+          githubHandle
+        }
+      }
       id
       modNumber
       name
-      owner
-      projectRepo
-      resources
+      owner {
+        name
+        id
+      }
+      resources {
+        content
+      }
       summary
+    }
+  }
+`
+
+export const GET_COLLABORATOR = gql `
+  query collaborator($id: ID!) {
+    collaborator(id: $id) {
+      id
+      project
+      user
     }
   }
 `
@@ -108,7 +128,33 @@ export const CREATE_RESOURCE = gql`
 
 
 `
-
+export const CREATE_COLLABORATOR = gql `
+  mutation ($userId: ID!, $email: String!, $projectId: ID!) {
+    createCollaboration (input: {
+      userId: $userId,
+      email: $email,
+      projectId: $projectId,
+    }) {
+      collaborator {
+        id
+        project {
+          collaborators {
+            user {
+              name
+              image
+              githubHandle
+            }
+          }
+        }
+        user {
+          name
+          id
+          image
+        }
+      }
+    }
+  }
+`
 
 export const EDIT_USER_INPUT = gql `
   mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: [String!], $cohort: String, $pronouns: String ) {
