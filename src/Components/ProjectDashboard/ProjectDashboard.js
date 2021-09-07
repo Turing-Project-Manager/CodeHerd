@@ -39,8 +39,9 @@ const ProjectDashboard = ({project}) => {
           <p className='s-text-center s-font-lg s-m-3 project-summary'>A summary here about some project info and why it is important</p>
         </section>
       
-        <Collaborators />
-        {currentProject.data ? <ProjectResources project={currentProject} /> : 'Nothing yet'}
+        {/* <Collaborators project={project}/> */}
+        {!!currentProject.data ? <Collaborators project={currentProject}/> : 'Nothing yet'}
+        {!!currentProject.data ? <ProjectResources project={currentProject} /> : 'Nothing yet'}
 
         <Templates />
         
