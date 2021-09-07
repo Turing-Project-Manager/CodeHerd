@@ -12,6 +12,7 @@ import { Route, Switch } from 'react-router-dom';
 import './UserLanding.css'
 // import mockUsers from '../../mockData/mockUser.json';
 import NewProject from '../NewProject/NewProject';
+import { getAllByAltText } from '@testing-library/react';
 // import mockProjects from '../../mockData/mockProjects.json';
 
 
@@ -41,6 +42,7 @@ const UserLanding = ({query}) => {
     })
     
     useEffect(() => {
+      console.log(allProjects)
       
       if(!!error) {
         console.log(error)
@@ -88,12 +90,6 @@ const UserLanding = ({query}) => {
         {/* <Landing />  */}
     
         {!!user ? <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/> : 'Loading'}
-        {/* <Switch>
-          <Route exact path='/:githubName/:projectId' render={({match}) => {
-            const selectedProject = projects.find(currentProject => currentProject.id === parseInt(match.params.id))
-            return <ProjectDashboard project={selectedProject}/>}} 
-            />
-        </Switch> */}
       </section>
     </>
   )
