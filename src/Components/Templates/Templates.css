@@ -25,10 +25,12 @@
 }
 
 .templates{
-  align-self: center;
-  margin: 0;
-  /* width: 60vw; */
-}
+    margin: 1em;
+    width: 60vw;
+    border: 1px solid #bcbec0;
+    border-top: 4px solid #cc193b;
+  }
+
 
 .template-buttons{
   display: flex;

@@ -84,6 +84,7 @@ export const GET_ALL_USER_PROJECTS = gql`
       name
       owner {
         name
+        id
       }
       resources {
         name
@@ -237,6 +238,7 @@ export const CREATE_PROJECT = gql `
         name
         owner {
             name
+            id
         }
         resources {
             name

@@ -6,7 +6,9 @@ import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
 
 const Project = ({ project, user }) => {
 
-    const githubHandle = user.githubHandle;
+  console.log(project, 'inside project')
+
+  const githubHandle = user.githubHandle;
 
   const handleViewProjectClick = () => {
 
@@ -24,10 +26,8 @@ const Project = ({ project, user }) => {
               <div className="s-card-content body-text">
                 <p>{project.summary}</p>
                 <div className="s-card-content body-text">
-                  Collaborators <p>{project.collaborators.map(collaborator => `${collaborator.name} `)}</p>
+                  Collaborators <p>{project.collaborators.map(collaborator => collaborator.user.name)}</p>
                 </div>
-                  <p> Updated {project.updated_at} </p>
-                  <p> Created {project.created_at} </p>
               </div>
               <div className="s-card-footer footer">
                 <Link to={`/${githubHandle}/${project.id}`}> 
@@ -41,12 +41,6 @@ const Project = ({ project, user }) => {
             </div>
           </article>
         </div>
-      {/* <Switch>
-          <Route path='/:githubName/:projectId' render={({match}) => {
-            console.log(match)
-            return <ProjectDashboard project={project}/>}} 
-            />
-      </Switch> */}
     </article>
   )
 }

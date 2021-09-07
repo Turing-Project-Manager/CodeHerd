@@ -14,8 +14,6 @@ const Landing = () => {
           <h1 className="s-h1">CodeHerd</h1>
           <p className="app-description s-text-body"> Search Less, Code More<br/>
           </p>
-          {/* <button className="continue-with-github s-text-body">Continue with Github
-          </button> */}
         </section>
         <img src={topImage} alt="students around a table coding on laptops" className="top-image"/>
       </div>
@@ -28,12 +26,10 @@ const Landing = () => {
         </section>
       </div>
       <div className="button-container"> 
-      {/* <Link to='/userLanding'> */}
         <a href="https://codeherdapi.herokuapp.com/auth/github">
           <button className="continue-with-github s-text-body">Continue with Github
           </button>
         </a>
-      {/* </Link> */}
       </div>
       <div className="links-container"> 
         <section className="link"> 
