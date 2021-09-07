@@ -72,7 +72,7 @@ const ProjectResources = ({ project }) => {
       createProjectResources({
         variables: {
           userId: localStorage.getItem('userId'),
-          projectId: project.id,
+          projectId: project.data.project.id,
           content: newResource.content, 
           name: newResource.name,
           project: newResource.project, 
@@ -92,16 +92,15 @@ const resourcesToDisplay = () => {
   
     const resourcesToMap = resources.map(resource => {
       return(
-        <article className='resource-card'>
+        <article className=' s-h3 s-shadow-md resource-card'>
           <a className='proj-resource' 
-            href={resource.content} 
+            href={`http://${resource.content}`}
             key={resource.content}>{resource.name}</a>
             <p>{resource.resourceType}</p>
 
         </article>
       )
     })
-    console.log('resoucesToMap', resourcesToMap)
     return resourcesToMap
 }
 
