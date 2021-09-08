@@ -21,8 +21,14 @@ const Project = ({ project, user }) => {
               </div> 
               <div className="s-card-content body-text">
                 <p>{project.summary}</p>
-                <div className="s-card-content body-text collab-list">
-                  Collaborators <p className='collaborator'>{project.collaborators.map(collaborator => collaborator.user.name)}</p>
+                <div className="s-card-content body-text ">
+                  Collaborators <p className='collaborator-list'>{project.collaborators.map(collaborator => {
+                    return (
+                      <span className='collaborator'>
+                        {collaborator.user.name}
+                        </span>
+                      )
+                    })}</p>
                 </div>
               </div>
               <div className="s-card-footer footer">

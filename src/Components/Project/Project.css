@@ -42,7 +42,7 @@
   align-content: center;
 }
 
-.collab-list{
+.collaborator-list{
   display: flex;
   flex-direction: column;
 }
