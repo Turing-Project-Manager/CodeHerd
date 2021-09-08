@@ -86,7 +86,10 @@ const ProjectResources = ({ project }) => {
 
   const submitResource = (e) => {
     e.preventDefault();
-    if (!newResource.content.length || !newResource.name.length) {
+    if (!newResource.content.length ||
+        newResource.content.trim() == '' ||
+        !newResource.name.length ||
+        newResource.name.trim() == '') {
       setFormError('You must fill out all form fields to continue.')
     } else {
       createProjectResources({
@@ -113,9 +116,10 @@ const resourcesToDisplay = () => {
         <article className=' s-h3 s-shadow-md resource-card' key={resource.id}>
           <a className='proj-resource' 
             href={`http://${resource.content}`}
-            key={resource.content}>{resource.name}</a>
+            key={resource.content}
+            target="blank">{resource.name}</a>
             <p>{resource.resourceType}</p>
-          <button       className="s-button-secondary"
+          <button className="s-button-secondary"
           onClick={(e) => handleDeleteResourceClick(e, resource.id)}>Delete</button>
         </article>
       )
