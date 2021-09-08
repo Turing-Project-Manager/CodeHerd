@@ -1,6 +1,6 @@
 import React from 'react';
 import './Landing.css';
-import topImage  from '../../assets/user-landing-group-at-computers.svg';
+import topImage  from '../../assets/user-landing-group-at-computers.png';
 import createProject from '../../assets/create-project.svg';
 import addCollaborators from '../../assets/add-collaborators.svg';
 import folder from '../../assets/folder.svg';
@@ -15,7 +15,7 @@ const Landing = () => {
           <p className="app-description s-text-body"> Search Less, Code More<br/>
           </p>
         </section>
-        <img src={topImage} alt="students around a table coding on laptops" className="top-image"/>
+        {/* <img src={topImage} alt="students around a table coding on laptops" className="top-image"/> */}
       </div>
       <div className="border-container">
         <section className="border blue"> 

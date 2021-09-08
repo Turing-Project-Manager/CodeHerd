@@ -1,8 +1,4 @@
-img {
-  width: 100vw; 
-  height: 100%;
-}
-
+/* img {} */
 
 h1 {
   color: white;
@@ -13,8 +9,12 @@ h1 {
 }
 
 .top-image-container {
-  width: 100vw;
-  height: auto;
+  background-image: url("../../assets/user-landing-group-at-computers.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* width: 100vw; */
+  height: 50vh;
 }
 
 .blue {
