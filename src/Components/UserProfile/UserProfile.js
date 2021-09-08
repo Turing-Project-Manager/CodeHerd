@@ -39,7 +39,7 @@ const UserProfile = ({ user, query }) => {
   // const [pronouns, setPronouns] = useState(user.pronouns);
   
   if ( data ) {
-    console.log('data from mutation', data)
+    // console.log('data from mutation', data)
   }
 
   if ( error ) {
@@ -47,12 +47,11 @@ const UserProfile = ({ user, query }) => {
   }
 
   if ( loading) {
-    console.log("One monument please. Loading: ", loading)
+    // console.log("One monument please. Loading: ", loading)
   }
   
   useEffect(() => {
     setUserInfo(user)
-    console.log({user})
   }, [user]);
   
   
@@ -66,7 +65,7 @@ const UserProfile = ({ user, query }) => {
             githubHandle: userInfo.githubHandle,
             name: userInfo.name,
             slackHandle: userInfo.slackHandle,
-            workingStyles: userInfo.workingStyle,
+            workingStyles: userInfo.workingStyles,
             cohort: userInfo.cohort,
             pronouns: userInfo.pronouns
           }
@@ -83,42 +82,42 @@ const UserProfile = ({ user, query }) => {
   return (
       <section className="profile-container">
         <img src={userInfo.image} className="profile-pic" alt="imported from Github profile"/>
-        <h2 className="s-h2">      
+        <h2 className="s-h2">
           {!!isEditingProfile ? 
           <input 
             className="input"
             type="text" 
-            placeholder={userInfo.name} 
+            placeholder={userInfo.name}
             name="name"
-            value={userInfo.name}  
-            onChange={handleInput} 
-            required 
+            value={userInfo.name}
+            onChange={handleInput}
+            required
           /> : ` ${user.name}` }
         </h2>
-        <p className="s-text-body"> Pronouns  
-          {!!isEditingProfile ? 
-          <input 
-            type="text" 
+        <p className="s-text-body"> Pronouns
+          {!!isEditingProfile ?
+          <input
+            type="text"
             className="input"
-            placeholder={userInfo.pronouns} 
+            placeholder={userInfo.pronouns || 'Enter your pronouns'}
             name="pronouns"
-            value={userInfo.pronouns} 
-            onChange={handleInput} 
-            required 
-          /> : ` ${userInfo.pronouns}` }
+            value={userInfo.pronouns}
+            onChange={handleInput}
+            required
+          /> : ` ${userInfo.pronouns || ''}` }
         </p>
-        <p className="s-text-body"> Cohort  
-          {!!isEditingProfile ? 
+        <p className="s-text-body"> Cohort 
+          {!!isEditingProfile ?
           <input 
             type="text" 
             className="cohort-input"
-            maxLength="4" 
-            placeholder={userInfo.cohort} 
+            maxLength="4"
+            placeholder={userInfo.cohort || 'Enter your cohort'}
             name="cohort"
-            value={userInfo.cohort} 
-            onChange={handleInput} 
+            value={userInfo.cohort}
+            onChange={handleInput}
             required 
-          /> : ` ${userInfo.cohort}` }
+          /> : ` ${userInfo.cohort || ''}` }
         </p>
         <section className="contact-info"> 
           <div className="info-box"> 
@@ -136,12 +135,12 @@ const UserProfile = ({ user, query }) => {
             <input 
               type="text" 
               className="input" 
-              placeholder={userInfo.slackHandle} 
+              placeholder={userInfo.slackHandle || 'Enter your slack handle'} 
               name="slackHandle"
-              value={userInfo.slackHandle}  
+              value={userInfo.slackHandle}
               onChange={handleInput}
               required
-            /> : ` ${user.slackHandle}` }
+            /> : ` ${user.slackHandle || ''}` }
             </p>
           </div>
         </section>
@@ -150,9 +149,11 @@ const UserProfile = ({ user, query }) => {
           <select 
             className="drop-down s-content s-text-body" 
             name="workingStyles" 
-            id="workingStyle" 
-            value={userInfo.workingStyles} 
+            id="workingStyle"
+            multiple={true}
+            value={userInfo.workingStyles || ''}
             onChange={handleInput}>
+          <option value="Undecided">Undecided</option>
           <option value="Mostly Driver-Navigator">Mostly Driver-Navigator</option>
           <option value="Even Mix">Even Mix</option>
           <option value="Mostly Solo">Mostly Solo</option>

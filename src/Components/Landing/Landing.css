@@ -1,11 +1,19 @@
 /* img {} */
 
-h1 {
+.top-image-container h1 {
   color: white;
   font-weight: bold;
   margin: 0px;
   margin-bottom: .5em;
   justify-content: flex-start;
+}
+
+.top-image-container h1 {
+  font-size: 5rem;
+}
+
+.top-image-container p {
+  font-size: 2rem;
 }
 
 .top-image-container {

@@ -34,7 +34,6 @@ const ProjectResources = ({ project }) => {
     setCurrentProject(project)
     const resourcesToTransfer = currentProject.data
     setResources(project.data.project.resources)
-    console.log('in useEffect', resources)
   
 
   }, [currentProject, project, resources])
@@ -46,13 +45,13 @@ const ProjectResources = ({ project }) => {
   }
 
   if ( loading || dLoading) {
-    console.log('loading from projectResources', loading)
-    console.log('Derror from projectResources', dLoading)
+    // console.log('loading from projectResources', loading)
+    // console.log('Derror from projectResources', dLoading)
   }
 
   if ( data || dData ) {
-    console.log('data from projectResources', data)
-    console.log('Ddata from projectResources', dData)
+    // console.log('data from projectResources', data)
+    // console.log('Ddata from projectResources', dData)
   }
   
 
@@ -71,8 +70,6 @@ const ProjectResources = ({ project }) => {
   }
 
   const handleDeleteResourceClick = (e, resource) => {
-    console.log('e', e)
-    console.log('resource', resource)
     e.preventDefault();
     deleteProjectResource({
       variables: {
@@ -86,7 +83,10 @@ const ProjectResources = ({ project }) => {
 
   const submitResource = (e) => {
     e.preventDefault();
-    if (!newResource.content.length || !newResource.name.length) {
+    if (!newResource.content.length ||
+        newResource.content.trim() == '' ||
+        !newResource.name.length ||
+        newResource.name.trim() == '') {
       setFormError('You must fill out all form fields to continue.')
     } else {
       createProjectResources({
@@ -113,9 +113,10 @@ const resourcesToDisplay = () => {
         <article className=' s-h3 s-shadow-md resource-card' key={resource.id}>
           <a className='proj-resource' 
             href={`http://${resource.content}`}
-            key={resource.content}>{resource.name}</a>
+            key={resource.content}
+            target="blank">{resource.name}</a>
             <p>{resource.resourceType}</p>
-          <button       className="s-button-secondary"
+          <button className="s-button-secondary"
           onClick={(e) => handleDeleteResourceClick(e, resource.id)}>Delete</button>
         </article>
       )

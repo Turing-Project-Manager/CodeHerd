@@ -1,8 +1,13 @@
 .project-list {
+  text-align: center;
   width: 50vw; 
   height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.project-list p {
+  font-size: 1.5rem;
 }
 
 .mod-selection {

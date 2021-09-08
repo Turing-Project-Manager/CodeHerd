@@ -42,7 +42,6 @@ const UserLanding = ({query}) => {
     })
     
     useEffect(() => {
-      console.log(allProjects)
       
       if(!!error) {
         console.log(error)
@@ -84,7 +83,7 @@ const UserLanding = ({query}) => {
         <UserProfile user={user} query={query} />
         {!!projects ? 
         <ProjectList 
-          projects={projects} 
+          projects={projects}
           user={user}
         /> : 'Loading' }
         {/* <Landing />  */}
