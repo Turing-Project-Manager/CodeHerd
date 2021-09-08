@@ -162,7 +162,7 @@ export const CREATE_COLLABORATOR = gql `
 `
 
 export const EDIT_USER_INPUT = gql `
-  mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: [String!], $cohort: String, $pronouns: String ) {
+  mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: String, $cohort: String, $pronouns: String ) {
     editUser(input: {
       userId: $userId,
       name: $name,

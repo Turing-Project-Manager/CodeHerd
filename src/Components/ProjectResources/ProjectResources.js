@@ -34,7 +34,6 @@ const ProjectResources = ({ project }) => {
     setCurrentProject(project)
     const resourcesToTransfer = currentProject.data
     setResources(project.data.project.resources)
-    console.log('in useEffect', resources)
   
 
   }, [currentProject, project, resources])
@@ -46,13 +45,13 @@ const ProjectResources = ({ project }) => {
   }
 
   if ( loading || dLoading) {
-    console.log('loading from projectResources', loading)
-    console.log('Derror from projectResources', dLoading)
+    // console.log('loading from projectResources', loading)
+    // console.log('Derror from projectResources', dLoading)
   }
 
   if ( data || dData ) {
-    console.log('data from projectResources', data)
-    console.log('Ddata from projectResources', dData)
+    // console.log('data from projectResources', data)
+    // console.log('Ddata from projectResources', dData)
   }
   
 
@@ -71,8 +70,6 @@ const ProjectResources = ({ project }) => {
   }
 
   const handleDeleteResourceClick = (e, resource) => {
-    console.log('e', e)
-    console.log('resource', resource)
     e.preventDefault();
     deleteProjectResource({
       variables: {

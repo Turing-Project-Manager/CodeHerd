@@ -16,7 +16,6 @@ const initialState = {
 const NewProject = ({user, showForm, closeProjectForm}) => {
 
   let currentUser = user
-  console.log(user)
 
   const [formError, setFormError] = useState('')
   const [project, setProject] = useState(initialState)
@@ -80,7 +79,7 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
   }
 
   if ( data ) {
-    console.log('data from mutation new project', data)
+    // console.log('data from mutation new project', data)
   }
 
   if ( error ) {

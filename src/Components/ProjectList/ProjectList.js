@@ -5,7 +5,6 @@ import Project from '../Project/Project';
 
 const ProjectList = ({ user, projects }) => {
   const [viewingModNumber, setViewingModNumber] = useState("1")
-  console.log(projects);
   
   
   const filterByMod = (event) => {
@@ -44,7 +43,6 @@ const ProjectList = ({ user, projects }) => {
         <button className="mod-button s-link" value="4" onClick={filterByMod}>Mod 4</button>
       </section>
       <section className="project-section">
-        {console.log(projectsByCurrentMod())}
       {!!projects && projects.length > 0 ?
         <article> 
           {projectsByCurrentMod()}

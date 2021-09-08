@@ -47,7 +47,7 @@ const UserProfile = ({ user, query }) => {
   }
 
   if ( loading) {
-    console.log("One monument please. Loading: ", loading)
+    // console.log("One monument please. Loading: ", loading)
   }
   
   useEffect(() => {
@@ -59,15 +59,13 @@ const UserProfile = ({ user, query }) => {
     if (!isEditingProfile) {
       setEditingProfile(true)
     } else {
-      console.log(userInfo.workingStyles);
-      
       editUserInput({
         variables: {
             userId: userInfo.id,
             githubHandle: userInfo.githubHandle,
             name: userInfo.name,
             slackHandle: userInfo.slackHandle,
-            workingStyles: [userInfo.workingStyle],
+            workingStyles: userInfo.workingStyles,
             cohort: userInfo.cohort,
             pronouns: userInfo.pronouns
           }
@@ -84,7 +82,7 @@ const UserProfile = ({ user, query }) => {
   return (
       <section className="profile-container">
         <img src={userInfo.image} className="profile-pic" alt="imported from Github profile"/>
-        <h2 className="s-h2">      
+        <h2 className="s-h2">
           {!!isEditingProfile ? 
           <input 
             className="input"
@@ -101,7 +99,7 @@ const UserProfile = ({ user, query }) => {
           <input
             type="text"
             className="input"
-            placeholder={userInfo.pronouns}
+            placeholder={userInfo.pronouns || 'Enter your pronouns'}
             name="pronouns"
             value={userInfo.pronouns}
             onChange={handleInput}
@@ -114,7 +112,7 @@ const UserProfile = ({ user, query }) => {
             type="text" 
             className="cohort-input"
             maxLength="4"
-            placeholder={userInfo.cohort}
+            placeholder={userInfo.cohort || 'Enter your cohort'}
             name="cohort"
             value={userInfo.cohort}
             onChange={handleInput}
@@ -137,9 +135,9 @@ const UserProfile = ({ user, query }) => {
             <input 
               type="text" 
               className="input" 
-              placeholder={userInfo.slackHandle} 
+              placeholder={userInfo.slackHandle || 'Enter your slack handle'} 
               name="slackHandle"
-              value={userInfo.slackHandle}  
+              value={userInfo.slackHandle}
               onChange={handleInput}
               required
             /> : ` ${user.slackHandle || ''}` }
@@ -155,6 +153,7 @@ const UserProfile = ({ user, query }) => {
             multiple={true}
             value={userInfo.workingStyles || ''}
             onChange={handleInput}>
+          <option value="Undecided">Undecided</option>
           <option value="Mostly Driver-Navigator">Mostly Driver-Navigator</option>
           <option value="Even Mix">Even Mix</option>
           <option value="Mostly Solo">Mostly Solo</option>
