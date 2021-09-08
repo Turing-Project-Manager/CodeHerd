@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# CodeHerd
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Table of Contents
+- [Overview](#overview)
+- [Learning Goals](#learning-goals)
+- [Instructions for Viewing](#instructions-for-viewing)
+- [Walkthrough](#walkthrough)
+- [Tech Stack](#tech-stack)
+- [Libraries & Other Technology](#libraries-&-other-technology)
+- [Future Features](#future-features)
+- [Contributors](#contributors)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+Turing students obtain a lot of knowledge about coding and the world of software development during their time here. As we have brought on more knowledge and the projects become more complicated, we've noticed one thing: we don't have a single resource at our finger tips to keep track of all things project related. We spend hours sorting through tabs, looking back into Slack message history, all to find the links and documents necessary for our project. CodeHerd is our solution. CodeHerd is a project management app where Turing students can store all the links to their projects. They can keep track of project collaborators and resources they may use for each individual project. And they can go back in time to view resources they have collected for previous projects. While this original version of CodeHerd is simple in its execution, it holds the promise of becoming a robust application that is the answer to many Turing student needs. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Learning Goals
+  * Demonstrate working knowledge of functional components with hooks
+  * Work in conjunction with a backend team to build a full project from the ground up
+  * Build upon the foundational skills of React  
+  * Utilizes React Router for url navigation
+  * Utilize graphQL to query and mutate data on the backend
+  * Testing performed with Cypress to better understand asynch JS
+  
+# Instructions for Viewing
+  * Clone down this repo by copying the SSH key and from your terminal git clone <repo SSH key>
+  * `npm i` to install dependencies
+  * cd into the repo
+  * `npm start` to activate the server
+  * Open localhost:3000 in your browser to view the project
+ 
+ **OR** view the deployed application via Heroku [here](https://codeherd.herokuapp.com/)
+  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+# Walkthrough
+   **This app is currently desktop only. It is built with Turing students - who are rarely away from their computers - in mind. **
+  
+- A user can authorize GitHub to log in.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![NoTrips](https://user-images.githubusercontent.com/78318468/128789482-715c7803-d0ec-4f35-bb99-60b9fb9d6951.gif)
 
-### `npm run build`
+ 
+- A user has a landing page for their profile and projects. Here they can edit their profile information, view past projects, and create a new project.
+  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ <img src="https://user-images.githubusercontent.com/78318468/128789550-be34f785-9275-4bfc-aaca-6870bddbe432.gif" width="350" height="642"/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
+- When a user clicks on the 'View Project' button, they are taken to a project dashboard. This dashboard will always start out empty. Here they can add project collaborators and resources, as well as view some pre-made templates that can be used for PRs and DTRs.
+ <img src="https://user-images.githubusercontent.com/78318468/128789625-082b4749-2d89-429d-8d21-2558a1752952.gif" width="350" height="642"/>
+  
+ <img src="https://user-images.githubusercontent.com/78318468/128789635-94d36c20-bbc3-4d15-acae-59a64f5c521a.gif" width="350" height="642"/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ 
+  
+# Tech Stack
+<table>
+  <tr>
+    <td>React w/ Hooks</td>
+    <td>React Router</td>
+    <td>graphQL</td>
+    <td>Cypress</td>
+    <td>JavaScript</td>
+  </tr>
+  <tr>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/react.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/react-router.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/graphql.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/cypress.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/javascript.svg"/></td>
+  </tr>
+</table>
+  
+ # Libraries & Other Technology
+  * [Query String](https://github.com/sindresorhus/query-string)
+  * [Apollo Client for graphQL](https://www.apollographql.com/docs/)
+  
+  
+# Future Features 
+ 
+  - User ability to go to collaborator profile pages
+  - Additional error handling and redirects 
+  - User ability to upload files
+  - User ability to create a DTR document within the application that lives in the dashboard
+  - User ability to edit and delete resources/collaborators
+  
+# Contributors
+ <table>
+  <tr>
+    <td><a href="https://github.com/ashton-huxtable">Ashton Huxtable</td>
+    <td><a href="https://github.com/shawnmcmahon">Shawn McMahon</td>
+  </tr>
+  <tr>
+    <td><img width="150" height="auto" src="https://avatars.githubusercontent.com/u/78318468?v=4" alt="Ashton Huxtable avatar"/></td>
+    <td><img width="150" height="auto" src="https://avatars.githubusercontent.com/u/73731359?v=4" alt="Shawn McMahon avatar"/></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/lcpulzone">Leigh Cepriano Pulzone</td>
+    <td><a href="https://github.com/twarbelow">Taija Warbelow</td>
+    <td><a href="https://github.com/zachjamesgreen">Zach Green</td>
+  </tr>
+  <tr>
+    <td><img width="150" height="auto" src="https://avatars.githubusercontent.com/u/73005101?v=4" alt="Leigh Cepriano Pulzone avatar"/></td>
+    <td><img width="150" height="auto" src="https://avatars.githubusercontent.com/u/10294841?v=4" alt="Taija Warbelow avatar"/></td>
+    <td><img width="150" height="auto" src="https://avatars.githubusercontent.com/u/7896916?v=4" alt="Zach Green avatar"/></td>
+  </tr>
+</table>
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Manager:  
+  [Brian Zanti](https://github.com/BrianZanti)
+  
+  
+A Mod 4 Capstone Project with Turing School of Software & Design 
+  
