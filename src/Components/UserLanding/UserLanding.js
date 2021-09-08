@@ -62,14 +62,6 @@ const UserLanding = ({query}) => {
         
     }, [data, loading, allProjects, user]);
     
-  
-
-    
-
-    const showProjectForm = () => {
-      setShowForm(true)
-    }
-  
     const closeProjectForm = () => {
       setShowForm(false)
     }
@@ -78,15 +70,12 @@ const UserLanding = ({query}) => {
     <>
       <Nav />
       <section className='profile-projects'>
-        {/* <button className='s-button-primary new-proj-btn' onClick={showProjectForm}>New Project</button>
-        <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/> */}
         <UserProfile user={user} query={query} />
         {!!projects ? 
         <ProjectList 
           projects={projects}
           user={user}
         /> : 'Loading' }
-        {/* <Landing />  */}
     
         {!!user ? <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/> : 'Loading'}
       </section>

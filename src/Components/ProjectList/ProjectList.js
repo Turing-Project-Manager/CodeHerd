@@ -11,8 +11,6 @@ const ProjectList = ({ user, projects }) => {
     setViewingModNumber(event.target.value)
   } 
 
-
-
   const projectsByCurrentMod = () => {
     let filtered = projects.filter(project => project.modNumber === viewingModNumber)
     if (filtered.length === 0) {
@@ -30,8 +28,6 @@ const ProjectList = ({ user, projects }) => {
       })
     }
   }
-
-
     
   return (
     <section className="project-list">

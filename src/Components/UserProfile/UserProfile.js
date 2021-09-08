@@ -5,21 +5,6 @@ import slackIcon from '../../assets/slack-logo.png';
 import { GET_USER, EDIT_USER_INPUT } from '../..';
 import { useMutation } from '@apollo/client';
 import './UserProfile.css';
-import { useLocation } from 'react-router-dom'
-import queryString from 'query-string'
-
-
-// const initialState = {
-//   cohort: '',
-//   email: '', 
-//   githubHandle: '',
-//   id: '', 
-//   name: '', 
-//   pronouns: '',
-//   slackHandle: '', 
-//   workingStyles: ''
-// }
-
 
 const UserProfile = ({ user, query }) => {
   const [isEditingProfile, setEditingProfile] = useState(false);
@@ -28,18 +13,9 @@ const UserProfile = ({ user, query }) => {
     refetchQueries: [GET_USER]
   })
 
-  // const { cohort, email, githubHandle, id, name, pronouns, slackHandle, workingStyles} = userInfo
-  // const [cohort, setCohort] = useState(user.cohort);
-  // const [email, setEmail] = useState(user.email);
-  // const [githubHandle, setGithubHandle] = useState(user.githubHandle);
-  // const [program, setProgram] = useState('Back-end Program')
-  // const [workingStyle, setWorkingStyle] = useState(user.working_styles);
-  // const [name, setName] = useState(user.name);
-  // const [slackHandle, setSlackHandle] = useState(user.slack_handle);
-  // const [pronouns, setPronouns] = useState(user.pronouns);
   
   if ( data ) {
-    // console.log('data from mutation', data)
+    console.log('data from mutation', data)
   }
 
   if ( error ) {
@@ -47,7 +23,7 @@ const UserProfile = ({ user, query }) => {
   }
 
   if ( loading) {
-    // console.log("One monument please. Loading: ", loading)
+    console.log("One monument please. Loading: ", loading)
   }
   
   useEffect(() => {
@@ -150,7 +126,6 @@ const UserProfile = ({ user, query }) => {
             className="drop-down s-content s-text-body" 
             name="workingStyles" 
             id="workingStyle"
-            multiple={true}
             value={userInfo.workingStyles || ''}
             onChange={handleInput}>
           <option value="Undecided">Undecided</option>

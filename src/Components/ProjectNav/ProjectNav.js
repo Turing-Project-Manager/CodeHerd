@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import elephant from '../../assets/elephant.png'
 import '../Nav/Nav.css'
 
-const ProjectNav = ({githubHandle}) => {
+const ProjectNav = ({githubHandle, projectId}) => {
 
   return(
     <aside className='nav-bar-proj'>

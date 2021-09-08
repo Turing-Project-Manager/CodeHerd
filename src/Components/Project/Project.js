@@ -1,8 +1,6 @@
 import React from 'react';
 import './Project.css';
-import { Route, Switch, Link } from 'react-router-dom';
-import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
-
+import { Link } from 'react-router-dom';
 
 const Project = ({ project, user }) => {
 
@@ -23,8 +21,8 @@ const Project = ({ project, user }) => {
               </div> 
               <div className="s-card-content body-text">
                 <p>{project.summary}</p>
-                <div className="s-card-content body-text">
-                  Collaborators <p>{project.collaborators.map(collaborator => collaborator.user.name)}</p>
+                <div className="s-card-content body-text collab-list">
+                  Collaborators <p className='collaborator'>{project.collaborators.map(collaborator => collaborator.user.name)}</p>
                 </div>
               </div>
               <div className="s-card-footer footer">

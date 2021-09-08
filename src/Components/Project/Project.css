@@ -41,3 +41,8 @@
   align-self: center;
   align-content: center;
 }
+
+.collab-list{
+  display: flex;
+  flex-direction: column;
+}

@@ -8,7 +8,6 @@ const initialState = {
   url: ''
 }
 
-
 const ProjectLinks = () => {
 
   const [newLink, setNewLink] = useState(initialState)

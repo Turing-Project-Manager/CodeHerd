@@ -56,7 +56,6 @@ const Collaborators = ({project}) => {
     
     clearInputs();
   }
-
   
   const showCollabForm = () => {
     setShowAddCollab(true)
@@ -70,7 +69,6 @@ const Collaborators = ({project}) => {
   const clearInputs = () => {
     setNewCollaborator({...initialState})
   }
-
 
   const collaboratorProfiles = collaborators.map(collaborator => {
     

@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ALL_USER_PROJECTS, CREATE_PROJECT } from '../..';
 import PropTypes from 'prop-types';
@@ -11,7 +11,6 @@ const initialState = {
   collaborators: [],
   projectManager: ''
 }
-
 
 const NewProject = ({user, showForm, closeProjectForm}) => {
 
@@ -30,15 +29,15 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
 
 
   if ( qData ) {
-    // console.log('data from mutation new project', qData)
+    console.log('data from mutation new project', qData)
   }
 
   if ( qError ) {
-    // console.log('new project error', qError);
+    console.log('new project error', qError);
   }
 
   if ( qLoading) {
-    // console.log("One monument please. New Project Loading: ", qLoading)
+    console.log("One monument please. New Project Loading: ", qLoading)
   }
 
 
@@ -79,7 +78,7 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
   }
 
   if ( data ) {
-    // console.log('data from mutation new project', data)
+    console.log('data from mutation new project', data)
   }
 
   if ( error ) {

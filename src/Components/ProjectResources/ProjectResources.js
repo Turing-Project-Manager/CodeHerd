@@ -27,10 +27,8 @@ const ProjectResources = ({ project }) => {
     refetechQueries: [GET_PROJECT]
   })
 
-  
 
   useEffect(() => {
-    // console.log('project from projectResources', project.data.project.resources)
     setCurrentProject(project)
     const resourcesToTransfer = currentProject.data
     setResources(project.data.project.resources)
@@ -166,15 +164,6 @@ const resourcesToDisplay = () => {
             value={newResource.content}
             onChange={handleResourceInput}
           />  
-
-          {/* <input
-            className='text-input'
-            type='text'
-            placeholder='Resource Type (??)'
-            name='resourceType'
-            value={newResource.resourceType}
-            onChange={handleResourceInput}
-          />   */}
           
           {!!formError.length && <p className='form-error'>{formError}</p>}
 
