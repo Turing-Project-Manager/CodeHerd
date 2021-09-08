@@ -32,8 +32,8 @@ const Project = ({ project, user }) => {
                   <button 
                     className="s-button s-button-secondary view-project-button"
                     onClick={handleViewProjectClick}
-                    >View Project
-                    </button>
+                    id="view-project"
+                    >View Project</button>
                 </Link>
               </div>
             </div>
