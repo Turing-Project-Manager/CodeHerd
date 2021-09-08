@@ -1,4 +1,4 @@
-import { aliasUserQuery, aliasProjectsQuery, aliasProfileMutation, aliasNewProjectMutation } from '../utils/graphql_test_utils'
+import { aliasQuery, aliasMutation } from '../utils/graphql_test_utils'
 
 
 describe('User Landing Page', () => {
@@ -7,9 +7,10 @@ describe('User Landing Page', () => {
     cy.intercept('POST', 'https://codeherdapi.herokuapp.com/graphql', 
       (req) => {
 
-        aliasUserQuery(req, 'user');
-        aliasProjectsQuery(req, 'usersProjects');
-        aliasProfileMutation(req, 'editUser');
+        aliasQuery(req, 'user');
+        aliasQuery(req, 'usersProjects');
+
+        aliasMutation(req, 'editUser')
         // aliasNewProjectMutation(req, 'createProject');
       }
     )
@@ -19,6 +20,7 @@ describe('User Landing Page', () => {
   })
     
     it('Should have a user name and profile', () => {
+      cy.wait(1000)
       cy.get('h2').contains('Ashton Huxtable')
         .get('p').contains('Pronouns she/her')
         .get('p').contains('Cohort 2103')
@@ -26,11 +28,12 @@ describe('User Landing Page', () => {
     })
 
    it('Should be able to edit the user profile', () => {
-      cy.wait(1000)
+      cy.wait('@gqluserQuery')
       cy.get('button').contains('Edit Profile').click()
         .get('input[name="cohort"]').type('{selectall}{backspace}').type('2105')
         .should('have.value', '2105')
         .get('button').contains('Save Profile').click()
+       .get('p').contains('Cohort 2105')
    })
 
    it('Should bea able to see projects by modules', () => {
@@ -52,7 +55,22 @@ describe('User Landing Page', () => {
         .should('have.value', 'Rock Paper Scissors')
         .get('input[name="description"]').type('A game of chance. Who will win? You or the computer?')
         .should('have.value', 'A game of chance. Who will win? You or the computer?')
-        .get('button').contains('Create Project').click()
+        // .get('button').contains('Create Project').click()
+   })
+
+   it('Should be able to exit out of the project', () => {
+     cy.get('button').contains('New Project').click()
+      .get('button').contains('X').click()
+   })
+
+   it('Should be able to click on View Project and be taken to a Project Dashboard', () => {
+     cy.get('button[id="view-project"]').contains('View Project').click()
+     cy.url('http://localhost:3000/ashton-huxtable/4')
+   })
+
+   it('Should be able to logout and be taken to the main landing page', () => {
+     cy.get('button').contains('Logout').click()
+     cy.url('http://localhost:3000')
    })
 
    
