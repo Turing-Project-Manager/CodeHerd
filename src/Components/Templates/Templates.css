@@ -8,10 +8,15 @@
   margin: 1em;
 }
 
+.template-modal>ul{
+  margin-bottom: 1em;;
+}
+
 .template-modal>h1{
   color: black;
   font-size: 1.3em;
   text-align: center;
+  margin: 1em;
 }
 
 .close-btn{
@@ -25,14 +30,21 @@
 }
 
 .templates{
-    margin: 1em;
+    margin: 1em 1em 3em 1em;
     width: 60vw;
     border: 1px solid #bcbec0;
-    border-top: 4px solid #cc193b;
+    border-top: 4px solid #e0990a;
+    align-self: center;
   }
 
 
 .template-buttons{
   display: flex;
   justify-content: space-evenly;
+}
+
+#dtr, 
+#fe-pr,
+#be-pr {
+  margin-bottom: 2em;
 }

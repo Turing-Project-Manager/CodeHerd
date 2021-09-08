@@ -47,6 +47,8 @@ export const GET_PROJECT = gql`
       name
       owner {
         name
+        id
+        githubHandle
       }
       resources {
         content
@@ -77,6 +79,7 @@ export const GET_ALL_USER_PROJECTS = gql`
       collaborators {
         user {
           name
+          id
         }
       }
       id
@@ -85,6 +88,7 @@ export const GET_ALL_USER_PROJECTS = gql`
       owner {
         name
         id
+        githubHandle
       }
       resources {
         name
@@ -112,6 +116,7 @@ export const CREATE_RESOURCE = gql`
         collaborators {
           user {
             name
+            id
           }
         }
         id
@@ -119,6 +124,8 @@ export const CREATE_RESOURCE = gql`
         name
         owner {
           name
+          id
+          githubHandle
         }
         resources {
           name
@@ -204,6 +211,8 @@ export const DELETE_RESOURCE = gql`
       name
       owner {
           name
+          id
+          githubHandle
       }
       resources {
           name
@@ -239,6 +248,7 @@ export const CREATE_PROJECT = gql `
         owner {
             name
             id
+            githubHandle
         }
         resources {
             name

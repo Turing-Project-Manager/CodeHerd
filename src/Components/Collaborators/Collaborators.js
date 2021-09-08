@@ -7,14 +7,14 @@ import plus from '../../assets/plus.png'
 import'./Collaborators.css'
 
 const initialState = {
-  name: '',
   email: '',
-  isPM: false
 }
 
 const Collaborators = ({project}) => {
+  console.log(project)
 
   const [newCollaborator, setNewCollaborator] = useState(initialState)
+  const [noCollab, setNoCollab] = useState('')
   const [collaborators, setCollaborators] = useState([])
   const [showAddCollab, setShowAddCollab] = useState(false)
   const [formError, setFormError] = useState('')
@@ -35,7 +35,8 @@ const Collaborators = ({project}) => {
 
   const submitCollaborator = (e) => {
     e.preventDefault();
-    if (!newCollaborator.name.length || !newCollaborator.email.length){
+    console.log(project)
+    if (!newCollaborator.email.length){
       setFormError('You must enter a value for name and email to submit.')
     } else {
       addToCollaborators({
@@ -45,7 +46,12 @@ const Collaborators = ({project}) => {
           projectId: project.data.project.id
         }
       })
-      setFormError('')
+      if (!data) {
+        setNoCollab('That user does not exist, please try again')
+      } else {
+        setFormError('')
+        setNoCollab('')
+      }
     }
     
     clearInputs();
@@ -101,14 +107,6 @@ const Collaborators = ({project}) => {
       {showAddCollab && 
         <form className='s-shadow-md add-collab-form'>
           <button className='s-button-secondary close-btn' onClick={closeCollabForm}>X</button>
-          <input
-            className='text-input'
-            type='text'
-            placeholder='Collaborator Name'
-            name='name'
-            value={newCollaborator.name}
-            onChange={handleCollabInput}
-            />
 
           <input
             className='text-input'
@@ -118,17 +116,9 @@ const Collaborators = ({project}) => {
             value={newCollaborator.email}
             onChange={handleCollabInput}
             />  
-
-          <label className='pm'> Project Manager: 
-            <input
-              type="checkbox"
-              name="isPM"
-              value={true}
-              onChange={handleCollabInput}
-            />
-          </label>
           
           {!!formError.length && <p className='form-error'>{formError}</p>}
+          {!!noCollab.length && <p className='no-collab'>{noCollab}</p>}
 
           <button className='s-button btn' onClick={submitCollaborator}>Add Collaborator!</button>
         </form>

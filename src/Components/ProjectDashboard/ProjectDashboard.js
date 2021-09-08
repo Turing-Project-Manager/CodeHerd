@@ -12,6 +12,7 @@ import'./ProjectDashboard.css'
 
 
 const ProjectDashboard = ({project}) => {
+  console.log(project)
   
   const currentProject = useQuery(GET_PROJECT, {
     variables: {id: project.id}
@@ -32,20 +33,15 @@ const ProjectDashboard = ({project}) => {
 
   return (
     <>
-      <ProjectNav />
+      <ProjectNav githubHandle={project.owner.githubHandle}/>
       <main className='project-dashboard'>
         <section className='project-header'>
           <h2 className='s-h2 s-text-center'>CodeHerd</h2>
           <p className='s-text-center s-font-lg s-m-3 project-summary'>A summary here about some project info and why it is important</p>
         </section>
-      
-        {/* <Collaborators project={project}/> */}
         {!!currentProject.data ? <Collaborators project={currentProject}/> : 'Nothing yet'}
         {!!currentProject.data ? <ProjectResources project={currentProject} /> : 'Nothing yet'}
-
         <Templates />
-        
-
       </main>
     </>
   )

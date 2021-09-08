@@ -5,11 +5,7 @@ import Landing from '../Landing/Landing';
 import UserLanding from '../UserLanding/UserLanding';
 import './App.css';
 import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
-// import { useQuery } from '@apollo/client';
-// import { GET_USER } from '../..';
-// import Nav from '../Nav/Nav';
-// import NewProject from '../NewProject/NewProject';
-
+import NotFound from '../NotFound/NotFound';
 import './App.css'
 
 const App = () => {
@@ -33,6 +29,7 @@ const App = () => {
           })
           return !!selectedProject && <ProjectDashboard project={selectedProject}/>}}
           />
+          <Route path='*' component={NotFound} />
       </Switch>
     </section>
   )
