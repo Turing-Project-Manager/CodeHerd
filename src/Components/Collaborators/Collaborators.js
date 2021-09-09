@@ -25,7 +25,7 @@ const Collaborators = ({project}) => {
     {!!error && console.log('error in collaborators', error)}
     {!!loading && console.log('loading collaborators', loading)}
     setCollaborators(project.data.project.collaborators)
-  }, [collaborators])
+  }, [])
 
   const handleCollabInput = (e) => {
     const { name, value } = e.target;
@@ -47,7 +47,10 @@ const Collaborators = ({project}) => {
         setFormError('')
         setNoCollab('')
     }
-    {(!data && !!error) && setNoCollab('User does not exist, please try again')}
+    {
+      (!data && !!error) 
+      && setNoCollab('User does not exist, please try again')
+    }
 
     clearInputs();
   }
@@ -70,7 +73,7 @@ const Collaborators = ({project}) => {
     return(
       <article class="s-card s-card-profile s-border-yellow-500 collab-card">
         <div class="s-card-header collab-info">
-          <img class="s-card-profile-pic collab-img" src={collaborator.user.image} />
+          <img class="s-card-profile-pic collab-img" src={collaborator.user.image} alt="collaborator image" />
           <div class="s-card-header-right collab-name-email">
             <h2 class="s-card-title collab-name">{collaborator.user.name}</h2>
             <h3 class="s-card-subtitle collab-email">{collaborator.user.githubHandle}</h3>

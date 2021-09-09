@@ -4,14 +4,12 @@ import ProjectNav from '../ProjectNav/ProjectNav'
 import Collaborators from '../Collaborators/Collaborators'
 import ProjectResources from '../ProjectResources/ProjectResources'
 import Templates from '../Templates/Templates'
-import PropTypes from 'prop-types'
 import { GET_PROJECT } from '../..'
 
 import'./ProjectDashboard.css'
 
 
 const ProjectDashboard = ({project}) => {
-  console.log(project)
   
   const currentProject = useQuery(GET_PROJECT, {
     variables: {id: project.id}

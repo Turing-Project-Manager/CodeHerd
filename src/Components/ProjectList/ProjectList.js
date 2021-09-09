@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import './ProjectList.css';
 import Project from '../Project/Project';
 
-
 const ProjectList = ({ user, projects }) => {
   const [viewingModNumber, setViewingModNumber] = useState("1")
-  
   
   const filterByMod = (event) => {
     setViewingModNumber(event.target.value)

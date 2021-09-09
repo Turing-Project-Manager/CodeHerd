@@ -66,7 +66,6 @@ const Templates = () => {
     setShowBePrTemplate(false)
   }
   
-
   return(
     <section className="templates">
        <article className='s-h3 s-shadow-md links-to-display'>

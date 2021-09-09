@@ -6,7 +6,7 @@ import { GET_USER, EDIT_USER_INPUT } from '../..';
 import { useMutation } from '@apollo/client';
 import './UserProfile.css';
 
-const UserProfile = ({ user, query }) => {
+const UserProfile = ({ user }) => {
   const [isEditingProfile, setEditingProfile] = useState(false);
   const [userInfo, setUserInfo] = useState({});
   const [editUserInput, { loading, error, data }] = useMutation(EDIT_USER_INPUT, {

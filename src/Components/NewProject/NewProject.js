@@ -1,7 +1,6 @@
 import React, {useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ALL_USER_PROJECTS, CREATE_PROJECT } from '../..';
-import PropTypes from 'prop-types';
 import './NewProject.css'
 
 const initialState = {
@@ -60,7 +59,7 @@ const NewProject = ({user, showForm, closeProjectForm}) => {
     if (!!error) {
       console.log(error)
     }
-    if (!project.title.length || project.title.trim() == '' || !project.module.length) {
+    if (!project.title.length || project.title.trim() === '' || !project.module.length) {
       setFormError('Sorry, you must enter a value for all fields to submit.')
     } else {
       setFormError('') 
