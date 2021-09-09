@@ -24,13 +24,8 @@ Turing students obtain a lot of knowledge about coding and the world of software
   * Testing performed with Cypress to better understand asynch JS
   
 # Instructions for Viewing
-  * Clone down this repo by copying the SSH key and from your terminal git clone <repo SSH key>
-  * `npm i` to install dependencies
-  * cd into the repo
-  * `npm start` to activate the server
-  * Open localhost:3000 in your browser to view the project
- 
- **OR** view the deployed application via Heroku [here](https://codeherd.herokuapp.com/)
+
+ View the deployed application via Heroku [here](https://codeherd.herokuapp.com/)
   
 
 
