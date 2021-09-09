@@ -11,11 +11,11 @@ const ProjectNav = ({githubHandle, projectId}) => {
       <Link className='logo' to={`/${githubHandle}`} >
         <img className='logo' src={elephant} alt='elephant logo' />
       </Link >
-      <section className='project-nav'>
+      {/* <section className='project-nav'>
         <button className='s-button proj-nav-btn coll-btn'>Collaborators</button>
         <button className='s-button proj-nav-btn'>Resources</button>
         <button className='s-button proj-nav-btn'>Templates</button>
-      </section>
+      </section> */}
       <Link to='/'>
         <button className='s-button-primary-inverse'>Logout</button>
       </Link>

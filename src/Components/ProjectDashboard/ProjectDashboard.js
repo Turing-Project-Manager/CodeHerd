@@ -36,8 +36,8 @@ const ProjectDashboard = ({project}) => {
       <main className='project-dashboard'>
       {!!currentProject.data ? 
         <section className='project-header'>
-          <h2 className='s-h2 s-text-center'>{currentProject.data.project.name}</h2>
-          <p className='s-text-center s-font-lg s-m-3 project-summary'>{currentProject.data.project.summary}</p>
+          <h2 id='proj-title' className='s-h2 s-text-center'>{currentProject.data.project.name}</h2>
+          <p  id='proj-summary' className='s-text-center s-font-lg s-m-3 project-summary'>{currentProject.data.project.summary}</p>
         </section> :
         <h2 className='s-h2 s-text-center'>Project Loading...</h2>
         }
