@@ -10,7 +10,7 @@ describe('User Landing Page', () => {
         aliasQuery(req, 'user');
         aliasQuery(req, 'usersProjects');
 
-        aliasMutation(req, 'editUser')
+        // aliasMutation(req, 'editUser')
         // aliasNewProjectMutation(req, 'createProject');
       }
     )
@@ -28,12 +28,26 @@ describe('User Landing Page', () => {
     })
 
    it('Should be able to edit the user profile', () => {
-      cy.wait('@gqluserQuery')
+    cy.intercept('POST', 'https://codeherdapi.herokuapp.com/graphql', req => {
+      if (req.body.operationName === 'editUser') {
+        req.alias = 'editUser';
+        req.reply({
+          data: {
+            editUser:{
+              user: {
+                cohort: '2105',
+                __typename: 'User'
+              }
+            }
+          }
+        })
+      }
+    });
       cy.get('button').contains('Edit Profile').click()
         .get('input[name="cohort"]').type('{selectall}{backspace}').type('2105')
         .should('have.value', '2105')
         .get('button').contains('Save Profile').click()
-       .get('p').contains('Cohort 2105')
+        .get('p').contains('Cohort 2105')
    })
 
    it('Should bea able to see projects by modules', () => {
@@ -50,12 +64,29 @@ describe('User Landing Page', () => {
    })
 
    it('Should be able to click on the new project button and see a form', () => {
-      cy.get('button').contains('New Project').click()
-        .get('input[name="title"]').type('Rock Paper Scissors')
-        .should('have.value', 'Rock Paper Scissors')
-        .get('input[name="description"]').type('A game of chance. Who will win? You or the computer?')
-        .should('have.value', 'A game of chance. Who will win? You or the computer?')
-        // .get('button').contains('Create Project').click()
+    cy.intercept('POST', 'https://codeherdapi.herokuapp.com/graphql', req => {
+      if (req.body.operationName === 'createProject') {
+        req.alias = 'createProject';
+        req.reply({
+          data: {
+            createProject:{
+              modNumber: '3',
+              name: 'Paint by (Hex) Numbers',
+              summary: 'An opportunity to create your own collection by choosing art based on a palette color.',
+              __typename: 'Project'
+              }
+            }
+          })
+        }
+    })
+
+       cy.get('button').contains('New Project').click()
+        .get('input[name="title"]').type('Paint by (Hex) Numbers')
+        .should('have.value', 'Paint by (Hex) Numbers')
+        .get('input[name="description"]').type('An opportunity to create your own collection by choosing art based on a palette color.')
+        .should('have.value', 'An opportunity to create your own collection by choosing art based on a palette color.')
+        .get('select').select('2')
+        .get('button').contains('Create Project').click()
    })
 
    it('Should be able to exit out of the project', () => {
