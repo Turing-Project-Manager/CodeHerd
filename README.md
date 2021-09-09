@@ -38,20 +38,48 @@ Turing students obtain a lot of knowledge about coding and the world of software
    **This app is currently desktop only. It is built with Turing students - who are rarely away from their computers - in mind. **
   
 - A user can authorize GitHub to log in.
+ 
+ #### Home Page
 
-![NoTrips](https://user-images.githubusercontent.com/78318468/128789482-715c7803-d0ec-4f35-bb99-60b9fb9d6951.gif)
+![Home](https://user-images.githubusercontent.com/78318468/132722476-28cabd93-a4ca-4e2d-9c76-7130b7d30cc5.gif)
+
 
  
 - A user has a landing page for their profile and projects. Here they can edit their profile information, view past projects, and create a new project.
+ #### User Profile
   
 
- <img src="https://user-images.githubusercontent.com/78318468/128789550-be34f785-9275-4bfc-aaca-6870bddbe432.gif" width="350" height="642"/>
+![UserProfile](https://user-images.githubusercontent.com/78318468/132723581-27de1db2-8cc2-4704-a137-42299e5cbebd.gif)
+ 
+ 
+ #### New Project Form 
+ 
+ 
+![NewProjects](https://user-images.githubusercontent.com/78318468/132724507-7478f2db-5bc0-424d-9250-bf9339f25218.gif)
+
 
   
 - When a user clicks on the 'View Project' button, they are taken to a project dashboard. This dashboard will always start out empty. Here they can add project collaborators and resources, as well as view some pre-made templates that can be used for PRs and DTRs.
- <img src="https://user-images.githubusercontent.com/78318468/128789625-082b4749-2d89-429d-8d21-2558a1752952.gif" width="350" height="642"/>
+
+ #### Project Dashboard
+ 
+ 
+ ![Project Dashboard](https://user-images.githubusercontent.com/78318468/132725971-3067c8b8-b135-4351-8867-f6470f395325.gif)
+
+ 
+ 
+ #### Add Collaborators
   
- <img src="https://user-images.githubusercontent.com/78318468/128789635-94d36c20-bbc3-4d15-acae-59a64f5c521a.gif" width="350" height="642"/>
+ 
+![AddCollaborator](https://user-images.githubusercontent.com/78318468/132726010-5b176f39-11c0-4576-aaa0-f7352ee9fff3.gif)
+
+ 
+ 
+ 
+ #### Project Templates
+
+ 
+ ![ProjectTemplates](https://user-images.githubusercontent.com/78318468/132726074-25131f67-e7e2-4ad3-aa01-e3372fae9ca0.gif)
 
  
   
