@@ -10,9 +10,9 @@ describe('Project Dashboard', () => {
       aliasQuery(req, 'project');
 
     })
-    cy.visit('http://localhost:3000/ashton-huxtable?info={%22id%22:8,%22name%22:%22Ashton%20Huxtable%22,%22email%22:%22aehuxtable@gmail.com%22,%22image%22:%22https://avatars.githubusercontent.com/u/78318468?v=4%22}')
+    cy.visit('https://codeherd.herokuapp.com/ashton-huxtable?info={%22id%22:8,%22name%22:%22Ashton%20Huxtable%22,%22email%22:%22aehuxtable@gmail.com%22,%22image%22:%22https://avatars.githubusercontent.com/u/78318468?v=4%22}')
     cy.get('button[id="view-project"]').contains('View Project').click()
-    cy.url('http://localhost:3000/ashton-huxtable/4')
+    cy.url('https://codeherd.herokuapp.com/ashton-huxtable/4')
   })
 
   it('Should have a project title and summary', () => {
@@ -22,7 +22,7 @@ describe('Project Dashboard', () => {
 
   it('Should have a navigation bar and clicking the elephant should take the user back to the user profile', () =>{
     cy.get('img[class="logo"]').click()
-      .url('http://localhost:3000/ashton-huxtable')
+      .url('https://codeherd.herokuapp.com/ashton-huxtable')
   })
 
   it('Should have a section for collaborators', () => {

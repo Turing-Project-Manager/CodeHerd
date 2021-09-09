@@ -13,7 +13,7 @@ describe('User Landing Page', () => {
       }
     )
    
-    cy.visit('http://localhost:3000/ashton-huxtable?info={%22id%22:8,%22name%22:%22Ashton%20Huxtable%22,%22email%22:%22aehuxtable@gmail.com%22,%22image%22:%22https://avatars.githubusercontent.com/u/78318468?v=4%22}')
+    cy.visit('https://codeherd.herokuapp.com/ashton-huxtable?info={%22id%22:8,%22name%22:%22Ashton%20Huxtable%22,%22email%22:%22aehuxtable@gmail.com%22,%22image%22:%22https://avatars.githubusercontent.com/u/78318468?v=4%22}')
 
   })
     
@@ -94,12 +94,12 @@ describe('User Landing Page', () => {
 
    it('Should be able to click on View Project and be taken to a Project Dashboard', () => {
      cy.get('button[id="view-project"]').contains('View Project').click()
-     cy.url('http://localhost:3000/ashton-huxtable/4')
+     cy.url('https://codeherd.herokuapp.com/ashton-huxtable/4')
    })
 
    it('Should be able to logout and be taken to the main landing page', () => {
      cy.get('button').contains('Logout').click()
-     cy.url('http://localhost:3000')
+     cy.url('https://codeherd.herokuapp.com/')
    })
 
    

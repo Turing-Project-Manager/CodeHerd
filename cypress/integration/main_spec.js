@@ -2,7 +2,7 @@ describe('User Landing', () => {
 
 
   beforeEach(() => {
-      cy.visit('http://localhost:3000/')
+      cy.visit('https://codeherd.herokuapp.com/')
   })
   
   it('Should have a title and subtitle', () => {
