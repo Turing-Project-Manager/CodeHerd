@@ -10,7 +10,7 @@ describe('Project Dashboard', () => {
       aliasQuery(req, 'project');
 
     })
-    cy.visit('http://localhost:3000/ashton-huxtable?info={%22id%22:5,%22name%22:%22Ashton%20Huxtable%22,%22email%22:%22aehuxtable@gmail.com%22,%22image%22:%22https://avatars.githubusercontent.com/u/78318468?v=4%22}')
+    cy.visit('http://localhost:3000/ashton-huxtable?info={%22id%22:8,%22name%22:%22Ashton%20Huxtable%22,%22email%22:%22aehuxtable@gmail.com%22,%22image%22:%22https://avatars.githubusercontent.com/u/78318468?v=4%22}')
     cy.get('button[id="view-project"]').contains('View Project').click()
     cy.url('http://localhost:3000/ashton-huxtable/4')
   })
