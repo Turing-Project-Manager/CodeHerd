@@ -45,12 +45,18 @@ const Templates = () => {
   const showCurrentTemplate = (e) => {
     if(e.target.id === 'fe-pr'){
       setShowFePrTemplate(true)
+      setShowDtrTemplate(false)
+      setShowBePrTemplate(false)
     }
     if(e.target.id === 'dtr'){
       setShowDtrTemplate(true)
+      setShowFePrTemplate(false)
+      setShowBePrTemplate(false)
     }
-    if(e.target.id === 'bePR') {
+    if(e.target.id === 'be-pr') {
       setShowBePrTemplate(true)
+      setShowDtrTemplate(false)
+      setShowFePrTemplate(false)
     }
   }
 
@@ -60,7 +66,6 @@ const Templates = () => {
     setShowBePrTemplate(false)
   }
   
-
   return(
     <section className="templates">
        <article className='s-h3 s-shadow-md links-to-display'>
@@ -83,6 +88,13 @@ const Templates = () => {
               <div className='template-div'></div>
               <button className='s-button-secondary close-btn' onClick={closeTemplate}>X</button>
               <ReactMarkdown children={dtr} />
+              </div>
+            }
+             {showBePrTemplate &&
+            <div className='template-modal'>
+              <div className='template-div'></div>
+              <button className='s-button-secondary close-btn' onClick={closeTemplate}>X</button>
+              <ReactMarkdown children={bePR} />
               </div>
             }
       </article>

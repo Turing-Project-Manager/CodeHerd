@@ -1,6 +1,6 @@
 import mockUser from '../fixtures/mockUser.json'
 import mockProjects from '../fixtures/mockProjects.json'
-import mockUserEdit from '../fixtures/mockUserEdit.json'
+import singleProject from '../fixtures/single_project.json'
 
 // Utility to match GraphQL mutation based on the operation name
 export const hasOperationName = (req, operationName) => {
@@ -11,37 +11,32 @@ export const hasOperationName = (req, operationName) => {
 }
 
 // Alias query if operationName matches
-export const aliasUserQuery = (req, operationName) => {
-  if (hasOperationName(req, operationName)) {
+export const aliasQuery = (req, operationName) => {
+  if (hasOperationName(req, operationName) && operationName === 'user') {
+    req.alias = `gql${operationName}Query`
     req.reply((res) => {
-      res.body.data = mockUser;
+      res.body.data = mockUser
     });
   }
-}
-
-export const aliasProjectsQuery = (req, operationName) => {
-  if (hasOperationName(req, operationName)) {
+  if (hasOperationName(req, operationName) && operationName === 'usersProjects') {
+    req.alias = `gql${operationName}Query`
     req.reply((res) => {
-      res.body.data = mockProjects;
+      res.body.data = mockProjects
     });
   }
-}
-
-// Alias mutation if operationName matches
-export const aliasProfileMutation = (req, operationName) => {
-  if (hasOperationName(req, operationName)) {
+  if (hasOperationName(req, operationName) && operationName === 'project') {
+    req.alias = `gql${operationName}Query`
     req.reply((res) => {
-      res.body.data.user.cohort = '2105'
+      res.body.data = singleProject
     })
   }
 }
 
-export const aliasNewProjectMutation = (req, operationName) => {
+
+
+export const aliasMutation = (req, operationName) => {
   if (hasOperationName(req, operationName)) {
-    req.reply((res) => {
-      res.body.data.projects.length = 5
-      res.body.data.projects[4].name = 'Rock Paper Scissors'
-      res.body.data.projects[4].modNumber = '1'
-    })
+    req.alias = `gql${operationName}Mutation`
   }
 }
+

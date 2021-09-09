@@ -2,16 +2,12 @@ import React, { useState } from 'react';
 import './ProjectList.css';
 import Project from '../Project/Project';
 
-
 const ProjectList = ({ user, projects }) => {
   const [viewingModNumber, setViewingModNumber] = useState("1")
-  
   
   const filterByMod = (event) => {
     setViewingModNumber(event.target.value)
   } 
-
-
 
   const projectsByCurrentMod = () => {
     let filtered = projects.filter(project => project.modNumber === viewingModNumber)
@@ -30,8 +26,6 @@ const ProjectList = ({ user, projects }) => {
       })
     }
   }
-
-
     
   return (
     <section className="project-list">

@@ -6,8 +6,8 @@ import elephant from '../../assets/elephant.png'
 import './Nav.css'
 import '../App/App.css'
 const Nav = () => {
+  
   const [showForm, setShowForm] = useState(false)
-
 
   const showProjectForm = () => {
     setShowForm(true)

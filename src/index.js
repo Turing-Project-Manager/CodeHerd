@@ -6,9 +6,7 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useQuery,
   gql, 
-  useMutation
 } from "@apollo/client";
 
 const client = new ApolloClient({
@@ -99,7 +97,7 @@ export const GET_ALL_USER_PROJECTS = gql`
 `
 
 export const CREATE_RESOURCE = gql`
-  mutation ( $userId: ID!, $name: String!, $projectId: ID!, $resourceType: String!, $content: String!, $tags: [String!] ) {
+  mutation createResource( $userId: ID!, $name: String!, $projectId: ID!, $resourceType: String!, $content: String!, $tags: [String!] ) {
     createResource (input: {
       userId: $userId, 
       name: $name, 
@@ -141,7 +139,7 @@ export const CREATE_RESOURCE = gql`
 
 `
 export const CREATE_COLLABORATOR = gql `
-  mutation ($userId: ID!, $email: String!, $projectId: ID!) {
+  mutation createCollaboration($userId: ID!, $email: String!, $projectId: ID!) {
     createCollaboration (input: {
       userId: $userId,
       email: $email,
@@ -169,7 +167,7 @@ export const CREATE_COLLABORATOR = gql `
 `
 
 export const EDIT_USER_INPUT = gql `
-  mutation ($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: String, $cohort: String, $pronouns: String ) {
+  mutation editUser($userId: ID!, $name: String!, $slackHandle: String, $workingStyles: String, $cohort: String, $pronouns: String ) {
     editUser(input: {
       userId: $userId,
       name: $name,
@@ -194,7 +192,7 @@ export const EDIT_USER_INPUT = gql `
 `
 
 export const DELETE_RESOURCE = gql`
-  mutation ($userId: ID!, $projectId: ID!, $resourceId: ID!) {
+  mutation deleteResource($userId: ID!, $projectId: ID!, $resourceId: ID!) {
     deleteResource (input: {
       userId: $userId
       projectId: $projectId
@@ -229,7 +227,7 @@ export const DELETE_RESOURCE = gql`
 
 
 export const CREATE_PROJECT = gql `
-  mutation ($name: String!, $summary: String!, $modNumber: String!, $ownerId: ID! ) {
+  mutation createProject($name: String!, $summary: String!, $modNumber: String!, $ownerId: ID! ) {
     createProject (input: {
       name: $name,
       summary: $summary,

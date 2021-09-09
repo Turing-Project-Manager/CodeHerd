@@ -3,20 +3,9 @@ import { GET_USER, GET_ALL_USER_PROJECTS } from '../..';
 import { useQuery } from '@apollo/client';
 import Nav from '../Nav/Nav';
 import ProjectList from '../ProjectList/ProjectList';
-import ProjectDashboard from '../ProjectDashboard/ProjectDashboard';
-import Project from '../Project/Project';
-// import Landing from '../Landing/Landing';
-//import Project from '../Project/Project';
 import UserProfile from '../UserProfile/UserProfile'
-import { Route, Switch } from 'react-router-dom';
 import './UserLanding.css'
-// import mockUsers from '../../mockData/mockUser.json';
 import NewProject from '../NewProject/NewProject';
-import { getAllByAltText } from '@testing-library/react';
-// import mockProjects from '../../mockData/mockProjects.json';
-
-
-
 
 const UserLanding = ({query}) => {
   let id;
@@ -62,14 +51,6 @@ const UserLanding = ({query}) => {
         
     }, [data, loading, allProjects, user]);
     
-  
-
-    
-
-    const showProjectForm = () => {
-      setShowForm(true)
-    }
-  
     const closeProjectForm = () => {
       setShowForm(false)
     }
@@ -78,15 +59,12 @@ const UserLanding = ({query}) => {
     <>
       <Nav />
       <section className='profile-projects'>
-        {/* <button className='s-button-primary new-proj-btn' onClick={showProjectForm}>New Project</button>
-        <NewProject showForm={showForm} closeProjectForm={closeProjectForm}/> */}
         <UserProfile user={user} query={query} />
         {!!projects ? 
         <ProjectList 
           projects={projects}
           user={user}
         /> : 'Loading' }
-        {/* <Landing />  */}
     
         {!!user ? <NewProject user={user} showForm={showForm} closeProjectForm={closeProjectForm}/> : 'Loading'}
       </section>

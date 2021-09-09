@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import queryString from 'query-string'
 import Landing from '../Landing/Landing';
@@ -9,12 +9,10 @@ import NotFound from '../NotFound/NotFound';
 import './App.css'
 
 const App = () => {
+
   const { search } = useLocation();
   const values = queryString.parse(search, {arrayFormat: 'bracket'});
   
-
-  
-
   return (
     <section className="app">
       <Switch>

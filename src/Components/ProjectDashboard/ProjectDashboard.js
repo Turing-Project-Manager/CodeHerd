@@ -4,15 +4,12 @@ import ProjectNav from '../ProjectNav/ProjectNav'
 import Collaborators from '../Collaborators/Collaborators'
 import ProjectResources from '../ProjectResources/ProjectResources'
 import Templates from '../Templates/Templates'
-import PropTypes from 'prop-types'
 import { GET_PROJECT } from '../..'
 
-import plus from '../../assets/plus.png'
 import'./ProjectDashboard.css'
 
 
 const ProjectDashboard = ({project}) => {
-  console.log(project)
   
   const currentProject = useQuery(GET_PROJECT, {
     variables: {id: project.id}
@@ -33,12 +30,15 @@ const ProjectDashboard = ({project}) => {
 
   return (
     <>
-      <ProjectNav githubHandle={project.owner.githubHandle}/>
+      <ProjectNav githubHandle={project.owner.githubHandle} projectId={project.id} />
       <main className='project-dashboard'>
+      {!!currentProject.data ? 
         <section className='project-header'>
-          <h2 className='s-h2 s-text-center'>CodeHerd</h2>
-          <p className='s-text-center s-font-lg s-m-3 project-summary'>A summary here about some project info and why it is important</p>
-        </section>
+          <h2 id='proj-title' className='s-h2 s-text-center'>{currentProject.data.project.name}</h2>
+          <p  id='proj-summary' className='s-text-center s-font-lg s-m-3 project-summary'>{currentProject.data.project.summary}</p>
+        </section> :
+        <h2 className='s-h2 s-text-center'>Project Loading...</h2>
+        }
         {!!currentProject.data ? <Collaborators project={currentProject}/> : 'Nothing yet'}
         {!!currentProject.data ? <ProjectResources project={currentProject} /> : 'Nothing yet'}
         <Templates />

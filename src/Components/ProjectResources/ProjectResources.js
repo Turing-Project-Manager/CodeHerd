@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useMutation, useQuery } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 import { GET_PROJECT, CREATE_RESOURCE, DELETE_RESOURCE } from '../..'
 
 import './ProjectResources.css'
@@ -27,15 +27,10 @@ const ProjectResources = ({ project }) => {
     refetechQueries: [GET_PROJECT]
   })
 
-  
-
   useEffect(() => {
-    // console.log('project from projectResources', project.data.project.resources)
     setCurrentProject(project)
     const resourcesToTransfer = currentProject.data
     setResources(project.data.project.resources)
-  
-
   }, [currentProject, project, resources])
 
 
@@ -45,15 +40,14 @@ const ProjectResources = ({ project }) => {
   }
 
   if ( loading || dLoading) {
-    // console.log('loading from projectResources', loading)
-    // console.log('Derror from projectResources', dLoading)
+    console.log('loading from projectResources', loading)
+    console.log('Derror from projectResources', dLoading)
   }
 
   if ( data || dData ) {
-    // console.log('data from projectResources', data)
-    // console.log('Ddata from projectResources', dData)
+    console.log('data from projectResources', data)
+    console.log('Ddata from projectResources', dData)
   }
-  
 
   const showResourceForm = () => {
     setShowAddResource(true)
@@ -124,8 +118,6 @@ const resourcesToDisplay = () => {
     return resourcesToMap
 }
 
-  
-
   const clearInputs = () => {
     setNewResource({...initialState})
   }
@@ -166,22 +158,12 @@ const resourcesToDisplay = () => {
             value={newResource.content}
             onChange={handleResourceInput}
           />  
-
-          {/* <input
-            className='text-input'
-            type='text'
-            placeholder='Resource Type (??)'
-            name='resourceType'
-            value={newResource.resourceType}
-            onChange={handleResourceInput}
-          />   */}
           
           {!!formError.length && <p className='form-error'>{formError}</p>}
 
           <button className='s-button btn' onClick={submitResource}>Add Resource!</button>
         </form>
       }
-      
       
     </section>
   )
