@@ -26,6 +26,7 @@ describe('User Landing Page', () => {
     })
 
    it('Should be able to edit the user profile', () => {
+    cy.wait(1000)
     cy.intercept('POST', 'https://codeherdapi.herokuapp.com/graphql', req => {
       if (req.body.operationName === 'editUser') {
         req.alias = 'editUser';
