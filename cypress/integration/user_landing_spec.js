@@ -1,4 +1,4 @@
-import { aliasQuery, aliasMutation } from '../utils/graphql_test_utils'
+import { aliasQuery } from '../utils/graphql_test_utils'
 
 
 describe('User Landing Page', () => {
@@ -10,8 +10,6 @@ describe('User Landing Page', () => {
         aliasQuery(req, 'user');
         aliasQuery(req, 'usersProjects');
 
-        // aliasMutation(req, 'editUser')
-        // aliasNewProjectMutation(req, 'createProject');
       }
     )
    

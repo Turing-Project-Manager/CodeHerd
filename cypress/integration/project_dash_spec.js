@@ -1,4 +1,4 @@
-import { aliasQuery, aliasMutation } from '../utils/graphql_test_utils'
+import { aliasQuery } from '../utils/graphql_test_utils'
 
 
 describe('Project Dashboard', () => {
